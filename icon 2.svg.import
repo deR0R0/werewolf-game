@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dch2jnhrjyonm"
-path="res://.godot/imported/sprite04-theodore.png-363bc4ebc73f1d1ad53c57ca02d1294d.ctex"
+uid="uid://cwsgfqnnw716r"
+path="res://.godot/imported/icon 2.svg-b11d784d5e5c3367822d7d5c975bad2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Theodore_Sprites/sprite04-theodore.png"
-dest_files=["res://.godot/imported/sprite04-theodore.png-363bc4ebc73f1d1ad53c57ca02d1294d.ctex"]
+source_file="res://icon 2.svg"
+dest_files=["res://.godot/imported/icon 2.svg-b11d784d5e5c3367822d7d5c975bad2a.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

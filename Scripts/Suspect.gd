@@ -1,6 +1,7 @@
 extends Sprite2D
 
 @onready var R1_Margaret_Dialogue = load("res://dialogues/R1_Margaret_Dialogue.dialogue")
+@onready var R2_Margaret_Dialogue = load("res://dialogues/R2_Margaret_Dialogue.dialogue")
 
 
 # Called when the node enters the scene tree for the first time.
