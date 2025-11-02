@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://cbsjyvfwxmwfm"]
+[gd_scene load_steps=2 format=3 uid="uid://cbsjyvfwxmwfm"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://da6jr3wjjfll4" path="res://Scenes/Suspect.tscn" id="1_3p3fk"]
+
+[node name="Game_Scene" type="Node2D"]
+
+[node name="Suspect" parent="." instance=ExtResource("1_3p3fk")]

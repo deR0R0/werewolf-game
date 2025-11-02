@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b8xfaxsu47ti3"
+path="res://.godot/imported/R2_Margaret_Dialogue.dialogue-37b367308fef1dbe8b52112ef38780f7.tres"
+
+[deps]
+
+source_file="res://Dialogues/R2_Margaret_Dialogue.dialogue"
+dest_files=["res://.godot/imported/R2_Margaret_Dialogue.dialogue-37b367308fef1dbe8b52112ef38780f7.tres"]
+
+[params]
+
+defaults=true

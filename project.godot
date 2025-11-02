@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Werewolf Game"
+run/main_scene="uid://cbsjyvfwxmwfm"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
 [autoload]
@@ -24,4 +25,4 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogues/R1_Margaret_Dialogue.dialogue", "res://R2_Margaret_Dialogue.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogues/R1_Margaret_Dialogue.dialogue", "res://Dialogues/R2_Margaret_Dialogue.dialogue")

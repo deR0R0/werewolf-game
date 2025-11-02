@@ -2,22 +2,47 @@
 Protag: Introduction
 - Persuasion
 	set  Global.margaret_persuasion = true
-	Protag: Persuasion Introduction
-	if Global.marg_pers_r1 >= 15
-		Protag: Persuasion Check Passed
+	if Global.werewolf == 1
+		Protag: Persuasion Introduction
+		if Global.marg_roll_r1 >= 15
+			Protag: Persuasion Check Passed (Werewolf)
+		else
+			Protag: Persuasion Check Failed (Werewolf)
 	else
-		Protag: Persuasion Check Failed
+		Protag: Persuasion Introduction
+		if Global.marg_roll_r1 >= 15
+			Protag: Persuasion Check Passed
+		else
+			Protag: Persuasion Check Failed 
+			
+			
 - Deception
-	Protag: Deception Introduction
-	if Global.marg_dece_r1 >= 13
-		Protag: Deception Check Passed
+	if Global.werewolf == 1
+		Protag: Deception Introduction
+		if Global.marg_roll_r1 >= 13
+			Protag: Deception Check Passed (Werewolf)
+		else
+			Protag: Deception Check Failed (Werewolf)
 	else
-		Protag: Deception Check Failed
+		Protag: Deception Introduction
+		if Global.marg_roll_r1 >= 13
+			Protag: Deception Check Passed
+		else
+			Protag: Deception Check Failed
+			
+			
 - Intimidation
 	set Global.margaret_intimidation  = true
-	Protag: Intimidation Introduction
-	if Global.marg_inti_r1 >= 10
-		Protag: Intimidation Check Passed
-	else
-		Protag: Intimidation Check Failed
+	if Global.werewolf == 1
+		Protag: Intimidation Introduction
+		if Global.marg_roll_r1 >= 10
+			Protag: Intimidation Check Passed (Werewolf)
+		else
+			Protag: Intimidation Check Failed (Werewolf)
+	else	
+		Protag: Intimidation Introduction
+		if Global.marg_roll_r1 >= 10
+			Protag: Intimidation Check Passed
+		else
+			Protag: Intimidation Check Failed
 => END
