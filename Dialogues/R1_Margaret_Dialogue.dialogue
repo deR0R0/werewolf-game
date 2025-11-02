@@ -2,30 +2,30 @@
 Protag: Introduction
 - Persuasion
 	set  Global.margaret_persuasion = true
-	if Global.werewolf == Character.MARG
+	if Global.werewolf == Global.Character.MARG
 		Protag: Persuasion Introduction
-		if Global.marg_roll_r1 >= roll_checks.marg.persuasion
+		if Global.marg_roll_r1 >= Global.roll_checks.marg.persuasion
 			Protag: Persuasion Check Passed (Werewolf)
 		else
 			Protag: Persuasion Check Failed (Werewolf)
 	else
 		Protag: Persuasion Introduction
-		if Global.marg_roll_r1 >= roll_checks.marg.persuasion
+		if Global.marg_roll_r1 >= Global.roll_checks.marg.persuasion
 			Protag: Persuasion Check Passed
 		else
 			Protag: Persuasion Check Failed 
 			
 			
 - Deception
-	if Global.werewolf == Character.MARG
+	if Global.werewolf == Global.Character.MARG
 		Protag: Deception Introduction
-		if Global.marg_roll_r1 >= roll_checks.marg.deception
+		if Global.marg_roll_r1 >= Global.roll_checks.marg.deception
 			Protag: Deception Check Passed (Werewolf)
 		else
 			Protag: Deception Check Failed (Werewolf)
 	else
 		Protag: Deception Introduction
-		if Global.marg_roll_r1 >= roll_checks.marg.deception
+		if Global.marg_roll_r1 >= Global.roll_checks.marg.deception
 			Protag: Deception Check Passed
 		else
 			Protag: Deception Check Failed
@@ -33,15 +33,15 @@ Protag: Introduction
 			
 - Intimidation
 	set Global.margaret_intimidation  = true
-	if Global.werewolf == Character.MARG
+	if Global.werewolf == Global.Character.MARG
 		Protag: Intimidation Introduction
-		if Global.marg_roll_r1 >= roll_checks.marg.intimidation
+		if Global.marg_roll_r1 >= Global.roll_checks.marg.intimidation
 			Protag: Intimidation Check Passed (Werewolf)
 		else
 			Protag: Intimidation Check Failed (Werewolf)
 	else	
 		Protag: Intimidation Introduction
-		if Global.marg_roll_r1 >= roll_checks.marg.intimidation
+		if Global.marg_roll_r1 >= Global.roll_checks.marg.intimidation
 			Protag: Intimidation Check Passed
 		else
 			Protag: Intimidation Check Failed

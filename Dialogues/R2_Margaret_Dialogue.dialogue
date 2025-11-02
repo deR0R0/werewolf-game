@@ -4,13 +4,13 @@ Protag: [#mood=01] Round 2 of Interrogation
 	if Global.margaret_persuasion
 	
 		Protag: Persuasion Double Route
-		if Global.werewolf == Character.MARG
-			if Global.marg_roll_r2 >= roll_checks.marg.persuasion
+		if Global.werewolf == Global.Character.MARG
+			if Global.marg_roll_r2 >= Global.roll_checks.marg.persuasion
 				Protag: Persuasion Double Route Check Passed (Werewolf)
 			else
 				Protag: Persuasion Double Route Check Failed (Werewolf)
 		else
-			if Global.marg_roll_r2 >= roll_checks.marg.persuasion
+			if Global.marg_roll_r2 >= Global.roll_checks.marg.persuasion
 				Protag: Persuasion Double Route Check Passed 
 			else
 				Protag: Persuasion Double Route Check Failed
@@ -18,12 +18,12 @@ Protag: [#mood=01] Round 2 of Interrogation
 
 		Protag: Persuasion Single Route
 		if Global.werewolf == Character.MARG
-			if Global.marg_roll_r2 >= roll_checks.marg.persuasion
+			if Global.marg_roll_r2 >= Global.roll_checks.marg.persuasion
 				Protag: Persuasion Check Passed (Werewolf)
 			else
 				Protag: Persuasion Check Failed (Werewolf)
 		else
-			if Global.marg_roll_r2 >= roll_checks.marg.persuasion
+			if Global.marg_roll_r2 >= Global.roll_checks.marg.persuasion
 				Protag: Persuasion Check Passed 
 			else
 				Protag: Persuasion Check Failed
@@ -32,13 +32,13 @@ Protag: [#mood=01] Round 2 of Interrogation
 			
 - Deception
 	Protag: Deception Route
-	if Global.werewolf == Character.MARG
-		if Global.marg_roll_r2 >= roll_checks.marg.deception
+	if Global.werewolf == Global.Character.MARG
+		if Global.marg_roll_r2 >= Global.roll_checks.marg.deception
 			Protag: Deception Check Passed (Werewolf)
 		else
 			Protag: Deception Check Failed (Werewolf)
 	else
-		if Global.marg_roll_r2 >= roll_checks.marg.deception
+		if Global.marg_roll_r2 >= Global.roll_checks.marg.deception
 			Protag: Deception Check Passed
 		else
 			Protag: Deception Check Failed
@@ -47,26 +47,26 @@ Protag: [#mood=01] Round 2 of Interrogation
 	if Global.margaret_intimidation
 	
 		Protag: Intimidation Double Route
-		if Global.werewolf == Character.MARG
-			if Global.marg_roll_r2 >= roll_checks.marg.intimidation
+		if Global.werewolf == Global.Character.MARG
+			if Global.marg_roll_r2 >= Global.roll_checks.marg.intimidation
 				Protag: Intimidation Double Route Check Passed (werewolf) 
 			else
 				Protag: Intimidation Double Route Check Failed (werewolf)
 		else 
-			if Global.marg_roll_r2 >= roll_checks.marg.intimidation
+			if Global.marg_roll_r2 >= Global.roll_checks.marg.intimidation
 				Protag: Intimidation Double Route Check Passed  
 			else
 				Protag: Intimidation Double Route Check Failed
 	else
 	
 		Protag: Intimidation Single Route
-		if Global.werewolf == Character.MARG
-			if Global.marg_roll_r2 >= roll_checks.marg.intimidation
+		if Global.werewolf == Global.Character.MARG
+			if Global.marg_roll_r2 >= Global.roll_checks.marg.intimidation
 				Protag: Intimidation Check Passed (werewolf) 
 			else
 				Protag: Intimidation Check Failed (werewolf)
 		else 
-			if Global.marg_roll_r2 >= roll_checks.marg.intimidation
+			if Global.marg_roll_r2 >= Global.roll_checks.marg.intimidation
 				Protag: Intimidation Check Passed  
 			else
 				Protag: Intimidation Check Failed
