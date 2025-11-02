@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://da6jr3wjjfll4"]
+
+[sub_resource type="GDScript" id="GDScript_beirx"]
+script/source = "extends Sprite2D
+"
+
+[node name="Sprite2D" type="Sprite2D"]
+script = SubResource("GDScript_beirx")
