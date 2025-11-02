@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbsjyvfwxmwfm"]
+[gd_scene load_steps=3 format=3 uid="uid://cbsjyvfwxmwfm"]
 
-[ext_resource type="PackedScene" uid="uid://da6jr3wjjfll4" path="res://scenes/Suspect.tscn" id="1_3p3fk"]
+[ext_resource type="PackedScene" uid="uid://da6jr3wjjfll4" path="res://Scenes/Suspect.tscn" id="1_3p3fk"]
+[ext_resource type="PackedScene" uid="uid://8h1fohb8j3t7" path="res://Scenes/balloon.tscn" id="1_oq4ov"]
 
 [node name="Game_Scene" type="Node2D"]
+
+[node name="ExampleBalloon" parent="." instance=ExtResource("1_oq4ov")]
 
 [node name="Suspect" parent="." instance=ExtResource("1_3p3fk")]

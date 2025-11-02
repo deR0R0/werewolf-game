@@ -1,5 +1,5 @@
 ~ start
-Protag: [#mood=01] Round 2 of Interrogation
+Protag: Round 2 of Interrogation
 - Persuasion
 	if Global.margaret_persuasion
 	
@@ -72,3 +72,6 @@ Protag: [#mood=01] Round 2 of Interrogation
 				Protag: Intimidation Check Failed
 			
 => END
+
+~ set_sprite
+	
