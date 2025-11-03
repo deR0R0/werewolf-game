@@ -1,5 +1,7 @@
 @icon("./assets/responses_menu.svg")
 
+
+
 ## A [Container] for dialogue responses provided by [b]Dialogue Manager[/b].
 class_name DialogueResponsesMenu extends Container
 
@@ -7,6 +9,10 @@ class_name DialogueResponsesMenu extends Container
 ## Emitted when a response is selected.
 signal response_selected(response)
 
+@onready var UiOption0 = get_node("../../UiOption0")
+@onready var UiOption1 = get_node("../../UiOption1")
+@onready var UiOption2 = get_node("../../UiOption2")
+@onready var UiOption3 = get_node("../../UiOption3")
 
 ## Optionally specify a control to duplicate for each response
 @export var response_template: Control
@@ -61,7 +67,10 @@ var responses: Array = []:
 			_configure_focus()
 
 
+
 func _ready() -> void:
+	UiOption0.visible = true
+	print(UiOption0.visible)
 	visibility_changed.connect(func():
 		if visible and get_menu_items().size() > 0:
 			var first_item: Control = get_menu_items()[0]
@@ -71,7 +80,6 @@ func _ready() -> void:
 
 	if is_instance_valid(response_template):
 		response_template.hide()
-
 
 ## Get the selectable items in the menu.
 func get_menu_items() -> Array:
@@ -117,6 +125,8 @@ func _configure_focus() -> void:
 			item.focus_next = items[i + 1].get_path()
 
 		item.mouse_entered.connect(_on_response_mouse_entered.bind(item))
+		item.mouse_exited.connect(_on_response_mouse_exited.bind(item))
+
 		item.gui_input.connect(_on_response_gui_input.bind(item, item.get_meta("response")))
 
 	items[0].grab_focus()
@@ -126,11 +136,42 @@ func _configure_focus() -> void:
 
 #region Signals
 
+func _on_response_mouse_exited(item: Control) -> void:
+	UiOption0.visible = true
+	print(UiOption0.visible)
+	UiOption1.visible = false
+	UiOption2.visible = false
+	UiOption3.visible = false
+	print("exited")
 
 func _on_response_mouse_entered(item: Control) -> void:
 	if "Disallowed" in item.name: return
 
 	item.grab_focus()
+	
+	if item.name == "Response1":
+		UiOption0.visible = false
+		print(UiOption0.visible)
+		UiOption1.visible = true
+		UiOption2.visible = false
+		UiOption3.visible = false
+		print("response1")
+	elif item.name == "Response2":
+		UiOption0.visible = false
+		print(UiOption0.visible)
+		UiOption1.visible = false
+		UiOption2.visible = true
+		UiOption3.visible = false
+		print("response2")
+	elif item.name == "Response3":
+		UiOption0.visible = false
+		print(UiOption0.visible)
+		UiOption1.visible = false
+		UiOption2.visible = false
+		UiOption3.visible = true
+		print("response3")
+	else:
+		pass
 
 
 func _on_response_gui_input(event: InputEvent, item: Control, response) -> void:

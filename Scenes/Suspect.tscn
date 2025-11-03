@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://da6jr3wjjfll4"]
 
-[ext_resource type="Texture2D" uid="uid://b7ki4thwl2ih2" path="res://assets/Theodore_Sprites/sprite00-theodore.png" id="1_fs6tf"]
-[ext_resource type="Script" path="res://Scripts/Suspect.gd" id="2_si4bc"]
+[ext_resource type="Texture2D" uid="uid://b7ki4thwl2ih2" path="res://Assets/Theodore_Sprites/sprite00-theodore.png" id="1_fs6tf"]
+[ext_resource type="Script" uid="uid://sgyhqpl5kjeb" path="res://Scripts/Suspect.gd" id="2_si4bc"]
 
 [node name="Node2D" type="Node2D"]
 

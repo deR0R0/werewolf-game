@@ -90,7 +90,6 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 ## Apply any changes to the balloon given a new [DialogueLine].
 func apply_dialogue_line() -> void:
 	mutation_cooldown.stop()
-
 	is_waiting_for_input = false
 	balloon.focus_mode = Control.FOCUS_ALL
 	balloon.grab_focus()

@@ -1,5 +1,5 @@
 ~ start
-Protag: Introduction
+Protag: [#sprite="01"] Introduction 
 - Persuasion
 	set  Global.margaret_persuasion = true
 	if Global.werewolf == Global.Character.MARG
