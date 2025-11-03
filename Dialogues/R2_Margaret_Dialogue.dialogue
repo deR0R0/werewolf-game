@@ -17,7 +17,7 @@ Protag: Round 2 of Interrogation
 	else
 
 		Protag: Persuasion Single Route
-		if Global.werewolf == Character.MARG
+		if Global.werewolf == Global.Character.MARG
 			if Global.marg_roll_r2 >= Global.roll_checks.marg.persuasion
 				Protag: Persuasion Check Passed (Werewolf)
 			else

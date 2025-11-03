@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://me0e52rx6rof"
-path="res://.godot/imported/interrogation-table.png-7c4f923c0c97e10e6fe07559bca8c6bf.ctex"
+uid="uid://bkd5mscw726if"
+path="res://.godot/imported/sprite04-selene.png-589c97bd1abe368cbf9b8d4fa4ce1d88.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Interrogation/interrogation-table.png"
-dest_files=["res://.godot/imported/interrogation-table.png-7c4f923c0c97e10e6fe07559bca8c6bf.ctex"]
+source_file="res://Assets/Selene_Sprites/sprite04-selene.png"
+dest_files=["res://.godot/imported/sprite04-selene.png-589c97bd1abe368cbf9b8d4fa4ce1d88.ctex"]
 
 [params]
 

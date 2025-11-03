@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://me0e52rx6rof"
-path="res://.godot/imported/interrogation-table.png-7c4f923c0c97e10e6fe07559bca8c6bf.ctex"
+uid="uid://cyleauvffhrd2"
+path="res://.godot/imported/sprite03-alan.png-79124457bb638fc5f232e5896a3d2373.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Interrogation/interrogation-table.png"
-dest_files=["res://.godot/imported/interrogation-table.png-7c4f923c0c97e10e6fe07559bca8c6bf.ctex"]
+source_file="res://Assets/Alan_Sprites/sprite03-alan.png"
+dest_files=["res://.godot/imported/sprite03-alan.png-79124457bb638fc5f232e5896a3d2373.ctex"]
 
 [params]
 

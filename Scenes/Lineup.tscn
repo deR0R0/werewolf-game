@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk6hp08y53y8q"]
+
+[ext_resource type="Texture2D" uid="uid://dnyr812kuu3ks" path="res://Assets/Lineup/lineup-bg.png" id="1_s7xo7"]
+[ext_resource type="Texture2D" uid="uid://g8s7wdctpno2" path="res://Assets/Lineup/lineup-selene.png" id="2_0l2dn"]
+[ext_resource type="Texture2D" uid="uid://dgpb5q4lgwu4g" path="res://Assets/Lineup/lineup-theo.png" id="3_8x1ri"]
+[ext_resource type="Texture2D" uid="uid://cmmmegf2se0u6" path="res://Assets/Lineup/lineup-alan.png" id="4_gfrte"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LineupBg" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_s7xo7")
+
+[node name="LineupSelene" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_0l2dn")
+
+[node name="LineupTheo" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_8x1ri")
+
+[node name="LineupAlan" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_gfrte")
