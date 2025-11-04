@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmmmegf2se0u6"
-path="res://.godot/imported/lineup-alan.png-f5cd0bda9e333c98751654645e58c70a.ctex"
+path="res://.godot/imported/lineup-alan.png-5f122d326853bc7758f64d684d01158a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Lineup/lineup-alan.png"
-dest_files=["res://.godot/imported/lineup-alan.png-f5cd0bda9e333c98751654645e58c70a.ctex"]
+source_file="res://assets/Lineup/lineup-alan.png"
+dest_files=["res://.godot/imported/lineup-alan.png-5f122d326853bc7758f64d684d01158a.ctex"]
 
 [params]
 

@@ -1,13 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://8h1fohb8j3t7"]
+[gd_scene load_steps=11 format=3 uid="uid://8h1fohb8j3t7"]
 
-[ext_resource type="Script" uid="uid://cvbsebj3d6vxi" path="res://Scripts/balloon.gd" id="1_36de5"]
+[ext_resource type="Script" uid="uid://cvbsebj3d6vxi" path="res://scripts/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
-[ext_resource type="Texture2D" uid="uid://ck3it26yxfcl" path="res://Assets/Ui_Assets/UI_Dialogue_Balloon.png" id="4_5iodc"]
-[ext_resource type="Texture2D" uid="uid://cp026cqjclefd" path="res://Assets/Ui_Assets/ui-option1.png" id="5_syg23"]
-[ext_resource type="Texture2D" uid="uid://dudl57l3rcx6n" path="res://Assets/Ui_Assets/ui-option0.png" id="5_xyim1"]
-[ext_resource type="Texture2D" uid="uid://debqrjbus5y53" path="res://Assets/Ui_Assets/ui-option2.png" id="6_xyim1"]
-[ext_resource type="Texture2D" uid="uid://dmpwthmm5o4wi" path="res://Assets/Ui_Assets/ui-option3.png" id="7_rl6ge"]
+[ext_resource type="Texture2D" uid="uid://ck3it26yxfcl" path="res://assets/Ui_Assets/UI_Dialogue_Balloon.png" id="4_5iodc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -164,29 +160,17 @@ position = Vector2(576, 324)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_5iodc")
 
-[node name="UiOption0" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(576, 324)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("5_xyim1")
-
 [node name="UiOption1" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(576, 324)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("5_syg23")
+position = Vector2(900, 300)
+scale = Vector2(0.6, 0.6)
 
 [node name="UiOption2" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(576, 324)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_xyim1")
+position = Vector2(900, 340)
+scale = Vector2(0.6, 0.6)
 
 [node name="UiOption3" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(576, 324)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("7_rl6ge")
+position = Vector2(900, 380)
+scale = Vector2(0.6, 0.6)
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

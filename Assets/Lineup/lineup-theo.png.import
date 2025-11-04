@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgpb5q4lgwu4g"
-path="res://.godot/imported/lineup-theo.png-8eb84efcb5b9060b7ea26a7f04e06134.ctex"
+path="res://.godot/imported/lineup-theo.png-4c47ecc778a1fa6193ff0fa3e6f2b2ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Lineup/lineup-theo.png"
-dest_files=["res://.godot/imported/lineup-theo.png-8eb84efcb5b9060b7ea26a7f04e06134.ctex"]
+source_file="res://assets/Lineup/lineup-theo.png"
+dest_files=["res://.godot/imported/lineup-theo.png-4c47ecc778a1fa6193ff0fa3e6f2b2ae.ctex"]
 
 [params]
 

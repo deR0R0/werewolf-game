@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyleauvffhrd2"
-path="res://.godot/imported/sprite03-alan.png-79124457bb638fc5f232e5896a3d2373.ctex"
+path="res://.godot/imported/sprite03-alan.png-ea3e1c1a9c68996bd1c39531c21f13b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Alan_Sprites/sprite03-alan.png"
-dest_files=["res://.godot/imported/sprite03-alan.png-79124457bb638fc5f232e5896a3d2373.ctex"]
+source_file="res://assets/Alan_Sprites/sprite03-alan.png"
+dest_files=["res://.godot/imported/sprite03-alan.png-ea3e1c1a9c68996bd1c39531c21f13b1.ctex"]
 
 [params]
 

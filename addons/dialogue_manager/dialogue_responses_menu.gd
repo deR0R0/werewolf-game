@@ -150,18 +150,19 @@ func _on_response_mouse_entered(item: Control) -> void:
 	for button in [UiOption1, UiOption2, UiOption3]:
 		button.texture = null
 		button.texture = normal_texture
-	
-	if item.name == "Response1":
-		UiOption1.texture = hovered_texture
-		print("response1")
-	elif item.name == "Response2":
-		UiOption2.texture = hovered_texture
-		print("response2")
-	elif item.name == "Response3":
-		UiOption3.texture = hovered_texture
-		print("response3")
-	else:
-		pass
+		
+	match item.name:
+		"Response1":
+			UiOption1.texture = hovered_texture
+			print("response1")
+		"Response2":
+			UiOption2.texture = hovered_texture
+			print("response2")
+		"Response3":
+			UiOption3.texture = hovered_texture
+			print("response3")
+		_:
+			print("how did we get here?")
 
 
 func _on_response_gui_input(event: InputEvent, item: Control, response) -> void:
