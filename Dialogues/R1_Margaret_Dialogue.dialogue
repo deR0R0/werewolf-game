@@ -1,5 +1,10 @@
 ~ start
-Protag: [#sprite="01"] Introduction 
+Protag: Introduction 
+Margaret: I'm a brat [#sprite=00]
+Alan: I'm a doctor [#sprite=00]
+Selene: I'm a criminal [#sprite=00]
+Theodore: I'm a nerd [#sprite=00]
+
 - Persuasion
 	set  Global.margaret_persuasion = true
 	if Global.werewolf == Global.Character.MARG
