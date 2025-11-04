@@ -68,9 +68,10 @@ var responses: Array = []:
 
 			_configure_focus()
 
-
-
 func _ready() -> void:
+	for button in [UiOption1, UiOption2, UiOption3]:
+		button.texture = null
+		button.texture = normal_texture
 	visibility_changed.connect(func():
 		if visible and get_menu_items().size() > 0:
 			var first_item: Control = get_menu_items()[0]
@@ -138,6 +139,7 @@ func _configure_focus() -> void:
 
 func _on_response_mouse_exited(item: Control) -> void:
 	for button in [UiOption1, UiOption2, UiOption3]:
+		button.texture = null
 		button.texture = normal_texture
 
 func _on_response_mouse_entered(item: Control) -> void:
@@ -146,6 +148,7 @@ func _on_response_mouse_entered(item: Control) -> void:
 	item.grab_focus()
 
 	for button in [UiOption1, UiOption2, UiOption3]:
+		button.texture = null
 		button.texture = normal_texture
 	
 	if item.name == "Response1":
