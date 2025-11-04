@@ -18,6 +18,8 @@ func _on_dialogue_changed(line: DialogueLine):
 	
 	# check for no size
 	if tags_dict.is_empty():
+		# set the fallback sprite
+		texture = load("res://assets/" + line.character + "_Sprites/sprite00-" + line.character + ".png")
 		return
 		
 	# check for the sprite tag
