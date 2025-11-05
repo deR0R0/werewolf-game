@@ -13,6 +13,10 @@ func _on_dialogue_ended(_resource):
 	print("line ended")
 	
 func _on_dialogue_changed(line: DialogueLine):	
+	# if the line character is protag, skip
+	if line.character == "Protag":
+		return
+	
 	# parse the tags into a better format
 	var tags_dict = parse_tags(line.tags)
 	
