@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cunrvqqvrbkup"]
 
-[ext_resource type="Script" uid="uid://duq64mh8b8vpx" path="res://Scripts/back_from_credits.gd" id="1_r18jl"]
+[ext_resource type="Script" uid="uid://duq64mh8b8vpx" path="res://scripts/back_from_credits.gd" id="1_r18jl"]
 
 [node name="Credits" type="Node2D"]
 

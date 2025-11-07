@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b560u4dty15yd"]
 
-[ext_resource type="Script" uid="uid://dvtm7xue66y0y" path="res://Scripts/credits_button.gd" id="1_pjn4q"]
-[ext_resource type="Script" uid="uid://b8hwtesowis8k" path="res://Scripts/start_button.gd" id="2_mi55o"]
+[ext_resource type="Script" uid="uid://dvtm7xue66y0y" path="res://scripts/credits_button.gd" id="1_pjn4q"]
+[ext_resource type="Script" uid="uid://b8hwtesowis8k" path="res://scripts/start_button.gd" id="2_mi55o"]
 
 [node name="Starting Screen" type="Node2D"]
 

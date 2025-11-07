@@ -1,5 +1,13 @@
 extends Node
 
+# enums KEEP AT TOP OF FILE.
+enum Character {
+	MARG = 1,  # margaret = 1
+	ALAN,      # alan = 2
+	SELE,      # sele = 3
+	THEO       # theo = 4
+}
+
 # Current person you are talking to
 
 var CurrentSuspect = ""
@@ -25,15 +33,6 @@ var Theo_R1_Over = false
 var Theo_R2_Over = false
 var Theo_R1_Ran = false
 var Theo_R2_Ran = false
-
-# enums
-enum Character {
-	MARG = 1,  # margaret = 1
-	ALAN,      # alan = 2
-	SELE,      # sele = 3
-	THEO       # theo = 4
-}
-
 
 # Werewolf
 
