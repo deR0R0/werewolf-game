@@ -1,12 +1,8 @@
 ~ start
-Protag: Introduction 
-Margaret: I'm a brat [#sprite=00]
-Alan: I'm a doctor
-Selene: I'm a criminal [#sprite=00]
-Theodore: I'm a nerd [#sprite=00]
-
+Protag: Introduction [#sprite=00]
+Portag: Anotha one [#sprite=00]
 - Persuasion
-	set  Global.margaret_persuasion = true
+	set Global.margaret_persuasion = true
 	if Global.werewolf == Global.Character.MARG
 		Protag: Persuasion Introduction
 		if Global.marg_roll_r1 >= Global.roll_checks.marg.persuasion
@@ -50,4 +46,8 @@ Theodore: I'm a nerd [#sprite=00]
 			Protag: Intimidation Check Passed
 		else
 			Protag: Intimidation Check Failed
+			
+set Global.Marg_R1_Over = true
+set Global.Marg_R1_Ran = true
+
 => END

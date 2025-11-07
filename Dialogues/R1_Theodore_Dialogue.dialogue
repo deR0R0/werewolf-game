@@ -1,0 +1,53 @@
+~ start
+Protag: Introduction [#sprite=00]
+Portag: Anotha one [#sprite=00]
+- Persuasion
+	set Global.theodore_persuasion = true
+	if Global.werewolf == Global.Character.THEO
+		Protag: Persuasion Introduction
+		if Global.theo_roll_r1 >= Global.roll_checks.theo.persuasion
+			Protag: Persuasion Check Passed (Werewolf)
+		else
+			Protag: Persuasion Check Failed (Werewolf)
+	else
+		Protag: Persuasion Introduction
+		if Global.theo_roll_r1 >= Global.roll_checks.theo.persuasion
+			Protag: Persuasion Check Passed
+		else
+			Protag: Persuasion Check Failed 
+			
+			
+- Deception
+	if Global.werewolf == Global.Character.THEO
+		Protag: Deception Introduction
+		if Global.theo_roll_r1 >= Global.roll_checks.theo.deception
+			Protag: Deception Check Passed (Werewolf)
+		else
+			Protag: Deception Check Failed (Werewolf)
+	else
+		Protag: Deception Introduction
+		if Global.theo_roll_r1 >= Global.roll_checks.theo.deception
+			Protag: Deception Check Passed
+		else
+			Protag: Deception Check Failed
+			
+			
+- Intimidation
+	set Global.theodore_intimidation  = true
+	if Global.werewolf == Global.Character.THEO
+		Protag: Intimidation Introduction
+		if Global.theo_roll_r1 >= Global.roll_checks.theo.intimidation
+			Protag: Intimidation Check Passed (Werewolf)
+		else
+			Protag: Intimidation Check Failed (Werewolf)
+	else	
+		Protag: Intimidation Introduction
+		if Global.theo_roll_r1 >= Global.roll_checks.theo.intimidation
+			Protag: Intimidation Check Passed
+		else
+			Protag: Intimidation Check Failed
+			
+set Global.Theo_R1_Over = true
+set Global.Theo_R1_Ran = true
+
+=> END

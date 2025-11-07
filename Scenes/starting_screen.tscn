@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b560u4dty15yd"]
+
+[ext_resource type="Script" uid="uid://dvtm7xue66y0y" path="res://Scripts/credits_button.gd" id="1_pjn4q"]
+[ext_resource type="Script" uid="uid://b8hwtesowis8k" path="res://Scripts/start_button.gd" id="2_mi55o"]
+
+[node name="Starting Screen" type="Node2D"]
+
+[node name="Credits_button" type="Button" parent="."]
+offset_left = 229.0
+offset_top = 374.0
+offset_right = 943.0
+offset_bottom = 490.0
+text = "Credits"
+script = ExtResource("1_pjn4q")
+
+[node name="start_button" type="Button" parent="."]
+offset_left = 222.0
+offset_top = 228.0
+offset_right = 936.0
+offset_bottom = 344.0
+text = "Start"
+script = ExtResource("2_mi55o")
+
+[connection signal="button_down" from="Credits_button" to="Credits_button" method="_on_button_down"]
+[connection signal="button_down" from="start_button" to="start_button" method="_on_button_down"]

@@ -70,5 +70,8 @@ Protag: Round 2 of Interrogation
 				Protag: Intimidation Check Passed  
 			else
 				Protag: Intimidation Check Failed
-			
+				
+set Global.Marg_R2_Over = true
+set Global.Marg_R2_Ran = true
+
 => END

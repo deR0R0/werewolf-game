@@ -3,12 +3,28 @@ extends Sprite2D
 @onready var R1_Margaret_Dialogue = load("res://Dialogues/R1_Margaret_Dialogue.dialogue")
 @onready var R2_Margaret_Dialogue = load("res://Dialogues/R2_Margaret_Dialogue.dialogue")
 
+@onready var R1_Alan_Dialogue = load("res://Dialogues/R1_Alan_Dialogue.dialogue")
+@onready var R2_Alan_Dialogue = load("res://Dialogues/R2_Alan_Dialogue.dialogue")
+
+@onready var R1_Selene_Dialogue = load("res://Dialogues/R1_Selene_Dialogue.dialogue")
+@onready var R2_Selene_Dialogue = load("res://Dialogues/R2_Selene_Dialogue.dialogue")
+
+@onready var R1_Theodore_Dialogue = load("res://Dialogues/R1_Theodore_Dialogue.dialogue")
+@onready var R2_Theodore_Dialogue = load("res://Dialogues/R2_Theodore_Dialogue.dialogue")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	DialogueManager.got_dialogue.connect(_on_dialogue_changed)
-	DialogueManager.show_dialogue_balloon(R1_Margaret_Dialogue, "start")
 	
+	if Global.CurrentSuspect == "Margaret":
+		DialogueManager.show_dialogue_balloon(R1_Margaret_Dialogue, "start")
+	elif Global.CurrentSuspect == "Alan":
+		DialogueManager.show_dialogue_balloon(R1_Alan_Dialogue, "start")
+	elif Global.CurrentSuspect == "Selene":
+		DialogueManager.show_dialogue_balloon(R1_Selene_Dialogue, "start")
+	elif Global.CurrentSuspect == "Theodore":
+		DialogueManager.show_dialogue_balloon(R1_Theodore_Dialogue, "start")	
 func _on_dialogue_ended(_resource):
 	print("line ended")
 	

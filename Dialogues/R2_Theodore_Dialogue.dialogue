@@ -1,0 +1,77 @@
+~ start
+Protag: Round 2 of Interrogation
+- Persuasion
+	if Global.theodore_persuasion
+	
+		Protag: Persuasion Double Route
+		if Global.werewolf == Global.Character.THEO
+			if Global.theo_roll_r2 >= Global.roll_checks.theo.persuasion
+				Protag: Persuasion Double Route Check Passed (Werewolf)
+			else
+				Protag: Persuasion Double Route Check Failed (Werewolf)
+		else
+			if Global.theo_roll_r2 >= Global.roll_checks.theo.persuasion
+				Protag: Persuasion Double Route Check Passed 
+			else
+				Protag: Persuasion Double Route Check Failed
+	else
+
+		Protag: Persuasion Single Route
+		if Global.werewolf == Global.Character.THEO
+			if Global.theo_roll_r2 >= Global.roll_checks.theo.persuasion
+				Protag: Persuasion Check Passed (Werewolf)
+			else
+				Protag: Persuasion Check Failed (Werewolf)
+		else
+			if Global.theo_roll_r2 >= Global.roll_checks.theo.persuasion
+				Protag: Persuasion Check Passed 
+			else
+				Protag: Persuasion Check Failed
+			
+			
+			
+- Deception
+	Protag: Deception Route
+	if Global.werewolf == Global.Character.THEO
+		if Global.theo_roll_r2 >= Global.roll_checks.theo.deception
+			Protag: Deception Check Passed (Werewolf)
+		else
+			Protag: Deception Check Failed (Werewolf)
+	else
+		if Global.theo_roll_r2 >= Global.roll_checks.theo.deception
+			Protag: Deception Check Passed
+		else
+			Protag: Deception Check Failed
+		
+- Intimidation
+	if Global.theodore_intimidation
+	
+		Protag: Intimidation Double Route
+		if Global.werewolf == Global.Character.THEO
+			if Global.theo_roll_r2 >= Global.roll_checks.theo.intimidation
+				Protag: Intimidation Double Route Check Passed (werewolf) 
+			else
+				Protag: Intimidation Double Route Check Failed (werewolf)
+		else 
+			if Global.theo_roll_r2 >= Global.roll_checks.theo.intimidation
+				Protag: Intimidation Double Route Check Passed  
+			else
+				Protag: Intimidation Double Route Check Failed
+	else
+	
+		Protag: Intimidation Single Route
+		if Global.werewolf == Global.Character.THEO
+			if Global.theo_roll_r2 >= Global.roll_checks.theo.intimidation
+				Protag: Intimidation Check Passed (werewolf) 
+			else
+				Protag: Intimidation Check Failed (werewolf)
+		else 
+			if Global.theo_roll_r2 >= Global.roll_checks.theo.intimidation
+				Protag: Intimidation Check Passed  
+			else
+				Protag: Intimidation Check Failed
+			
+set Global.Theo_R2_Over = true
+set Global.Theo_R2_Ran = true
+
+=> END

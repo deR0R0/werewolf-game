@@ -1,0 +1,53 @@
+~ start
+Protag: Introduction [#sprite=00]
+Portag: Anotha one [#sprite=00]
+- Persuasion
+	set Global.alan_persuasion = true
+	if Global.werewolf == Global.Character.ALAN
+		Protag: Persuasion Introduction
+		if Global.alan_roll_r1 >= Global.roll_checks.alan.persuasion
+			Protag: Persuasion Check Passed (Werewolf)
+		else
+			Protag: Persuasion Check Failed (Werewolf)
+	else
+		Protag: Persuasion Introduction
+		if Global.alan_roll_r1 >= Global.roll_checks.alan.persuasion
+			Protag: Persuasion Check Passed
+		else
+			Protag: Persuasion Check Failed 
+			
+			
+- Deception
+	if Global.werewolf == Global.Character.ALAN
+		Protag: Deception Introduction
+		if Global.alan_roll_r1 >= Global.roll_checks.alan.deception
+			Protag: Deception Check Passed (Werewolf)
+		else
+			Protag: Deception Check Failed (Werewolf)
+	else
+		Protag: Deception Introduction
+		if Global.alan_roll_r1 >= Global.roll_checks.alan.deception
+			Protag: Deception Check Passed
+		else
+			Protag: Deception Check Failed
+			
+			
+- Intimidation
+	set Global.alan_intimidation  = true
+	if Global.werewolf == Global.Character.ALAN
+		Protag: Intimidation Introduction
+		if Global.alan_roll_r1 >= Global.roll_checks.alan.intimidation
+			Protag: Intimidation Check Passed (Werewolf)
+		else
+			Protag: Intimidation Check Failed (Werewolf)
+	else	
+		Protag: Intimidation Introduction
+		if Global.alan_roll_r1 >= Global.roll_checks.alan.intimidation
+			Protag: Intimidation Check Passed
+		else
+			Protag: Intimidation Check Failed
+			
+set Global.Alan_R1_Over = true
+set Global.Alan_R1_Ran = true
+
+=> END
