@@ -15,11 +15,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func stop_music() -> void:
+	if audio_player.is_playing():
+		audio_player.stop()
 
 func play_music(song) -> void:
 	# stop current audio that is playing
-	if audio_player.is_playing():
-		audio_player.stop()
+	stop_music()
 		
 	# find the new audio to be played
 	match song:
