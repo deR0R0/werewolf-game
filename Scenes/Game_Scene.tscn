@@ -7,17 +7,19 @@
 
 [node name="Game_Scene" type="Node2D"]
 
-[node name="ExampleBalloon" parent="." instance=ExtResource("1_oq4ov")]
+[node name="Interrogation_Scene" type="Node2D" parent="."]
 
-[node name="Suspect" parent="." instance=ExtResource("1_3p3fk")]
+[node name="ExampleBalloon" parent="Interrogation_Scene" instance=ExtResource("1_oq4ov")]
+
+[node name="Suspect" parent="Interrogation_Scene" instance=ExtResource("1_3p3fk")]
 z_index = 1
 
-[node name="InterrogationRoom" type="Sprite2D" parent="."]
+[node name="InterrogationRoom" type="Sprite2D" parent="Interrogation_Scene"]
 position = Vector2(576, 324)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_dswpd")
 
-[node name="InterrogationTable" type="Sprite2D" parent="."]
+[node name="InterrogationTable" type="Sprite2D" parent="Interrogation_Scene"]
 z_index = 2
 position = Vector2(576, 324)
 scale = Vector2(0.3, 0.3)
