@@ -1,15 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbsjyvfwxmwfm"]
+[gd_scene load_steps=8 format=3 uid="uid://cbsjyvfwxmwfm"]
 
+[ext_resource type="PackedScene" uid="uid://cunrvqqvrbkup" path="res://scenes/credits.tscn" id="1_1hlfm"]
 [ext_resource type="PackedScene" uid="uid://da6jr3wjjfll4" path="res://scenes/Suspect.tscn" id="1_3p3fk"]
 [ext_resource type="PackedScene" uid="uid://8h1fohb8j3t7" path="res://scenes/balloon.tscn" id="1_oq4ov"]
+[ext_resource type="PackedScene" uid="uid://dk6hp08y53y8q" path="res://scenes/Lineup.tscn" id="2_acik5"]
+[ext_resource type="PackedScene" uid="uid://b560u4dty15yd" path="res://scenes/starting_screen.tscn" id="3_dpep2"]
 [ext_resource type="Texture2D" uid="uid://btarlp8uvasn6" path="res://assets/interrogation/interrogation-room.png" id="3_dswpd"]
 [ext_resource type="Texture2D" uid="uid://me0e52rx6rof" path="res://assets/interrogation/interrogation-table.png" id="4_x2gyv"]
 
 [node name="Game_Scene" type="Node2D"]
 
+[node name="Credits" parent="." instance=ExtResource("1_1hlfm")]
+
+[node name="Lineup" parent="." instance=ExtResource("2_acik5")]
+
+[node name="Starting Screen" parent="." instance=ExtResource("3_dpep2")]
+
 [node name="Interrogation_Scene" type="Node2D" parent="."]
 
 [node name="ExampleBalloon" parent="Interrogation_Scene" instance=ExtResource("1_oq4ov")]
+visible = false
 
 [node name="Suspect" parent="Interrogation_Scene" instance=ExtResource("1_3p3fk")]
 z_index = 1
