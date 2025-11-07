@@ -20,6 +20,7 @@ func _ready() -> void:
 
 func _on_mouse_entered():
 	z_index = 10
+	GlobalSoundPlayer.play_sound("hover")
 	
 func _on_mouse_exited():
 	z_index = 5

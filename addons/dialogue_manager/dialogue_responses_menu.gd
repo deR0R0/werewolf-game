@@ -151,6 +151,8 @@ func _on_response_mouse_entered(item: Control) -> void:
 		button.texture = null
 		button.texture = normal_texture
 		
+	GlobalSoundPlayer.play_sound("hover")
+		
 	match item.name:
 		"Response1":
 			UiOption1.texture = hovered_texture

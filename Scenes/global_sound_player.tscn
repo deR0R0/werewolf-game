@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt02luur1piwv"]
+
+[ext_resource type="Script" uid="uid://dgr1ovx05tjqn" path="res://scripts/global_sound_player.gd" id="1_h32h8"]
+
+[sub_resource type="GDScript" id="GDScript_icxwn"]
+script/source = "extends AudioStreamPlayer2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="GlobalSoundPlayer" type="Node2D"]
+script = ExtResource("1_h32h8")
+
+[node name="SoundEffectPlayer" type="AudioStreamPlayer2D" parent="."]
+script = SubResource("GDScript_icxwn")

@@ -4,7 +4,10 @@ extends Node2D
 @onready var audio_player = $MusicPlayer
 
 # preload all songs
-var main_menu_theme = preload("res://assets/Sounds/Intro.wav")
+var music_list = {
+	"main_menu": preload("res://assets/Sounds/Intro.wav"),
+	"interrogation": preload("res://assets/Sounds/interrogation_track.mp3")
+}
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,12 +27,12 @@ func play_music(song) -> void:
 	# stop current audio that is playing
 	stop_music()
 		
-	# find the new audio to be played
-	match song:
-		"main_menu":
-			audio_player.stream = main_menu_theme
-		_:
-			printerr("UNKNOWN SONG: " + song + ". PLEASE CHECK FOR CORRECT SONG NAMES.")
-			return
+	# if audio doesn't exist in directory
+	if !music_list.has(song):
+		printerr("UNKNOWN SONG ID: " + song)
+		return
+		
+	audio_player.stream = music_list[song]
+	audio_player.play()
 			
 	audio_player.play()

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cssuq28x3u6al"]
+[gd_scene load_steps=7 format=3 uid="uid://cssuq28x3u6al"]
 
 [ext_resource type="Texture2D" uid="uid://etsb0cda0o24" path="res://assets/intermission/intermission-bg.png" id="1_1v0qt"]
+[ext_resource type="Script" uid="uid://dcal1d6dsaccx" path="res://scripts/intermission_script.gd" id="2_srk6g"]
 [ext_resource type="Texture2D" uid="uid://kcxwfvypo240" path="res://assets/intermission/intermission-protag-00.png" id="2_vq6ig"]
 [ext_resource type="Texture2D" uid="uid://ds42sucm1y276" path="res://assets/intermission/intermission-protag-01.png" id="3_srk6g"]
 [ext_resource type="Texture2D" uid="uid://diva4lrpm4j18" path="res://assets/intermission/intermission-protag-02.png" id="4_6b8fk"]
@@ -22,7 +23,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 1.0
+"speed": 1.5
 }]
 
 [node name="Intermission" type="Node2D"]
@@ -31,6 +32,7 @@ animations = [{
 position = Vector2(576, 324)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_1v0qt")
+script = ExtResource("2_srk6g")
 
 [node name="Protag" type="AnimatedSprite2D" parent="."]
 position = Vector2(576, 324)
