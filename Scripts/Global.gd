@@ -202,24 +202,24 @@ func _process(_delta):
 		Global.Stats_selected = false
 		
 	
-	if Marg_R1_Over and Marg_R1_Ran:
+	if round_overs.r1.marg.over and round_overs.r1.marg.ran:
 		print("marg over")
-		Marg_R1_Ran = false
+		round_overs.r1.marg.ran = false
 		get_tree().change_scene_to_file("res://Scenes/Lineup.tscn")
 		
-	if Alan_R1_Over and Alan_R1_Ran:
+	if round_overs.r1.alan.over and round_overs.r1.alan.ran:
 		print("alan over")
-		Alan_R1_Ran = false
+		round_overs.r1.alan.ran = false
 		get_tree().change_scene_to_file("res://Scenes/Lineup.tscn")
 		
-	if Selene_R1_Over and Selene_R1_Ran:
+	if round_overs.r1.sele.over and round_overs.r1.sele.ran:
 		print("selene over")
-		Selene_R1_Ran = false
+		round_overs.r1.sele.ran = false
 		get_tree().change_scene_to_file("res://Scenes/Lineup.tscn")
 		
-	if Theo_R1_Over and Theo_R1_Ran:
+	if round_overs.r1.theo.over and round_overs.r1.theo.ran:
 		print("theo over")
-		Theo_R1_Ran = false
+		round_overs.r1.theo.ran = false
 		get_tree().change_scene_to_file("res://Scenes/Lineup.tscn")
 
 	elif Marg_R1_Over and Alan_R1_Over and Selene_R1_Over and Theo_R1_Over and !intermission_switched_into:

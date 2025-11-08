@@ -17,14 +17,14 @@ Protag: I know there were things she didn’t tell me. [#sprite=04]
 	Protag: I need your full cooperation for this investigation. You can’t withhold information from me. If you do, this investigation will never end. [#sprite=01]
 	Protag: I’ll have to keep all the suspects here until the case is solved. Who knows how long that will take? Weeks, maybe even a month. You won’t be able to go home. You won’t be able to see your family.   [#sprite=01]
 	Protag: You wouldn’t want that, would you? Tell me everything, and it won’t happen. [#sprite=03]
-	if Global.dice_rolls.marg.roll_r2 >= Global.roll_checks.marg.intimidation:
+	if Global.dice_rolls.marg.roll_r2_intimidation >= Global.roll_checks.marg.intimidation:
 		=> intimidation_succeed
 	else:
 		=> intimidation_fail
 - Deception
 	Protag: Maybe if I bluff, I’ll spook her into sharing more. [#sprite=00]
 	Protag: One of the other suspects, Alan, told me something very… interesting. Care to explain? [#sprite=01]
-	if Global.dice_rolls.marg.roll_r2 >= Global.roll_checks.marg.deception:
+	if Global.dice_rolls.marg.roll_r2_deception >= Global.roll_checks.marg.deception:
 		=> deception_succeed
 	else:
 		=> deception_fail
@@ -40,7 +40,7 @@ if Global.double_routes.marg.persuasion:
 	Protag: I didn’t want to, really, but I’m out of other leads. What did you talk about with Alan? Given you’re both suspects in the case, I’m afraid I do need to know what’s going on. [#sprite=13]
 	Protag: Truly, know that I’m sorry for doing this to you and putting you in a stressful position. No matter what you say, this won’t be an admittance of guilt, I promise. Can you trust me? [#sprite=13]
 	
-	if Global.dice_rolls.marg.roll_r2 >= Global.roll_checks.marg.persuasion:
+	if Global.dice_rolls.marg.roll_r2_persuasion >= Global.roll_checks.marg.persuasion:
 		=> double_persuasion_succeed
 	else:
 		=> double_persuasion_fail
@@ -48,7 +48,7 @@ else:
 	Protag: If I ask about the other suspects, it might reveal something inconsistent in someone’s story. [#sprite=04]
 	Protag: What do you know about the other suspects? Please tell me. Anything you know could be crucial. [#sprite=05]
 		
-	if Global.dice_rolls.marg.roll_r2 >= Global.roll_checks.marg.persuasion:
+	if Global.dice_rolls.marg.roll_r2_persuasion >= Global.roll_checks.marg.persuasion:
 		=> single_persuasion_succeed
 	else:
 		=> single_persuasion_fail

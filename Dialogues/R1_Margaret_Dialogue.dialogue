@@ -37,21 +37,21 @@ Protag: [i]I’m not getting anywhere with this. Whatever I do, she won’t take
 - Persuasion
 	Protag: You know what they say, if you can’t beat ‘em, join ‘em. [#sprite=08]
 	Protag: Yeah, your mom’s pretty funny too. [#sprite=03]
-	if Global.dice_rolls.marg.roll_r1 >= Global.roll_checks.marg.persuasion:
+	if Global.dice_rolls.marg.roll_r1_persuasion >= Global.roll_checks.marg.persuasion:
 		=> persuasion_succeed
 	else:
 		=> persuasion_fail
 - Intimidation
 	08 Protag: [i]If Margaretaret’s going to be difficult, I have no choice but to respond in kind.[/i]
 	09 Protag: Very well. If you think this is a laughing matter, I have no choice but to lock you up until you cooperate. I’m sure there’s a nice, cozy holding cell waiting for you in the basement.
-	if Global.dice_rolls.marg.roll_r1 >= Global.roll_checks.marg.persuasion:
+	if Global.dice_rolls.marg.roll_r1_intimidation >= Global.roll_checks.marg.intimidation:
 		=> intimidation_succeed
 	else:
 		=> intimidation_fail
 - Deception
 	Protag: If being serious won’t work, I guess I’ll have to use the trick I know works on all children. [#sprite=08]
 	Protag: I’m sure you’ll also find it very funny that I’ve contacted your mother, who’s told me all about what you were up to last night. [#sprite=09]
-	if Global.dice_rolls.marg.roll_r1 >= Global.roll_checks.marg.deception:
+	if Global.dice_rolls.marg.roll_r1_deception >= Global.roll_checks.marg.deception:
 		=> deception_succeed
 	else:
 		=> deception_fail
