@@ -27,7 +27,7 @@ runtime/balloon_path="res://Scenes/balloon.tscn"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [internationalization]
 
