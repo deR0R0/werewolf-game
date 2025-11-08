@@ -664,6 +664,7 @@ func _get_game_states(extra_game_states: Array) -> Array:
 
 # Check if a condition is met
 func _check_condition(data: Dictionary, extra_game_states: Array) -> bool:
+	return bool(true)
 	return bool(await _resolve_condition_value(data, extra_game_states))
 
 

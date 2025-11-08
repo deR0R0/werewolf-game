@@ -1,204 +1,53 @@
 ~ start
-Protag: [i]It’s kind of hard to imagine such a young girl is at the center of such a grizzly murder scene. Over the death of her grandfather, no less.[/i] [#sprite=12]
-Protag: Hello, Margaret. I’ll be asking you some questions about your whereabouts last night. [#sprite=03]
-Margaret: Can I ask you about your whereabouts the night I did your mom? [#sprite=01]
-Protag: E-excuse me?! [#sprite=07]
-Margaret: You heard me. [#sprite=01]
-Protag: [i]Jeez, this kid. For someone whose grandfather was just murdered, she’s got a lot of snark.[/i] [#sprite=08]
-Protag: Listen, kid, this is a serious police investigation. I understand you’ve just gone through a lot, but it’s important to catch your grandfather’s killer, so I need you to cooperate. [#sprite=09]
-Protag: [speed=0.2]Understand? [#sprite=09]
-Margaret: ... [#sprite=00]
-Protag: Thank you. Now, where were you when- [#sprite=05]
-Margaret: Sorry, what was that? [#sprite=03]
-Protag: Huh? [#sprite=17]
-Margaret: What did you say? I stopped listening ages ago. Your old man voice is too grating. [#sprite=01]
-Protag: [shake]Old man?![/shake] I’m only twenty-seven- [#sprite=07]
-Margaret: Pfft- really? [i]You’re[/i] twenty-seven? [#sprite=01]
-Protag: What’s that supposed to mean? [#sprite=09]
-Margaret: Oh, nothing. Could’ve fooled me, is all. [#sprite=03]
-Protag: ... [#sprite=08]
-Protag: I’m letting myself get bullied by a kid. [#sprite=08]
-Protag: W-whatever. Like I was saying, where were you when the crime was committed? [#sprite05]
-Margaret: I dunno. Does it matter? [#sprite=01]
-Protag: Does it matter- you’re a prime suspect in a murder case, of course it matters! [#sprite=10]
-Margaret: Well, I don’t remember, so too bad. [#sprite=02]
-Protag: You don’t remember where you were just twelve hours ago? [#sprite=09]
-Margaret: Nah. [#sprite=01]
-Protag: Well can you try? If you can provide a solid alibi, we can clear your name and you can be free from this mess. [#sprite=09]
-Margaret: Well, in that case… I was at the mall. With my friend. [#sprite=04]
-Protag: What’s your friend’s name? [#sprite=01]
-Margaret: Gross, what’re you gonna do with that? Stay away from her! [#sprite=06]
-Protag: What? I need her name so she can verify your story, obviously. [#sprite=09]
-Margaret: Well, too bad. I’m not telling you. I wasn’t at the mall anyway. [#sprite=02]
-Protag: Can you stop messing around? Your grandfather was murdered, and you’re one of the prime suspects. This isn’t a laughing matter, you could get incarcerated! [#sprite=10]
-Margaret: Heh, seems pretty funny to me. [#sprite=01]
-Protag: [i]I’m not getting anywhere with this. Whatever I do, she won’t take this seriously. I need to stop getting so riled up and switch tactics.[/i] [#sprite=10]
-
+Protag: Introduction [#sprite=05]
+Protag: Anotha one [#sprite=05]
 - Persuasion
-	Protag: You know what they say, if you can’t beat ‘em, join ‘em. [#sprite=08]
-	Protag: Yeah, your mom’s pretty funny too. [#sprite=03]
-	if Global.dice_rolls.marg.roll_r1 >= Global.roll_checks.marg.persuasion:
-		=> persuasion_succeed
-	else:
-		=> persuasion_fail
-- Intimidation
-	08 Protag: [i]If Margaretaret’s going to be difficult, I have no choice but to respond in kind.[/i]
-	09 Protag: Very well. If you think this is a laughing matter, I have no choice but to lock you up until you cooperate. I’m sure there’s a nice, cozy holding cell waiting for you in the basement.
-	if Global.dice_rolls.marg.roll_r1 >= Global.roll_checks.marg.persuasion:
-		=> intimidation_succeed
-	else:
-		=> intimidation_fail
+	set Global.margaret_persuasion = true
+	if Global.werewolf == Global.Character.MARG
+		Protag: Persuasion Introduction
+		if Global.marg_roll_r1 >= Global.roll_checks.marg.persuasion
+			Protag: Persuasion Check Passed (Werewolf)
+		else
+			Protag: Persuasion Check Failed (Werewolf)
+	else
+		Protag: Persuasion Introduction
+		if Global.marg_roll_r1 >= Global.roll_checks.marg.persuasion
+			Protag: Persuasion Check Passed
+		else
+			Protag: Persuasion Check Failed 
+			
+			
 - Deception
-	Protag: If being serious won’t work, I guess I’ll have to use the trick I know works on all children. [#sprite=08]
-	Protag: I’m sure you’ll also find it very funny that I’ve contacted your mother, who’s told me all about what you were up to last night. [#sprite=09]
-	if Global.dice_rolls.marg.roll_r1 >= Global.roll_checks.marg.deception:
-		=> deception_succeed
-	else:
-		=> deception_fail
+	if Global.werewolf == Global.Character.MARG
+		Protag: Deception Introduction
+		if Global.marg_roll_r1 >= Global.roll_checks.marg.deception
+			Protag: Deception Check Passed (Werewolf)
+		else
+			Protag: Deception Check Failed (Werewolf)
+	else
+		Protag: Deception Introduction
+		if Global.marg_roll_r1 >= Global.roll_checks.marg.deception
+			Protag: Deception Check Passed
+		else
+			Protag: Deception Check Failed
+			
+			
+- Intimidation
+	set Global.margaret_intimidation  = true
+	if Global.werewolf == Global.Character.MARG
+		Protag: Intimidation Introduction
+		if Global.marg_roll_r1 >= Global.roll_checks.marg.intimidation
+			Protag: Intimidation Check Passed (Werewolf)
+		else
+			Protag: Intimidation Check Failed (Werewolf)
+	else	
+		Protag: Intimidation Introduction
+		if Global.marg_roll_r1 >= Global.roll_checks.marg.intimidation
+			Protag: Intimidation Check Passed
+		else
+			Protag: Intimidation Check Failed
+			
+set Global.Marg_R1_Over = true
+set Global.Marg_R1_Ran = true
 
-=> end_dialogue
-
-~ persuasion_succeed
-Margaret: Pfft- [#sprite=08]
-Margaret: Not bad, for an old man. You aren’t nearly as stuck up as I thought. [#sprite=08]
-Protag: If you think I’m old, what about your grandfather? [#sprite=03]
-Margaret: You’re old, he’s an ancient fossil. There’s a difference. [#sprite=03]
-Protag: He’s also dead. Put a little respect on his name, will you? [#sprite=08]
-Protag: Watch out, in 60 years you’ll be a fossil too. [#sprite=03]
-Margaret: That’s different. He wasn’t a fossil just because he was old. He was a fossil because he was a stingy old bastard who never did anything for anyone and is better off dead- [#sprite=02]
-Margaret: -! [#sprite=10]
-Protag: …What do you mean, “better off dead?” [#sprite=05]
-Margaret: S-shut up. Forget I said anything. [#sprite=09]
-Protag: Margaret- [#sprite=05]
-Margaret: I said shut up! Stop talking, stop asking me stupid questions, and stop trying to pry into my business! [#sprite=12]
-Protag: … [#sprite=12]
-Protag: She’s shaking. [#sprite=12]
-Protag: I’m not going to pry. Not if you don’t want me to. [#sprite=13]
-Margaret: … [#sprite=12]
-Protag: I only need enough details to put the pieces of the case together. I’m not going to investigate your personal business. [#sprite=13]
-Protag: All I need to know is where you were, what you were doing, and what you saw. That’s it. Can you answer that for me? [#sprite=13]
-Margaret: … [#sprite=00]
-Margaret: Fine. [#sprite=02]
-Margaret: I visited my grandfather yesterday. I-I don’t like to, but I had things I had to discuss with him. We talked for a bit, then I left. The only other person I saw was his caretaker, Alan, but it’s his job to be there. We- uh, we talked for a bit as well, then I went home. [#sprite=03]
-Margaret: That’s it. That’s all that happened. I didn’t kill him. [#sprite=06]
-Protag: I believe you. Thank you for telling me this. [#sprite=15]
-Margaret: You’re really not gonna ask? [#sprite=07]
-Protag: Of course not, not unless it’s relevant to the case. It’s none of my business, otherwise.
-Margaret: … [#sprite=07]
-Protag: Have a nice day, Margaret. [#sprite=15]
-Protag: [i]She’s more withdrawn than she was when I first walked in. I hope I didn’t scare her too much. [/i] [#sprite=12]
-Protag: [i]Something tells me whatever she didn’t want to talk about is going to end up relevant to the case anyway, but I should still try and give her space. It’s easy to forget just how young she is. [/i] [#sprite=12]
-set Global.double_routes.marg.persuasion = true
-=> end_dialogue
-
-~ persuasion_fail
-Margaret: … [#sprite=00]
-Protag: … [#sprite=00]
-Margaret: … [#sprite=00]
-Protag: … [#sprite=00]
-Protag: …I said- [#sprite=01]
-Margaret: I heard what you said, it just wasn’t funny. [#sprite=02]
-Protag: …Okay, well it was worth a shot, I guess. [#sprite=15]
-Margaret: … [#sprite=00]
-Protag: … [#sprite=00]
-Protag: Is there anything more awkward than when a joke doesn’t land? [#sprite=08]
-Protag: Are you gonna answer my questions now- [#sprite=01]
-Margaret: No. [#sprite=02]
-Protag: …I should just go. I can’t take the awkwardness anymore. [#sprite=08]
-=> end_dialogue
-
-~ deception_succeed
-Margaret: ! [#sprite=10]
-Margaret: I-if you were gonna ask her anyway, why’d you bother to ask me first? [#sprite=06]
-Protag: I was hoping you would be honest with me. It’s a lot easier to prove your innocence when you cooperate. [#sprite=01]
-Margaret: I shouldn’t have to prove anything to you. [#sprite=08]
-Protag: Then it’s a good thing your mother is willing to prove things on your behalf. She’s already told me about your little romp by your grandfather’s place last night. [#sprite=01]
-Margaret: I-I don’t know what you’re talking about. I haven’t been anywhere near there. [#sprite=08]
-Protag: I knew from reading eyewitness reports that Margaretaret was seen near his manor, but I was completely bluffing about talking to her mom. Judging by her reaction, I’ve struck gold anyway. [#sprite=04]
-Protag: There’s no use lying, Margaretaret, your mother told me everything. You visited your grandfather’s manor yesterday, before he was murdered. [#sprite=09]
-Margaret: N-no, no! I wasn’t, I swear! [#sprite=11]
-Protag: I’m trying to help you, Margaretaret. I don’t think you’re the culprit. If you really were there last night, you might have seen something important-something that helps us catch the culprit. [#sprite=13]
-Margaret: Okay, fine. But I didn’t see much. [#sprite=08]
-Protag: Anything helps. What were you doing at your grandfather’s place yesterday? [#sprite=05]
-Margaret: I-it was just a routine visit. My family makes a habit of regularly checking on him, since he’s too old to live on his own, but still refuses to live in a retirement home. Something about not wanting to part with his “collection.” [#sprite=07]
-Margaret: He has a caretaker, but he can’t be with him all the time, so I visit when I can. That’s it. I visited for a few hours, we talked, I left, and he turned up dead the next morning. [#sprite=07]
-Protag: I see. You said he has a caretaker? [#sprite=05]
-Margaret: Yeah. His name’s Alex or something. We’ve never spoken much though, he’s even older and grumpier than you. [#sprite=04]
-Protag: H-hey, I’m not old or grumpy! [#sprite=07]
-Margaret: Hah, if you say so. [#sprite=01]
-Protag: [i]I’m getting bullied again... [/i] [#sprite=08]
-Protag: [i]Regardless, her grandfather’s caretaker... She must be talking about Alan. [/i] [#sprite=04]
-Protag: What time would you say your visit was? [#sprite=05]
-Margaret: I dunno. I don’t have a watch. Late afternoon, probably. (change if needed) [#sprite=04]
-Protag: Thank you, Margaretaret. This will help me bring your grandfather’s killer to justice, I promise. [#sprite=15]
-Margaret: …whatever, old man. [#sprite=02]
-Protag: [i]That went surprisingly well. With how difficult she was at first, I thought this was going to be impossible. [/i] [#sprite=15]
-=> end_dialogue
-
-~ deception_fail
-Margaret: You sure you don’t wanna ask your mother what I was up to last night? [#sprite=01]
-Protag: [i]She doesn’t seem fazed at all. Did I miscalculate, does her mom not actually know? [/i] [#sprite=04]
-Protag: D-do you think I’m joking? I’m giving you a chance to be honest here. [#sprite=09]
-Margaret: Ironic of you to be talking about honesty while lying through your teeth. I’m not stupid, you know. [#sprite=09]
-Protag: Dang it, she didn’t believe me. What now? [#sprite=10]
-Protag: L-look, I’m trying to help you here. The sooner you cooperate, the sooner I can catch your grandfather’s killer. [#sprite=10]
-Margaret: Listen, old man. I don’t give a damn what you’re trying to do. I’m not telling you jack, so get lost, okay? [#sprite=02]
-Protag: Margaretaret, please- [#sprite=13]
-Margaret: Are you deaf? Lost means lost, now go away! [#sprite=09]
-Protag: [i]Crap, I lost my chance. I don’t think I’m gonna get anything out of her now.[/i] [#sprite=10]
-=> end_dialogue
-
-~ intimidation_succeed
-Margaret: What?! Y-you can't do that! [#sprite=06]
-Protag: I can and I will. I’ve been trying to help you, and you’ve been nothing but a thorn in my side this entire time! [#sprite=09]
-Protag: Perhaps some time alone in a cell will give you a chance to reflect on that. [#sprite=09]
-Margaret: H-hey, we can- we can talk about this, r-right? [#sprite=08]
-Protag: Oh, so now you want to talk? [#sprite=10]
-Protag: [i]I stand and firmly grasp Margaret’s wrists, pulling her towards me.[/i] [#sprite=10]
-Protag: You have been a disrespectful little brat this entire time, making snide little comments, refusing to cooperate, but now that it’s your own neck on the line, [shake]now you want to talk?![/shake] [#sprite=11]
-Margaret: … [#sprite=08]
-Margaret: Please… [#sprite=08]
-Protag: ! [#sprite=06]
-Margaret: Don’t… Hurt me… [#sprite=09]
-Protag: Is she… crying? [#sprite=06]
-Margaret: I’ll- I’ll talk! I swear- just- please don’t… don’t…! [#sprite=09]
-Protag: …hey. [#sprite=01]
-Protag: [i]Gently, I release her wrists and sit back down.[/i] [#sprite=01]
-Protag: I’m not going to throw you in jail unless you force my hand. If you answer my questions, we can move on without any trouble, okay? [#sprite=13]
-Margaret: [i]sniffles, wiping her face on her sleeve.[/i] [#sprite=13]
-Margaret: …Fine. [#sprite=07]
-Protag: Thank you. That wasn’t so hard, now was it? [#sprite=15]
-Margaret: … [#sprite=00]
-Protag: Can you tell me where you were yesterday? [#sprite=01]
-Margaret: I went to my granddad’s house. [#sprite=03]
-Protag: And what were you doing there? [#sprite=01]
-Margaret: Just… talking. Nothing- nothing else. [#sprite=03]
-Protag: What time was this? [#sprite=01]
-Margaret: Early afternoon, I think. I’m not sure. [#sprite=03]
-Protag: Did you see anything when you were there? [#sprite=01]
-Margaret: I-I don’t think so…? Nothing relevant, anyway. [#sprite=02]
-Protag: …I see. Well, thank you for your cooperation. Have a nice day, Miss Margaret. [#sprite=01]
-Protag: [i]I’m not sure I believe she’s telling the whole truth. Surely she saw something relevant while she was there. [/i] [#sprite=00]
-Protag: [i]Still, I feel kind of sorry for her. She’s still shaky, even now. Best not to push her any more. [/i] [#sprite=00]
-
-=> end_dialogue
-
-~ intimidation_fail
-Margaret: Uh-huh. Are you gonna tie me up and screw my thumbs too? Coat me in tar and feathers? [#sprite=02]
-Protag: [i]I feel like I’m being made fun of… [/i] [#sprite=08]
-Protag: Do you think I’m joking? I can and will lock you in jail until you tell me where you were. [#sprite=09]
-Margaret: The only joke here is your lack of a love life. [#sprite=01]
-Protag: [i]Okay, rude. She’s right, but she doesn’t have to say it… [/i] [#sprite=08]
-Margaret: Did you really think I was gonna fall for that? You’re way too pathetic to do anything like that. [#sprite=01]
-Protag: Oh, come on! I am [shake]not[/shake] pathetic! [#sprite=10]
-Margaret: … [#sprite=00]
-Protag: Hey, what’s with that look? [#sprite=09]
-Margaret: Get the hell out of here before you make me sick. [#sprite=02]
-Protag: O-okay! Jeez… [#sprite=10]
-Protag: [i]I can’t believe I’m letting myself get bullied out of my own interrogation room by a teenager… [/i] [#sprite=10]
-=> end_dialogue
-
-~ end_dialogue
-set Global.round_overs.r1.marg.over = true
-set Global.round_overs.r1.marg.ran = true
 => END

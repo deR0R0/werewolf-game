@@ -19,15 +19,25 @@ func _ready():
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	DialogueManager.got_dialogue.connect(_on_dialogue_changed)
 	
-	if Global.CurrentSuspect == "Margaret":
+	if Global.CurrentSuspect == "Margaret" and !Global.intermission_switched_into:
 		DialogueManager.show_dialogue_balloon(R1_Margaret_Dialogue, "start")
-	elif Global.CurrentSuspect == "Alan":
+	elif Global.CurrentSuspect == "Alan" and !Global.intermission_switched_into:
 		DialogueManager.show_dialogue_balloon(R1_Alan_Dialogue, "start")
-	elif Global.CurrentSuspect == "Selene":
+	elif Global.CurrentSuspect == "Selene" and !Global.intermission_switched_into:
 		DialogueManager.show_dialogue_balloon(R1_Selene_Dialogue, "start")
-	elif Global.CurrentSuspect == "Theodore":
-		DialogueManager.show_dialogue_balloon(R1_Theodore_Dialogue, "start")
-	
+	elif Global.CurrentSuspect == "Theodore" and !Global.intermission_switched_into:
+		DialogueManager.show_dialogue_balloon(R1_Theodore_Dialogue, "start")	
+		
+	elif Global.CurrentSuspect == "Margaret":
+		DialogueManager.show_dialogue_balloon(R2_Margaret_Dialogue, "start")
+	elif Global.CurrentSuspect == "Alan":
+		DialogueManager.show_dialogue_balloon(R2_Alan_Dialogue, "start")
+	elif Global.CurrentSuspect == "Selene":
+		DialogueManager.show_dialogue_balloon(R2_Selene_Dialogue, "start")
+	elif Global.CurrentSuspect == "Theodore" and Global.intermission_switched_into:
+		DialogueManager.show_dialogue_balloon(R2_Theodore_Dialogue, "start")	
+	else:
+		return
 func _on_dialogue_ended(_resource):
 	print("line ended")
 	
@@ -38,7 +48,7 @@ func _on_dialogue_changed(line: DialogueLine):
 	# check for no size
 	if tags_dict.is_empty():
 		# set the fallback sprite
-		print("MISSING TAG METADATA. EXITING")
+		texture = load("res://assets/" + line.character + "_Sprites/sprite00-" + line.character + ".png")
 		return
 		
 	# check for the sprite tag
@@ -53,7 +63,6 @@ func _on_dialogue_changed(line: DialogueLine):
 	if line.character != "Protag":
 		texture = load("res://assets/" + line.character + "_Sprites/sprite" + tags_dict.get("sprite") + "-" + line.character + ".png")
 	else:
-		texture = load("res://assets/" + Global.CurrentSuspect + "_Sprites/sprite00-" + Global.CurrentSuspect + ".png")
 		player_box.texture = load("res://assets/" + line.character + "_Sprites/sprite" + tags_dict.get("sprite") + "-" + line.character.to_lower() + "onist.png")
 
 	
