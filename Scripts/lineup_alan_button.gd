@@ -17,7 +17,7 @@ func _ready() -> void:
 		# Assign it to the mask
 		texture_click_mask = bitmap
 
-	if Global.Alan_R1_Over and !Global.intermission_switched_into:
+	if Global.round_overs.r1.alan.over and !Global.intermission_switched_into:
 		visible = false
 		Shadow.visible = false
 
@@ -27,7 +27,7 @@ func _ready() -> void:
 		await get_tree().create_timer(0.2).timeout
 		Global.interrogation_one_triggered = true
 
-	if Global.Alan_R2_Over:
+	if Global.round_overs.r2.alan.over:
 		visible = false
 		Shadow.visible = false
 		print("alan dissapeared but round 2")

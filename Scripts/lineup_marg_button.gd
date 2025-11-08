@@ -17,7 +17,7 @@ func _ready() -> void:
 		# Assign it to the mask
 		texture_click_mask = bitmap
 
-	if Global.Marg_R1_Over and !Global.intermission_switched_into:
+	if Global.round_overs.r1.marg.over and !Global.intermission_switched_into:
 		visible = false
 		Shadow.visible = false
 
@@ -25,7 +25,7 @@ func _ready() -> void:
 		visible = true
 		Shadow.visible = true
 
-	if Global.Marg_R2_Over:
+	if Global.round_overs.r2.marg.over:
 		visible = false
 		Shadow.visible = false
 		print("marg dissapeared but round 2")
