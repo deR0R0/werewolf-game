@@ -202,53 +202,27 @@ func _process(_delta):
 		Global.Stats_selected = false
 		
 	
-	if round_overs.r1.marg.over and round_overs.r1.marg.ran:
-		print("marg over")
-		round_overs.r1.marg.ran = false
-		get_tree().change_scene_to_file("res://Scenes/Lineup.tscn")
-		
-	if round_overs.r1.alan.over and round_overs.r1.alan.ran:
-		print("alan over")
-		round_overs.r1.alan.ran = false
-		get_tree().change_scene_to_file("res://Scenes/Lineup.tscn")
-		
-	if round_overs.r1.sele.over and round_overs.r1.sele.ran:
-		print("selene over")
-		round_overs.r1.sele.ran = false
-		get_tree().change_scene_to_file("res://Scenes/Lineup.tscn")
-		
-	if round_overs.r1.theo.over and round_overs.r1.theo.ran:
-		print("theo over")
-		round_overs.r1.theo.ran = false
-		get_tree().change_scene_to_file("res://Scenes/Lineup.tscn")
+	# more elegant way to check for whether their interrogation is done	
+	for char in ["marg", "alan", "sele", "theo"]:
+		if round_overs.r1[char].over and round_overs.r1[char].ran:
+			print(char + " over")
+			round_overs.r1[char].ran = false
+			get_tree().change_scene_to_file("res://Scenes/Lineup.tscn")
 
-	elif round_overs.r1.marg.over and round_overs.r1.alan.over and round_overs.r1.sele.over and round_overs.r1.theo.over and !intermission_switched_into:
+	if round_overs.r1.marg.over and round_overs.r1.alan.over and round_overs.r1.sele.over and round_overs.r1.theo.over and !intermission_switched_into:
 		intermission_switched_into = true
 		print(intermission_switched_into)
 		get_tree().change_scene_to_file("res://scenes/intermission.tscn")
 		
-		
 	elif round_overs.r1.marg.over and round_overs.r1.alan.over and round_overs.r1.sele.over and round_overs.r1.theo.over and intermission_switched_into and second_interrogation:
 		print("second time around")
 		second_interrogation = false
-	
-	if round_overs.r2.marg.over and round_overs.r2.marg.ran:
-			print("marg over")
-			round_overs.r2.marg.ran = false
-			get_tree().change_scene_to_file("res://scenes/Lineup.tscn")
 		
-	if round_overs.r2.alan.over and round_overs.r2.alan.ran:
-		print("alan over")
-		round_overs.r2.alan.ran = false
-		get_tree().change_scene_to_file("res://scenes/Lineup.tscn")
 		
-	if round_overs.r2.sele.over and round_overs.r2.sele.ran:
-		print("selene over")
-		round_overs.r2.sele.ran = false
-		get_tree().change_scene_to_file("res://scenes/Lineup.tscn")
 		
-	if round_overs.r2.theo.over and round_overs.r2.theo.ran:
-		print("theo over")
-		round_overs.r2.theo.ran = false
-		get_tree().change_scene_to_file("res://scenes/Lineup.tscn")
+	for char in ["marg", "alan", "sele", "theo"]:
+		if round_overs.r2[char].over and round_overs.r2[char].ran:
+			print(char + " over")
+			round_overs.r2[char].ran = false
+			get_tree().change_scene_to_file("res://Scenes/Lineup.tscn")
 	
