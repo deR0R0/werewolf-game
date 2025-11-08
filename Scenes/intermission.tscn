@@ -39,11 +39,12 @@ position = Vector2(576, 324)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_40j2c")
 autoplay = "default"
-frame_progress = 0.31047744
+frame_progress = 0.33000323
 
 [node name="Tip" type="RichTextLabel" parent="."]
 offset_left = 225.0
 offset_top = 60.0
 offset_right = 928.0
 offset_bottom = 100.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Tip: Make sure to read everyone's alibi carefullly and find who's story doesn't make sense!"

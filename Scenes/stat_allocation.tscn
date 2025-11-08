@@ -1,62 +1,165 @@
-[gd_scene load_steps=2 format=3 uid="uid://cv4ggpdjgsigr"]
+[gd_scene load_steps=12 format=3 uid="uid://cv4ggpdjgsigr"]
 
 [ext_resource type="Script" uid="uid://civaxr8nhnflh" path="res://Scripts/stat_allocation.gd" id="1_kttnv"]
+[ext_resource type="Texture2D" uid="uid://bpu0xqqnuxje8" path="res://Assets/Stat_Allocation/bg.png" id="2_eppps"]
+[ext_resource type="Texture2D" uid="uid://c7yo2ukaerebe" path="res://Assets/Stat_Allocation/bar-0.png" id="3_3xlea"]
+[ext_resource type="Texture2D" uid="uid://cdw6qtmtggta8" path="res://Assets/Stat_Allocation/minus.png" id="4_3xlea"]
+[ext_resource type="Texture2D" uid="uid://6usg0nqo500y" path="res://Assets/Stat_Allocation/plus.png" id="4_n6p2l"]
+[ext_resource type="Texture2D" uid="uid://bd62dl3fifag1" path="res://Assets/Stat_Allocation/plus-highlighted.png" id="5_3fqnn"]
+[ext_resource type="Texture2D" uid="uid://gk3o0x1300rc" path="res://Assets/Stat_Allocation/minus-highlighted.png" id="7_fnq2m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xlea"]
+atlas = ExtResource("4_n6p2l")
+region = Rect2(3530.77, 561.48, 221, 230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fqnn"]
+atlas = ExtResource("5_3fqnn")
+region = Rect2(3530.77, 561.48, 221, 210)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6p2l"]
+atlas = ExtResource("4_3xlea")
+region = Rect2(1680, 590, 221, 167)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jmvg"]
+atlas = ExtResource("7_fnq2m")
+region = Rect2(1680, 590, 221, 167)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_kttnv")
 
-[node name="PersuasionUp" type="Button" parent="."]
-offset_left = 63.0
-offset_top = 64.0
-offset_right = 321.0
-offset_bottom = 192.0
-text = "persuasion up"
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_eppps")
 
-[node name="PersuasionDown" type="Button" parent="."]
-offset_left = 78.0
-offset_top = 245.0
-offset_right = 303.0
-offset_bottom = 428.0
-text = "persuasion down"
+[node name="SceneLabel" type="Label" parent="."]
+offset_left = 94.0
+offset_top = 23.0
+offset_right = 824.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0.16862746, 0.13333334, 0.23921569, 1)
+theme_override_font_sizes/font_size = 29
+text = "Stat Selection - choose what you want to be good at!"
 
-[node name="DeceptionUp" type="Button" parent="."]
-offset_left = 427.0
-offset_top = 32.0
-offset_right = 617.0
-offset_bottom = 217.0
-text = "deception up"
+[node name="PersuasionBar" type="Node2D" parent="."]
 
-[node name="DeceptionDown" type="Button" parent="."]
-offset_left = 425.0
-offset_top = 245.0
-offset_right = 641.0
-offset_bottom = 467.0
-text = "deception down"
+[node name="Label" type="Label" parent="PersuasionBar"]
+offset_left = 591.0
+offset_top = 125.0
+offset_right = 809.0
+offset_bottom = 165.0
+theme_override_colors/font_color = Color(0.16862746, 0.13333334, 0.23921569, 1)
+theme_override_font_sizes/font_size = 29
+text = "Persuasion Stat"
 
-[node name="IntimidationUp" type="Button" parent="."]
-offset_left = 803.0
-offset_top = 68.0
-offset_right = 992.0
-offset_bottom = 217.0
-text = "intimidation up"
+[node name="BarIndicator" type="Sprite2D" parent="PersuasionBar"]
+position = Vector2(576, 324)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_3xlea")
 
-[node name="IntimidationDown" type="Button" parent="."]
-offset_left = 754.0
-offset_top = 269.0
-offset_right = 1034.0
-offset_bottom = 447.0
-text = "intimidation down"
+[node name="Increase" type="TextureButton" parent="PersuasionBar"]
+offset_left = 1050.0
+offset_top = 167.0
+offset_right = 1271.0002
+offset_bottom = 397.0002
+scale = Vector2(0.3, 0.3)
+texture_normal = SubResource("AtlasTexture_3xlea")
+texture_pressed = SubResource("AtlasTexture_3fqnn")
+texture_hover = SubResource("AtlasTexture_3fqnn")
+
+[node name="Decrease" type="TextureButton" parent="PersuasionBar"]
+offset_left = 500.1
+offset_top = 175.0
+offset_right = 721.1
+offset_bottom = 342.0004
+scale = Vector2(0.3, 0.3)
+texture_normal = SubResource("AtlasTexture_n6p2l")
+texture_pressed = SubResource("AtlasTexture_8jmvg")
+texture_hover = SubResource("AtlasTexture_8jmvg")
+
+[node name="IntimidationBar" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="IntimidationBar"]
+offset_left = 591.0
+offset_top = 255.0
+offset_right = 809.0
+offset_bottom = 295.0
+theme_override_colors/font_color = Color(0.16862746, 0.13333334, 0.23921569, 1)
+theme_override_font_sizes/font_size = 29
+text = "Intimidation Stat"
+
+[node name="BarIndicator" type="Sprite2D" parent="IntimidationBar"]
+position = Vector2(576, 454)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_3xlea")
+
+[node name="Increase" type="TextureButton" parent="IntimidationBar"]
+offset_left = 1050.0
+offset_top = 297.0
+offset_right = 1271.0002
+offset_bottom = 527.00024
+scale = Vector2(0.3, 0.3)
+texture_normal = SubResource("AtlasTexture_3xlea")
+texture_pressed = SubResource("AtlasTexture_3fqnn")
+texture_hover = SubResource("AtlasTexture_3fqnn")
+
+[node name="Decrease" type="TextureButton" parent="IntimidationBar"]
+offset_left = 500.1
+offset_top = 305.0
+offset_right = 721.1
+offset_bottom = 472.0004
+scale = Vector2(0.3, 0.3)
+texture_normal = SubResource("AtlasTexture_n6p2l")
+texture_pressed = SubResource("AtlasTexture_8jmvg")
+texture_hover = SubResource("AtlasTexture_8jmvg")
+
+[node name="DeceptionBar" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="DeceptionBar"]
+offset_left = 591.0
+offset_top = 385.0
+offset_right = 827.0
+offset_bottom = 425.0
+theme_override_colors/font_color = Color(0.16862746, 0.13333334, 0.23921569, 1)
+theme_override_font_sizes/font_size = 29
+text = "Deception Stat"
+
+[node name="BarIndicator" type="Sprite2D" parent="DeceptionBar"]
+position = Vector2(576, 584)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_3xlea")
+
+[node name="Increase" type="TextureButton" parent="DeceptionBar"]
+offset_left = 1050.0
+offset_top = 427.0
+offset_right = 1271.0002
+offset_bottom = 657.00024
+scale = Vector2(0.3, 0.3)
+texture_normal = SubResource("AtlasTexture_3xlea")
+texture_pressed = SubResource("AtlasTexture_3fqnn")
+texture_hover = SubResource("AtlasTexture_3fqnn")
+
+[node name="Decrease" type="TextureButton" parent="DeceptionBar"]
+offset_left = 500.1
+offset_top = 435.0
+offset_right = 721.1
+offset_bottom = 602.00037
+scale = Vector2(0.3, 0.3)
+texture_normal = SubResource("AtlasTexture_n6p2l")
+texture_pressed = SubResource("AtlasTexture_8jmvg")
+texture_hover = SubResource("AtlasTexture_8jmvg")
 
 [node name="Continue" type="Button" parent="."]
+visible = false
 offset_left = 346.0
 offset_top = 483.0
 offset_right = 699.0
 offset_bottom = 627.0
 
-[connection signal="button_down" from="PersuasionUp" to="." method="_on_persuasion_up_button_down"]
-[connection signal="button_down" from="PersuasionDown" to="." method="_on_persuasion_down_button_down"]
-[connection signal="button_down" from="DeceptionUp" to="." method="_on_deception_up_button_down"]
-[connection signal="button_down" from="DeceptionDown" to="." method="_on_deception_down_button_down"]
-[connection signal="button_down" from="IntimidationUp" to="." method="_on_intimidation_up_button_down"]
-[connection signal="button_down" from="IntimidationDown" to="." method="_on_intimidation_down_button_down"]
+[connection signal="pressed" from="PersuasionBar/Increase" to="." method="_on_persuasion_increase_pressed"]
+[connection signal="pressed" from="PersuasionBar/Decrease" to="." method="_on_persuasion_decrease_pressed"]
+[connection signal="pressed" from="IntimidationBar/Increase" to="." method="_on_intimidation_increase_pressed"]
+[connection signal="pressed" from="IntimidationBar/Decrease" to="." method="_on_intimidation_decrease_pressed"]
+[connection signal="pressed" from="DeceptionBar/Increase" to="." method="_on_deception_increase_pressed"]
+[connection signal="pressed" from="DeceptionBar/Decrease" to="." method="_on_deception_decrease_pressed"]
 [connection signal="button_down" from="Continue" to="." method="_on_continue_button_down"]
