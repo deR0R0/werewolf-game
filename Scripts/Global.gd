@@ -222,33 +222,33 @@ func _process(_delta):
 		round_overs.r1.theo.ran = false
 		get_tree().change_scene_to_file("res://Scenes/Lineup.tscn")
 
-	elif Marg_R1_Over and Alan_R1_Over and Selene_R1_Over and Theo_R1_Over and !intermission_switched_into:
+	elif round_overs.r1.marg.over and round_overs.r1.alan.over and round_overs.r1.sele.over and round_overs.r1.theo.over and !intermission_switched_into:
 		intermission_switched_into = true
 		print(intermission_switched_into)
 		get_tree().change_scene_to_file("res://scenes/intermission.tscn")
 		
 		
-	elif Marg_R1_Over and Alan_R1_Over and Selene_R1_Over and Theo_R1_Over and intermission_switched_into and second_interrogation:
+	elif round_overs.r1.marg.over and round_overs.r1.alan.over and round_overs.r1.sele.over and round_overs.r1.theo.over and intermission_switched_into and second_interrogation:
 		print("second time around")
 		second_interrogation = false
 	
-	if Marg_R2_Over and Marg_R2_Ran:
+	if round_overs.r2.marg.over and round_overs.r2.marg.ran:
 			print("marg over")
-			Marg_R2_Ran = false
+			round_overs.r2.marg.ran = false
 			get_tree().change_scene_to_file("res://scenes/Lineup.tscn")
 		
-	if Alan_R2_Over and Alan_R2_Ran:
+	if round_overs.r2.alan.over and round_overs.r2.alan.ran:
 		print("alan over")
-		Alan_R2_Ran = false
+		round_overs.r2.alan.ran = false
 		get_tree().change_scene_to_file("res://scenes/Lineup.tscn")
 		
-	if Selene_R2_Over and Selene_R2_Ran:
+	if round_overs.r2.sele.over and round_overs.r2.sele.ran:
 		print("selene over")
-		Selene_R2_Ran = false
+		round_overs.r2.sele.ran = false
 		get_tree().change_scene_to_file("res://scenes/Lineup.tscn")
 		
-	if Theo_R2_Over and Theo_R2_Ran:
+	if round_overs.r2.theo.over and round_overs.r2.theo.ran:
 		print("theo over")
-		Theo_R2_Ran = false
+		round_overs.r2.theo.ran = false
 		get_tree().change_scene_to_file("res://scenes/Lineup.tscn")
 	
