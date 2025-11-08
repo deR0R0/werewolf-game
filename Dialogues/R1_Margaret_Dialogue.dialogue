@@ -1,6 +1,6 @@
 ~ start
-Protag: Introduction [#sprite=00]
-Portag: Anotha one [#sprite=00]
+Protag: Introduction [#sprite=05]
+Protag: Anotha one [#sprite=05]
 - Persuasion
 	set Global.margaret_persuasion = true
 	if Global.werewolf == Global.Character.MARG

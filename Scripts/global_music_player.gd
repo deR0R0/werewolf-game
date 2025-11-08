@@ -12,12 +12,17 @@ var music_list = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	audio_player.connect("finished", Callable(self, "_on_music_finish").bind(audio_player))
 	play_music("main_menu")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func _on_music_finish() -> void:
+	audio_player.stream_paused = false
+	audio_player.play()
 	
 func stop_music() -> void:
 	if audio_player.is_playing():

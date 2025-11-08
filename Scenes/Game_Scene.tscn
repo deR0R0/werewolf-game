@@ -1,16 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbsjyvfwxmwfm"]
+[gd_scene load_steps=7 format=3 uid="uid://cbsjyvfwxmwfm"]
 
 [ext_resource type="PackedScene" uid="uid://da6jr3wjjfll4" path="res://scenes/Suspect.tscn" id="1_3p3fk"]
 [ext_resource type="PackedScene" uid="uid://8h1fohb8j3t7" path="res://scenes/balloon.tscn" id="1_oq4ov"]
 [ext_resource type="Texture2D" uid="uid://btarlp8uvasn6" path="res://assets/interrogation/interrogation-room.png" id="3_dswpd"]
 [ext_resource type="Texture2D" uid="uid://me0e52rx6rof" path="res://assets/interrogation/interrogation-table.png" id="4_x2gyv"]
+[ext_resource type="Texture2D" uid="uid://cdcaaeu861fw8" path="res://assets/Ui_Assets/ui-player.png" id="5_30f2j"]
+[ext_resource type="Texture2D" uid="uid://371foupsfmyn" path="res://assets/Protag_Sprites/sprite00-protagonist.png" id="6_gswme"]
 
 [node name="Game_Scene" type="Node2D"]
 
 [node name="Interrogation_Scene" type="Node2D" parent="."]
 
 [node name="ExampleBalloon" parent="Interrogation_Scene" instance=ExtResource("1_oq4ov")]
-visible = false
 
 [node name="Suspect" parent="Interrogation_Scene" instance=ExtResource("1_3p3fk")]
 z_index = 1
@@ -25,3 +26,16 @@ z_index = 2
 position = Vector2(576, 324)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_x2gyv")
+
+[node name="PlayerFrame" type="Node2D" parent="Interrogation_Scene"]
+z_index = 2
+
+[node name="Frame" type="Sprite2D" parent="Interrogation_Scene/PlayerFrame"]
+position = Vector2(576, 324)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_30f2j")
+
+[node name="Protag" type="Sprite2D" parent="Interrogation_Scene/PlayerFrame"]
+position = Vector2(576, 324)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_gswme")

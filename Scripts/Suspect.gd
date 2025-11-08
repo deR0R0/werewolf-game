@@ -12,6 +12,8 @@ extends Sprite2D
 @onready var R1_Theodore_Dialogue = load("res://Dialogues/R1_Theodore_Dialogue.dialogue")
 @onready var R2_Theodore_Dialogue = load("res://Dialogues/R2_Theodore_Dialogue.dialogue")
 
+@onready var player_box: Sprite2D = get_node("../../PlayerFrame/Protag")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
@@ -24,15 +26,12 @@ func _ready():
 	elif Global.CurrentSuspect == "Selene":
 		DialogueManager.show_dialogue_balloon(R1_Selene_Dialogue, "start")
 	elif Global.CurrentSuspect == "Theodore":
-		DialogueManager.show_dialogue_balloon(R1_Theodore_Dialogue, "start")	
+		DialogueManager.show_dialogue_balloon(R1_Theodore_Dialogue, "start")
+	
 func _on_dialogue_ended(_resource):
 	print("line ended")
 	
 func _on_dialogue_changed(line: DialogueLine):	
-	# if the line character is protag, skip
-	if line.character == "Protag":
-		return
-	
 	# parse the tags into a better format
 	var tags_dict = parse_tags(line.tags)
 	
@@ -47,12 +46,15 @@ func _on_dialogue_changed(line: DialogueLine):
 		return
 		
 	# check for valid character
-	if line.character not in ["Margaret", "Alan", "Selene", "Theodore"]:
+	if line.character not in ["Margaret", "Alan", "Selene", "Theodore", "Protag"]:
 		print(line.character + " is NOT a valid character. Check dialogue script.")
 		return
 	
-	texture = load("res://assets/" + line.character + "_Sprites/sprite" + tags_dict.get("sprite") + "-" + line.character + ".png")
-	print("res://assets/" + line.character + "_Sprites/sprite" + tags_dict.get("sprite") + "-" + line.character + ".png")
+	if line.character != "Protag":
+		texture = load("res://assets/" + line.character + "_Sprites/sprite" + tags_dict.get("sprite") + "-" + line.character + ".png")
+	else:
+		player_box.texture = load("res://assets/" + line.character + "_Sprites/sprite" + tags_dict.get("sprite") + "-" + line.character.to_lower() + "onist.png")
+
 	
 func parse_tags(tags: PackedStringArray) -> Dictionary:
 	# parse the tags into a key value pair type shi
