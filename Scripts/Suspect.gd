@@ -38,6 +38,8 @@ func _ready():
 		DialogueManager.show_dialogue_balloon(R2_Theodore_Dialogue, "start")	
 	else:
 		return
+		
+
 func _on_dialogue_ended(_resource):
 	print("line ended")
 	
@@ -47,8 +49,7 @@ func _on_dialogue_changed(line: DialogueLine):
 	
 	# check for no size
 	if tags_dict.is_empty():
-		# set the fallback sprite
-		texture = load("res://assets/" + line.character + "_Sprites/sprite00-" + line.character + ".png")
+		printerr("MISSING TAG METADATA. SKIP CHANGING TEXTURES")
 		return
 		
 	# check for the sprite tag
@@ -63,6 +64,7 @@ func _on_dialogue_changed(line: DialogueLine):
 	if line.character != "Protag":
 		texture = load("res://assets/" + line.character + "_Sprites/sprite" + tags_dict.get("sprite") + "-" + line.character + ".png")
 	else:
+		texture = load("res://assets/" + Global.CurrentSuspect + "_Sprites/sprite00-" + Global.CurrentSuspect + ".png")
 		player_box.texture = load("res://assets/" + line.character + "_Sprites/sprite" + tags_dict.get("sprite") + "-" + line.character.to_lower() + "onist.png")
 
 	

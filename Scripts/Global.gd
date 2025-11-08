@@ -14,6 +14,45 @@ var CurrentSuspect = ""
 
 # Are the rounds over?
 
+var round_overs = {
+	"r1": {
+		"marg": {
+			"over": false,
+			"ran": false,
+		},
+		"alan": {
+			"over": false,
+			"ran": false
+		},
+		"sele": {
+			"over": false,
+			"ran": false
+		},
+		"theo": {
+			"over": false,
+			"ran": false
+		}
+	},
+	"r2": {
+		"marg": {
+			"over": false,
+			"ran": false,
+		},
+		"alan": {
+			"over": false,
+			"ran": false
+		},
+		"sele": {
+			"over": false,
+			"ran": false
+		},
+		"theo": {
+			"over": false,
+			"ran": false
+		}
+	}
+}
+
 var Marg_R1_Over = false
 var Marg_R2_Over = false
 var Marg_R1_Ran = false
