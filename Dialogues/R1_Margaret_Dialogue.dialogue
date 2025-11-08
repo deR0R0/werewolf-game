@@ -56,8 +56,7 @@ Protag: [i]I’m not getting anywhere with this. Whatever I do, she won’t take
 	else:
 		=> deception_fail
 
-
-=> END
+=> end_dialogue
 
 ~ persuasion_succeed
 Margaret: Pfft- [#sprite=08]
@@ -89,7 +88,8 @@ Margaret: … [#sprite=07]
 Protag: Have a nice day, Margaret. [#sprite=15]
 Protag: [i]She’s more withdrawn than she was when I first walked in. I hope I didn’t scare her too much. [/i] [#sprite=12]
 Protag: [i]Something tells me whatever she didn’t want to talk about is going to end up relevant to the case anyway, but I should still try and give her space. It’s easy to forget just how young she is. [/i] [#sprite=12]
-=> END
+set Global.double_routes.marg.persuasion = true
+=> end_dialogue
 
 ~ persuasion_fail
 Margaret: … [#sprite=00]
@@ -105,7 +105,7 @@ Protag: Is there anything more awkward than when a joke doesn’t land? [#sprite
 Protag: Are you gonna answer my questions now- [#sprite=01]
 Margaret: No. [#sprite=02]
 Protag: …I should just go. I can’t take the awkwardness anymore. [#sprite=08]
-=> END
+=> end_dialogue
 
 ~ deception_succeed
 Margaret: ! [#sprite=10]
@@ -133,7 +133,7 @@ Margaret: I dunno. I don’t have a watch. Late afternoon, probably. (change if 
 Protag: Thank you, Margaretaret. This will help me bring your grandfather’s killer to justice, I promise. [#sprite=15]
 Margaret: …whatever, old man. [#sprite=02]
 Protag: [i]That went surprisingly well. With how difficult she was at first, I thought this was going to be impossible. [/i] [#sprite=15]
-=> END
+=> end_dialogue
 
 ~ deception_fail
 Margaret: You sure you don’t wanna ask your mother what I was up to last night? [#sprite=01]
@@ -146,7 +146,7 @@ Margaret: Listen, old man. I don’t give a damn what you’re trying to do. I�
 Protag: Margaretaret, please- [#sprite=13]
 Margaret: Are you deaf? Lost means lost, now go away! [#sprite=09]
 Protag: [i]Crap, I lost my chance. I don’t think I’m gonna get anything out of her now.[/i] [#sprite=10]
-=> END
+=> end_dialogue
 
 ~ intimidation_succeed
 Margaret: What?! Y-you can't do that! [#sprite=06]
@@ -181,7 +181,7 @@ Protag: …I see. Well, thank you for your cooperation. Have a nice day, Miss Ma
 Protag: [i]I’m not sure I believe she’s telling the whole truth. Surely she saw something relevant while she was there. [/i] [#sprite=00]
 Protag: [i]Still, I feel kind of sorry for her. She’s still shaky, even now. Best not to push her any more. [/i] [#sprite=00]
 
-=> END
+=> end_dialogue
 
 ~ intimidation_fail
 Margaret: Uh-huh. Are you gonna tie me up and screw my thumbs too? Coat me in tar and feathers? [#sprite=02]
@@ -196,4 +196,9 @@ Protag: Hey, what’s with that look? [#sprite=09]
 Margaret: Get the hell out of here before you make me sick. [#sprite=02]
 Protag: O-okay! Jeez… [#sprite=10]
 Protag: [i]I can’t believe I’m letting myself get bullied out of my own interrogation room by a teenager… [/i] [#sprite=10]
+=> end_dialogue
+
+~ end_dialogue
+set Global.round_overs.r1.marg.over = true
+set Global.round_overs.r1.marg.ran = true
 => END

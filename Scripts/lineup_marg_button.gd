@@ -32,7 +32,7 @@ func _on_button_down():
 	get_tree().change_scene_to_file("res://Scenes/Game_Scene.tscn")
 	
 func _process(_delta):
-	if Global.Marg_R1_Over:
-		Global.Marg_R1_Over = false
+	if Global.round_overs.r1.marg.over:
+		Global.round_overs.r1.marg.over = false
 		visible = false
 		Shadow.visible = false

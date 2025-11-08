@@ -14,9 +14,46 @@ var CurrentSuspect = ""
 
 # Are the rounds over?
 
-var Marg_R1_Over = false
+var round_overs = {
+	"r1": {
+		"marg": {
+			"over": false,
+			"ran": false
+		},
+		"alan": {
+			"over": false,
+			"ran": false
+		},
+		"sele": {
+			"over": false,
+			"ran": false
+		},
+		"theo": {
+			"over": false,
+			"ran": false
+		}
+	},
+	"r2": {
+		"marg": {
+			"over": false,
+			"ran": false
+		},
+		"alan": {
+			"over": false,
+			"ran": false
+		},
+		"sele": {
+			"over": false,
+			"ran": false
+		},
+		"theo": {
+			"over": false,
+			"ran": false
+		}
+	}
+}
+
 var Marg_R2_Over = false
-var Marg_R1_Ran = false
 var Marg_R2_Ran = false
 
 var Alan_R1_Over = false
@@ -40,10 +77,14 @@ var werewolf: int = randi_range(1, 4)
 
 # Double Route Variables
 
-var margaret_intimidation: bool = false
-var margaret_persuasion: bool = false
-
-var theodore_deception: bool = true
+var double_routes = {
+	"marg": {
+		"persuasion": false
+	},
+	"theo": {
+		"deception": true
+	}
+}
 
 # dice roll values
 var roll_checks = {
@@ -88,10 +129,12 @@ var dice_rolls = {
 		"roll_r2": randi_range(1, 20)
 	}
 }
+
+
 func _process(_delta):
-	if Marg_R1_Over and Marg_R1_Ran:
+	if round_overs.r1.marg.over and round_overs.r1.marg.ran:
 		print("marg over")
-		Marg_R1_Ran = false
+		round_overs.r1.marg.ran = false
 		get_tree().change_scene_to_file("res://Scenes/Lineup.tscn")
 		
 	if Alan_R1_Over and Alan_R1_Ran:
