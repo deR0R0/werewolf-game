@@ -1,77 +1,215 @@
 ~ start
-Protag: Round 2 of Interrogation
+Margaret: Back again already? Did you have fun wringing the others dry for intel? [#sprite=01]
+Protag: …I forgot how annoying she could be. [#sprite=08]
+Protag: I’m here because I have more questions for you. [#sprite=01]
+Margaret: What more could you possibly need that I haven’t told you? [#sprite=02]
+Protag: I’ve spoken to the other suspects. They’ve corroborated your story so far, but I’d like some more information. [#sprite=01]
+Margaret: What, nosing around in our business once wasn’t enough for you? [#sprite=02]
+Protag: It’s my job. I hardly get a choice in the matter. [#sprite=09]
+Protag: I have to be careful what I say next. One wrong move and she could shut down, and I’d lose any chance of questioning her. [#sprite=04]
+Protag: I know there were things she didn’t tell me. [#sprite=04]
+
 - Persuasion
-	if Global.margaret_persuasion
-	
-		Protag: Persuasion Double Route
-		if Global.werewolf == Global.Character.MARG
-			if Global.dice_rolls.marg.roll_r2_persuasion >= Global.roll_checks.marg.persuasion
-				Protag: Persuasion Double Route Check Passed (Werewolf)
-			else
-				Protag: Persuasion Double Route Check Failed (Werewolf)
-		else
-			if Global.dice_rolls.marg.roll_r2_persuasion >= Global.roll_checks.marg.persuasion
-				Protag: Persuasion Double Route Check Passed 
-			else
-				Protag: Persuasion Double Route Check Failed
-	else
-
-		Protag: Persuasion Single Route
-		if Global.werewolf == Global.Character.MARG
-			if Global.dice_rolls.marg.roll_r2_deception >= Global.roll_checks.marg.persuasion
-				Protag: Persuasion Check Passed (Werewolf)
-			else
-				Protag: Persuasion Check Failed (Werewolf)
-		else
-			if Global.dice_rolls.marg.roll_r2_deception >= Global.roll_checks.marg.persuasion
-				Protag: Persuasion Check Passed 
-			else
-				Protag: Persuasion Check Failed
-			
-			
-			
-- Deception
-	Protag: Deception Route
-	if Global.werewolf == Global.Character.MARG
-		if Global.dice_rolls.marg.roll_r2_deception >= Global.roll_checks.marg.deception
-			Protag: Deception Check Passed (Werewolf)
-		else
-			Protag: Deception Check Failed (Werewolf)
-	else
-		if Global.dice_rolls.marg.roll_r2_deception >= Global.roll_checks.marg.deception
-			Protag: Deception Check Passed
-		else
-			Protag: Deception Check Failed
-		
+	=> persuasion
 - Intimidation
-	if Global.margaret_intimidation
-	
-		Protag: Intimidation Double Route
-		if Global.werewolf == Global.Character.MARG
-			if Global.dice_rolls.marg.roll_r2_intimidation >= Global.roll_checks.marg.intimidation
-				Protag: Intimidation Double Route Check Passed (werewolf) 
-			else
-				Protag: Intimidation Double Route Check Failed (werewolf)
-		else 
-			if Global.dice_rolls.marg.roll_r2_intimidation >= Global.roll_checks.marg.intimidation
-				Protag: Intimidation Double Route Check Passed  
-			else
-				Protag: Intimidation Double Route Check Failed
-	else
-	
-		Protag: Intimidation Single Route
-		if Global.werewolf == Global.Character.MARG
-			if Global.dice_rolls.marg.roll_r2_intimidation >= Global.roll_checks.marg.intimidation
-				Protag: Intimidation Check Passed (werewolf) 
-			else
-				Protag: Intimidation Check Failed (werewolf)
-		else 
-			if Global.dice_rolls.marg.roll_r2_intimidation >= Global.roll_checks.marg.intimidation
-				Protag: Intimidation Check Passed  
-			else
-				Protag: Intimidation Check Failed
-				
-set Global.Marg_R2_Over = true
-set Global.Marg_R2_Ran = true
+	Protag: No doubt she wants to go home to her family. I could use that to my advantage. [#sprite=00]
+	Protag: Margaretaret. I know there’s some things you haven’t shared.  [#sprite=01]
+	Protag: I need your full cooperation for this investigation. You can’t withhold information from me. If you do, this investigation will never end. [#sprite=01]
+	Protag: I’ll have to keep all the suspects here until the case is solved. Who knows how long that will take? Weeks, maybe even a month. You won’t be able to go home. You won’t be able to see your family.   [#sprite=01]
+	Protag: You wouldn’t want that, would you? Tell me everything, and it won’t happen. [#sprite=03]
+	if Global.dice_rolls.marg.roll_r2 >= Global.roll_checks.marg.intimidation:
+		=> intimidation_succeed
+	else:
+		=> intimidation_fail
+- Deception
+	Protag: Maybe if I bluff, I’ll spook her into sharing more. [#sprite=00]
+	Protag: One of the other suspects, Alan, told me something very… interesting. Care to explain? [#sprite=01]
+	if Global.dice_rolls.marg.roll_r2 >= Global.roll_checks.marg.deception:
+		=> deception_succeed
+	else:
+		=> deception_fail
 
+
+=> end_dialogue
+
+~ persuasion
+if Global.double_routes.marg.persuasion:
+	Protag: Margaret said she spoke to Alan, right? I told her I wouldn’t ask, but as much as I don’t want to, this could be crucial. [#sprite=04]
+	Protag: I don’t think Margaretaret’s the culprit, but if Alan is, their conversation could uncover his schemes. [#sprite=04]
+	Protag: Margaretaret, I know you told me not to pry into your business, but I’m afraid this may be critical to the case. [#sprite=13]
+	Protag: I didn’t want to, really, but I’m out of other leads. What did you talk about with Alan? Given you’re both suspects in the case, I’m afraid I do need to know what’s going on. [#sprite=13]
+	Protag: Truly, know that I’m sorry for doing this to you and putting you in a stressful position. No matter what you say, this won’t be an admittance of guilt, I promise. Can you trust me? [#sprite=13]
+	
+	if Global.dice_rolls.marg.roll_r2 >= Global.roll_checks.marg.persuasion:
+		=> double_persuasion_succeed
+	else:
+		=> double_persuasion_fail
+else:
+	Protag: If I ask about the other suspects, it might reveal something inconsistent in someone’s story. [#sprite=04]
+	Protag: What do you know about the other suspects? Please tell me. Anything you know could be crucial. [#sprite=05]
+		
+	if Global.dice_rolls.marg.roll_r2 >= Global.roll_checks.marg.persuasion:
+		=> single_persuasion_succeed
+	else:
+		=> single_persuasion_fail
+=> end_dialogue
+
+~ double_persuasion_succeed
+Margaret: …Why? [#sprite=13]
+Margaret: You betrayed my trust, so…  [#sprite=13]
+Margaret: Why do I still want to believe you? [#sprite=10]
+Protag: You do? [#sprite=17]
+Margaret: I shouldn’t, I know I shouldn’t! You lied to me! [#sprite=09]
+Margaret: But even then, I can’t help but place my trust in you. [#sprite=07]
+Protag: [i]…I never expected her to be this honest. [/i] [#sprite=16]
+Protag: M-Margaret, thank you for your trust. I’ll make sure it isn’t misplaced. Can you please tell me what you and Alan were up to? [#sprite=15]
+Margaret: …Fine. [#sprite=09]
+Margaret: I visited my grandfather because- my-my father’s sick. My grandfather never approved of my mother marrying him, and disowned her when she did. We never had the most money, but we always made up for it by being happy. [#sprite=07]
+Margaret: T-that was, until we needed money to keep being happy. Lots of it. More than we’d ever seen before. [#sprite=07]
+Margaret: My mother tried to go talk to him, and took me along. I think she hoped seeing me would make him more sympathetic. It didn’t. [#sprite=07]
+Margaret: So, last night, I went back to argue with him. That didn’t work either. Things got… a little heated, and I ended up storming out of the house. [#sprite=07]
+Protag: Where does Alan fit into this? [#sprite=00]
+Margaret: He-he caught me, right before I left. Said some cryptic stuff about being able to… t-take care of my grandfather, with the right medicine. Make him more pliable, o-or if needed… get rid of him. [#sprite=07]
+Margaret: I-I wasn’t going to do it, I swear! But… well, I thought, we’re the only family he has left, so If something were to… happen to him, all his assets would go to us.  [#sprite=10]
+Margaret: I was considering it. Heavily. I told him I’d think about it, and took a bottle of the stuff, some heavy painkiller, to take home for my father. I thought, if I had to, I’d come back in a week or so and… slip some into his food, or something.  [#sprite=07]
+Margaret: But that never ended up happening, because he was dead the next day. [#sprite=07]
+Protag: [i]…It’s a suspicious set of circumstances, that’s for sure. Margaretaret and Alan plot to kill Douglass, and he ends up dead less than twelve hours later.[/i]  [#sprite=04]
+Protag: [i]Still, something tells me it isn’t her. She’s not a killer, just a scared girl caught in an unfortunate set of circumstances. [/i] [#sprite=12]
+Protag: Margaretaret… [#sprite=00]
+Margaret: [i]stares blankly at the table. She’s clearly lost in thought. [/i] [#sprite=13]
+Protag: [i] I lean over the table to gently pat her shoulder. I have to lean awkwardly over the table to reach, but the gentle motion seems to ground her. [/i] [#sprite=00]
+Protag: Thank you for trusting me with this information. I promise, I’ll find the killer and you can move on with your life. [#sprite=15]
+Protag: I hope your father gets better soon. [#sprite=15]
+Margaret: …Thanks. [#sprite=07]
+Protag: [i]Hopefully, with the money from Douglass, her father recovers. I don’t know if I’ll ever see her again after this. It’s kind of a shame, she was really growing on me. [/i] [#sprite=14]
+Protag: [i]The least I can do for her now is find the true killer. [/i] [#sprite=03]
+=> end_dialogue
+
+~ double_persuasion_fail
+Margaret: I hate people like you. [#sprite=13]
+Protag: Pardon? [#sprite=17]
+Margaret: [shake]You’re the worst type of person. You make promises, then pick and choose which ones you actually keep. [/shake] [#sprite=13]
+Margaret: [shake]You’re a filthy, low-down, scum-of-the-earth liar. [/shake] [#sprite=13]
+Protag: Margaretaret, I’m sorry- [#sprite=13]
+Margaret: [shake]Sorry doesn’t cut it! [/shake] You made me think I could trust you! [#sprite=12]
+Margaret: Get out of my sight. I don’t want to see you ever again.  [#sprite=12]
+Protag: Margaret- [#sprite=13]
+Margaret: Get my name out of your filthy mouth, too. [#sprite=12]
+Protag: … [#sprite=12]
+Protag: [i]I never wanted this to happen. I just wanted to do my job. [/i] [#sprite=12]
+Protag: [i]I thought I was doing the right thing, trying to solve the case. But now… [/i] [#sprite=12]
+Protag: I’m sorry. Goodbye, Margaretaret. [#sprite=13]
+=> end_dialogue
+
+
+
+~ single_persuasion_succeed
+Margaret: Who are they, again? [#sprite=03]
+Protag: [i]At least she seems receptive. [/i] [#sprite=00]
+Protag: [i]I quickly brought Margaret up to speed on the other suspects.[/i] [#sprite=00]
+Margaret: Quite a cast of characters you’ve got, huh? [#sprite=01]
+Margaret: I know Alan. He was there yesterday when I was visiting my grandfather. He checks up on him every day for a few hours, then goes back to doing… nurse things, I guess. [#sprite=03]
+Margaret: Selene, though… I’ve heard rumors about some shady stuff happening around town. People showing up to homes late at night, making demands. If they don’t follow through, those people usually end up missing, or worse.  [#sprite=04]
+Margaret: Sounds like a match for what happened with Selene. Showing up to my grandfather’s house like that… knowing him, he refused any demands she made. That’s probably why he ended up dead. [#sprite=02]
+Protag: Perhaps, but it’s too soon to be sure. Selene could very well be innocent. [#sprite=05]
+Margaret: Sure, the same way my grandfather could be a good person. [#sprite=02]
+Margaret: As for Theodore, I’ve never heard of him. Just some random college kid. I suppose my grandfather liked hoarding artifacts, which might appeal to an archaeology student, though.  [#sprite=03]
+Margaret: That’s all I know about them. The only one I’ve met is Alan, and I haven’t even heard of Theodore. Happy now? [#sprite=02]
+Protag: Yes. Thank you for your help. [#sprite=03]
+Protag: [i]About as much information as I could’ve hoped for. Margaretaret wouldn’t know them that well, it’s not like she colluded with any of the other suspects or anything. [/i] [#sprite=00]
+Protag: [i]Still, any information is better than no information. [/i] [#sprite=00]
+=> end_dialogue
+
+~ single_persuasion_fail
+Margaret: It’s always uncertainties with you, isn’t it? Anything I could say ‘might’ help. Anyone ‘could’ be the culprit. Are you ever sure of anything? [#sprite=09]
+Protag: Of course I am. What does this have to do with answering my question, though? [#sprite=09]
+Margaret: I have no intention of cooperating with a wishy-washy loser like you, that’s what. [#sprite=02]
+Protag: [shake]Seriously?[/shake] That’s it? You’re not going to tell me anything because you don’t feel like it? [#sprite=09]
+Margaret: Yup. [#sprite=02]
+Protag: You- [#sprite=10]
+Protag: God, you’re such a little brat. [#sprite=09]
+Protag: [i]I can’t deal with her anymore. She’s a lost cause. [/i] [#sprite=08]
+Protag: [i]I’m getting out of here while my blood pressure is still normal. [/i] [#sprite=08]
+=> end_dialogue
+
+
+
+~ intimidation_succeed
+Margaret: Y-you can’t keep me here! [#sprite=06]
+Protag: I very much can. We can’t have our suspects running off.  [#sprite=01]
+Margaret: I-I get visitation, right? [#sprite=10]
+Protag: You can get your visitation after you tell me everything you know. Until then, I might just keep you in here. [#sprite=01]
+Margaret: I’ve already told you everything I know! [#sprite=06]
+Protag: No you haven’t! You say you have, but your word means nothing! [#sprite=09]
+Margaret: What do you want from me?! I’m not lying! [#sprite=06]
+Protag: Do you take me for a fool?! I know you haven’t!  [#sprite=10]
+Protag: [i]I lean forward to look Margaretaret in the eyes. [/i] [#sprite=00]
+Protag: If you want to go back to your family, you’re going to tell me everything you know, right now. [#sprite=09]
+Margaret: F-fine! I’ll tell you. [#sprite=11]
+Protag: Good. [#sprite=01]
+Margaret: I don’t- I don’t know that much about any of them except for Alan. He, um… he said something yesterday about being able to kill my grandfather. [#sprite=07]
+Protag: And what did you say? [#sprite=01]
+Margaret: I-I didn’t want anything to do with him, obviously. I didn’t tell him anything. [#sprite=07]
+Protag: Do you really think I believe that? Stop trying to lie to me. What did you say? [#sprite=00]
+Margaret: Why don’t you believe me? It’s the truth! [#sprite=11]
+Protag: Do you take me for a fool? Tell me the truth!  [#sprite=00]
+Margaret: I- [#sprite=11]
+Protag: Spit it out! [#sprite=11]
+Margaret: I told him I’d think about it, okay?! But I never did anything! I didn’t kill him, I swear! [#sprite=11]
+Margaret: [shake]P-please believe me… [/shake] [#sprite=11]
+Protag: … [#sprite=08]
+Protag: [i]I don’t believe her for a second. I don’t think she’s going to share anything more, though. [/i] [#sprite=08]
+=> end_dialogue
+
+~ intimidation_fail
+Margaret: If you’re so worried about solving this case, go ask the others. I don’t have anything to tell you.  [#sprite=02]
+Protag: Are you sure about that? You’re willing to risk being stuck here? [#sprite=01]
+Margaret: I’d rather be locked up than have to talk to you any longer. [#sprite=02]
+Protag: That can be arranged. [#sprite=09]
+Margaret: Sure, if you say so. [#sprite=01]
+Protag: [i]God, she’s insufferable. It’s impossible to deal with her. This isn’t going to work. [/i] [#sprite=08]
+=> end_dialogue
+
+
+~ deception_succeed
+Margaret: …I don’t know what you’re talking about.  [#sprite=05]
+Protag: Really? Alan seemed to think differently. Apparently you guys know each other quite a bit better than you let on. [#sprite=02]
+Margaret: Hardly. We’ve only ever spoken once. [#sprite=02]
+Protag: Yes, but that one time, you had quite the interesting discussion, didn’t you? [#sprite=03]
+Margaret: It’s none of your business. [#sprite=02]
+Protag: You’re both suspects in a murder, of course it’s my business. So tell me, what did you two talk about? [#sprite=05]
+Margaret: I-I had nothing to do with it, okay? It’s not my fault he’s a shady bastard. [#sprite=09]
+Protag: What do you mean by that? [#sprite=05]
+Margaret: He’s [wave]creepy[/wave]. Always going on about the human body and how it works and stuff… [#sprite=06]
+Protag: …He’s a nurse. That’s his job. [#sprite=05]
+Margaret: Not in a normal way, though. I swear he’s some sort of psycho doctor who steals organs or something. [#sprite=06]
+Protag: …He’s a nurse. Not a doctor. [#sprite=01]
+Margaret: Shut up. [#sprite=09]
+Margaret: Point is, he’s weird and can’t be trusted. I don’t know what he told you, but it definitely wasn’t the truth. I bet he left out how he threatened to kill my grandfather. [#sprite=06]
+Protag: ! [#sprite=06]
+Margaret: He talked to me before I left, yesterday. Said there were tons of medicines with an extremely low fatal dose- ones that would be easy to slip to people. Said he could “take care” of my grandfather. [#sprite=02]
+Protag: What did you say? [#sprite=06]
+Margaret: Told him to get lost, duh. He’s a psycho, I’m not gonna listen to him. I bet he’s the one that killed my grandfather. [#sprite=06]
+Protag: I see. Thank you for telling me this, Margaretaret. I’ll look into this. [#sprite=05]
+Protag: [i]So Alan was plotting something, huh? Good to know my bluff paid off. I’m not sure Margaretaret’s as uninvolved as she claims, but it’s good intel nonetheless. [/i][#sprite=04]
+=> end_dialogue
+
+~ deception_fail
+Margaret: Explain what? [#sprite=03]
+Protag: Oh, you know… some interesting stuff.  [#sprite=01]
+Margaret: Like what? [#sprite=03]
+Protag: [i]…Crap. She’s calling my bluff.[/i] [#sprite=08]
+Protag: Did you not have quite an interesting conversation yesterday? [#sprite=01]
+Margaret: If small talk is your definition of interesting, I shudder to think what you find dull. [#sprite=02]
+Protag: I’d say it was a lot more than just “small talk.” [#sprite=09]
+Margaret: I don’t know what you’re talking about. If you’re gonna make stuff up, at least make it convincing. [#sprite=02]
+Protag: [i]Did I miscalculate? Maybe she didn’t talk with Alan after all. [/i] [#sprite=08]
+Protag: [i]At this point, I should probably leave, just to save face. It’s embarrassing to get caught in a lie like that. [/i] [#sprite=12]
+=> end_dialogue
+
+
+
+~ end_dialogue
+set Global.round_overs.r2.over = true
+set Global.round_overs.r2.ran = true
 => END
