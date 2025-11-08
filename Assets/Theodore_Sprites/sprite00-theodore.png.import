@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7ki4thwl2ih2"
-path="res://.godot/imported/sprite00-theodore.png-01d84b6f90f2f9cbbaa1a7b409c13e17.ctex"
+path="res://.godot/imported/sprite00-theodore.png-d9ded28d52c8c8758debde648e7c2e80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Theodore_Sprites/sprite00-theodore.png"
-dest_files=["res://.godot/imported/sprite00-theodore.png-01d84b6f90f2f9cbbaa1a7b409c13e17.ctex"]
+source_file="res://Assets/Theodore_Sprites/sprite00-theodore.png"
+dest_files=["res://.godot/imported/sprite00-theodore.png-d9ded28d52c8c8758debde648e7c2e80.ctex"]
 
 [params]
 

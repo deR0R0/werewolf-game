@@ -664,7 +664,8 @@ func _get_game_states(extra_game_states: Array) -> Array:
 
 # Check if a condition is met
 func _check_condition(data: Dictionary, extra_game_states: Array) -> bool:
-	return bool(await _resolve_condition_value(data, extra_game_states))
+	var value = await _resolve_condition_value(data, extra_game_states)
+	return bool(value) if typeof(value) in [TYPE_BOOL, TYPE_INT, TYPE_FLOAT] else !!value
 
 
 # Resolve a condition's expression value

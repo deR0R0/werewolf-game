@@ -5,13 +5,13 @@ Portag: Anotha one [#sprite=00]
 	set Global.theodore_persuasion = true
 	if Global.werewolf == Global.Character.THEO
 		Protag: Persuasion Introduction
-		if Global.theo_roll_r1 >= Global.roll_checks.theo.persuasion
+		if Global.dice_rolls.theo.roll_r1_persuasion >= Global.roll_checks.theo.persuasion
 			Protag: Persuasion Check Passed (Werewolf)
 		else
 			Protag: Persuasion Check Failed (Werewolf)
 	else
 		Protag: Persuasion Introduction
-		if Global.theo_roll_r1 >= Global.roll_checks.theo.persuasion
+		if Global.dice_rolls.theo.roll_r1_persuasion >= Global.roll_checks.theo.persuasion
 			Protag: Persuasion Check Passed
 		else
 			Protag: Persuasion Check Failed 
@@ -20,13 +20,13 @@ Portag: Anotha one [#sprite=00]
 - Deception
 	if Global.werewolf == Global.Character.THEO
 		Protag: Deception Introduction
-		if Global.theo_roll_r1 >= Global.roll_checks.theo.deception
+		if Global.dice_rolls.theo.roll_r1_deception >= Global.roll_checks.theo.deception
 			Protag: Deception Check Passed (Werewolf)
 		else
 			Protag: Deception Check Failed (Werewolf)
 	else
 		Protag: Deception Introduction
-		if Global.theo_roll_r1 >= Global.roll_checks.theo.deception
+		if Global.dice_rolls.theo.roll_r1_deception >= Global.roll_checks.theo.deception
 			Protag: Deception Check Passed
 		else
 			Protag: Deception Check Failed
@@ -36,13 +36,13 @@ Portag: Anotha one [#sprite=00]
 	set Global.theodore_intimidation  = true
 	if Global.werewolf == Global.Character.THEO
 		Protag: Intimidation Introduction
-		if Global.theo_roll_r1 >= Global.roll_checks.theo.intimidation
+		if Global.dice_rolls.theo.roll_r1_intimidation >= Global.roll_checks.theo.intimidation
 			Protag: Intimidation Check Passed (Werewolf)
 		else
 			Protag: Intimidation Check Failed (Werewolf)
 	else	
 		Protag: Intimidation Introduction
-		if Global.theo_roll_r1 >= Global.roll_checks.theo.intimidation
+		if Global.dice_rolls.theo.roll_r1_intimidation >= Global.roll_checks.theo.intimidation
 			Protag: Intimidation Check Passed
 		else
 			Protag: Intimidation Check Failed

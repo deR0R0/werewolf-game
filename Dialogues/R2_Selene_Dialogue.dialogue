@@ -5,12 +5,12 @@ Protag: Round 2 of Interrogation
 	
 		Protag: Persuasion Double Route
 		if Global.werewolf == Global.Character.SELE
-			if Global.sele_roll_r2 >= Global.roll_checks.sele.persuasion
+			if Global.dice_rolls.sele.roll_r2_persuasion >= Global.roll_checks.sele.persuasion
 				Protag: Persuasion Double Route Check Passed (Werewolf)
 			else
 				Protag: Persuasion Double Route Check Failed (Werewolf)
 		else
-			if Global.sele_roll_r2 >= Global.roll_checks.sele.persuasion
+			if Global.dice_rolls.sele.roll_r2_persuasion >= Global.roll_checks.sele.persuasion
 				Protag: Persuasion Double Route Check Passed 
 			else
 				Protag: Persuasion Double Route Check Failed
@@ -18,12 +18,12 @@ Protag: Round 2 of Interrogation
 
 		Protag: Persuasion Single Route
 		if Global.werewolf == Global.Character.SELE
-			if Global.sele_roll_r2 >= Global.roll_checks.sele.persuasion
+			if Global.dice_rolls.sele.roll_r2_persuasion >= Global.roll_checks.sele.persuasion
 				Protag: Persuasion Check Passed (Werewolf)
 			else
 				Protag: Persuasion Check Failed (Werewolf)
 		else
-			if Global.sele_roll_r2 >= Global.roll_checks.sele.persuasion
+			if Global.dice_rolls.sele.roll_r2_persuasion >= Global.roll_checks.sele.persuasion
 				Protag: Persuasion Check Passed 
 			else
 				Protag: Persuasion Check Failed
@@ -33,12 +33,12 @@ Protag: Round 2 of Interrogation
 - Deception
 	Protag: Deception Route
 	if Global.werewolf == Global.Character.SELE
-		if Global.sele_roll_r2 >= Global.roll_checks.sele.deception
+		if Global.dice_rolls.sele.roll_r2_deception >= Global.roll_checks.sele.deception
 			Protag: Deception Check Passed (Werewolf)
 		else
 			Protag: Deception Check Failed (Werewolf)
 	else
-		if Global.sele_roll_r2 >= Global.roll_checks.sele.deception
+		if Global.dice_rolls.sele.roll_r2_deception >= Global.roll_checks.sele.deception
 			Protag: Deception Check Passed
 		else
 			Protag: Deception Check Failed
@@ -48,12 +48,12 @@ Protag: Round 2 of Interrogation
 	
 		Protag: Intimidation Double Route
 		if Global.werewolf == Global.Character.SELE
-			if Global.sele_roll_r2 >= Global.roll_checks.sele.intimidation
+			if Global.dice_rolls.sele.roll_r2_intimidation >= Global.roll_checks.sele.intimidation
 				Protag: Intimidation Double Route Check Passed (werewolf) 
 			else
 				Protag: Intimidation Double Route Check Failed (werewolf)
 		else 
-			if Global.sele_roll_r2 >= Global.roll_checks.sele.intimidation
+			if Global.dice_rolls.sele.roll_r2_intimidation >= Global.roll_checks.sele.intimidation
 				Protag: Intimidation Double Route Check Passed  
 			else
 				Protag: Intimidation Double Route Check Failed
@@ -61,12 +61,12 @@ Protag: Round 2 of Interrogation
 	
 		Protag: Intimidation Single Route
 		if Global.werewolf == Global.Character.SELE
-			if Global.sele_roll_r2 >= Global.roll_checks.sele.intimidation
+			if Global.dice_rolls.sele.roll_r2_intimidation >= Global.roll_checks.sele.intimidation
 				Protag: Intimidation Check Passed (werewolf) 
 			else
 				Protag: Intimidation Check Failed (werewolf)
 		else 
-			if Global.sele_roll_r2 >= Global.roll_checks.sele.intimidation
+			if Global.dice_rolls.sele.roll_r2_intimidation >= Global.roll_checks.sele.intimidation
 				Protag: Intimidation Check Passed  
 			else
 				Protag: Intimidation Check Failed

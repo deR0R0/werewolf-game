@@ -17,6 +17,18 @@ func _ready() -> void:
 		# Assign it to the mask
 		texture_click_mask = bitmap
 
+	if Global.Marg_R1_Over and !Global.intermission_switched_into:
+		visible = false
+		Shadow.visible = false
+
+	if Global.intermission_switched_into and !Global.interrogation_one_triggered:
+		visible = true
+		Shadow.visible = true
+
+	if Global.Marg_R2_Over:
+		visible = false
+		Shadow.visible = false
+		print("marg dissapeared but round 2")
 
 func _on_mouse_entered():
 	z_index = 10
@@ -32,7 +44,4 @@ func _on_button_down():
 	get_tree().change_scene_to_file("res://Scenes/Game_Scene.tscn")
 	
 func _process(_delta):
-	if Global.Marg_R1_Over:
-		Global.Marg_R1_Over = false
-		visible = false
-		Shadow.visible = false
+	pass

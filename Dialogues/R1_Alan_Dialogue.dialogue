@@ -5,28 +5,30 @@ Portag: Anotha one [#sprite=00]
 	set Global.alan_persuasion = true
 	if Global.werewolf == Global.Character.ALAN
 		Protag: Persuasion Introduction
-		if Global.alan_roll_r1 >= Global.roll_checks.alan.persuasion
+		if Global.dice_rolls.alan.roll_r1_persuasion >= Global.roll_checks.alan.persuasion
 			Protag: Persuasion Check Passed (Werewolf)
 		else
 			Protag: Persuasion Check Failed (Werewolf)
+			Protag: {{Global.dice_rolls.alan.roll_r1_persuasion}} is greater than {{Global.roll_checks.alan.persuasion}}
 	else
 		Protag: Persuasion Introduction
-		if Global.alan_roll_r1 >= Global.roll_checks.alan.persuasion
+		if Global.dice_rolls.alan.roll_r1_persuasion >= Global.roll_checks.alan.persuasion
 			Protag: Persuasion Check Passed
+			Protag: {{Global.dice_rolls.alan.roll_r1_persuasion}} is greater than {{Global.roll_checks.alan.persuasion}}
 		else
 			Protag: Persuasion Check Failed 
-			
+			Protag: {{Global.dice_rolls.alan.roll_r1_persuasion}} is less than {{Global.roll_checks.alan.persuasion}}
 			
 - Deception
 	if Global.werewolf == Global.Character.ALAN
 		Protag: Deception Introduction
-		if Global.alan_roll_r1 >= Global.roll_checks.alan.deception
+		if Global.dice_rolls.alan.roll_r1_deception >= Global.roll_checks.alan.deception
 			Protag: Deception Check Passed (Werewolf)
 		else
 			Protag: Deception Check Failed (Werewolf)
 	else
 		Protag: Deception Introduction
-		if Global.alan_roll_r1 >= Global.roll_checks.alan.deception
+		if Global.dice_rolls.alan.roll_r1_deception >= Global.roll_checks.alan.deception
 			Protag: Deception Check Passed
 		else
 			Protag: Deception Check Failed
@@ -36,13 +38,13 @@ Portag: Anotha one [#sprite=00]
 	set Global.alan_intimidation  = true
 	if Global.werewolf == Global.Character.ALAN
 		Protag: Intimidation Introduction
-		if Global.alan_roll_r1 >= Global.roll_checks.alan.intimidation
+		if Global.dice_rolls.alan.roll_r1_intimidation >= Global.roll_checks.alan.intimidation
 			Protag: Intimidation Check Passed (Werewolf)
 		else
 			Protag: Intimidation Check Failed (Werewolf)
 	else	
 		Protag: Intimidation Introduction
-		if Global.alan_roll_r1 >= Global.roll_checks.alan.intimidation
+		if Global.dice_rolls.alan.roll_r1_intimidation >= Global.roll_checks.alan.intimidation
 			Protag: Intimidation Check Passed
 		else
 			Protag: Intimidation Check Failed

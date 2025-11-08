@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv4ggpdjgsigr"]
+
+[ext_resource type="Script" uid="uid://civaxr8nhnflh" path="res://Scripts/stat_allocation.gd" id="1_kttnv"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_kttnv")
+
+[node name="PersuasionUp" type="Button" parent="."]
+offset_left = 63.0
+offset_top = 64.0
+offset_right = 321.0
+offset_bottom = 192.0
+text = "persuasion up"
+
+[node name="PersuasionDown" type="Button" parent="."]
+offset_left = 78.0
+offset_top = 245.0
+offset_right = 303.0
+offset_bottom = 428.0
+text = "persuasion down"
+
+[node name="DeceptionUp" type="Button" parent="."]
+offset_left = 427.0
+offset_top = 32.0
+offset_right = 617.0
+offset_bottom = 217.0
+text = "deception up"
+
+[node name="DeceptionDown" type="Button" parent="."]
+offset_left = 425.0
+offset_top = 245.0
+offset_right = 641.0
+offset_bottom = 467.0
+text = "deception down"
+
+[node name="IntimidationUp" type="Button" parent="."]
+offset_left = 803.0
+offset_top = 68.0
+offset_right = 992.0
+offset_bottom = 217.0
+text = "intimidation up"
+
+[node name="IntimidationDown" type="Button" parent="."]
+offset_left = 754.0
+offset_top = 269.0
+offset_right = 1034.0
+offset_bottom = 447.0
+text = "intimidation down"
+
+[node name="Continue" type="Button" parent="."]
+offset_left = 346.0
+offset_top = 483.0
+offset_right = 699.0
+offset_bottom = 627.0
+
+[connection signal="button_down" from="PersuasionUp" to="." method="_on_persuasion_up_button_down"]
+[connection signal="button_down" from="PersuasionDown" to="." method="_on_persuasion_down_button_down"]
+[connection signal="button_down" from="DeceptionUp" to="." method="_on_deception_up_button_down"]
+[connection signal="button_down" from="DeceptionDown" to="." method="_on_deception_down_button_down"]
+[connection signal="button_down" from="IntimidationUp" to="." method="_on_intimidation_up_button_down"]
+[connection signal="button_down" from="IntimidationDown" to="." method="_on_intimidation_down_button_down"]
+[connection signal="button_down" from="Continue" to="." method="_on_continue_button_down"]
