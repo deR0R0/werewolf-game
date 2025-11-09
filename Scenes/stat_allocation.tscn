@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cv4ggpdjgsigr"]
+[gd_scene load_steps=16 format=3 uid="uid://cv4ggpdjgsigr"]
 
 [ext_resource type="Script" uid="uid://civaxr8nhnflh" path="res://Scripts/stat_allocation.gd" id="1_kttnv"]
 [ext_resource type="Texture2D" uid="uid://bpu0xqqnuxje8" path="res://Assets/Stat_Allocation/bg.png" id="2_eppps"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://6usg0nqo500y" path="res://Assets/Stat_Allocation/plus.png" id="4_n6p2l"]
 [ext_resource type="Texture2D" uid="uid://bd62dl3fifag1" path="res://Assets/Stat_Allocation/plus-highlighted.png" id="5_3fqnn"]
 [ext_resource type="Texture2D" uid="uid://gk3o0x1300rc" path="res://Assets/Stat_Allocation/minus-highlighted.png" id="7_fnq2m"]
+[ext_resource type="Texture2D" uid="uid://88feh4ykcjkj" path="res://Assets/Stat_Allocation/next.png" id="8_8jmvg"]
+[ext_resource type="Texture2D" uid="uid://c5omtuie071sn" path="res://Assets/Stat_Allocation/next-highlighted.png" id="9_gl1hm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3xlea"]
 atlas = ExtResource("4_n6p2l")
@@ -23,6 +25,14 @@ region = Rect2(1680, 590, 221, 167)
 [sub_resource type="AtlasTexture" id="AtlasTexture_8jmvg"]
 atlas = ExtResource("7_fnq2m")
 region = Rect2(1680, 590, 221, 167)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl1hm"]
+atlas = ExtResource("8_8jmvg")
+region = Rect2(3495.105, 1851.982, 330, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66u62"]
+atlas = ExtResource("9_gl1hm")
+region = Rect2(3495.105, 1851.982, 330, 300)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_kttnv")
@@ -149,12 +159,34 @@ texture_normal = SubResource("AtlasTexture_n6p2l")
 texture_pressed = SubResource("AtlasTexture_8jmvg")
 texture_hover = SubResource("AtlasTexture_8jmvg")
 
-[node name="Continue" type="Button" parent="."]
+[node name="NextButton" type="TextureButton" parent="."]
+offset_left = 1051.65
+offset_top = 562.0
+offset_right = 1381.65
+offset_bottom = 862.0
+scale = Vector2(0.3, 0.3)
+texture_normal = SubResource("AtlasTexture_gl1hm")
+texture_pressed = SubResource("AtlasTexture_66u62")
+texture_hover = SubResource("AtlasTexture_66u62")
+
+[node name="WarningLabel" type="Label" parent="."]
 visible = false
-offset_left = 346.0
-offset_top = 483.0
-offset_right = 699.0
-offset_bottom = 627.0
+offset_left = 50.67
+offset_top = 592.09
+offset_right = 1026.67
+offset_bottom = 624.09
+theme_override_colors/font_color = Color(0.17254902, 0.13725491, 0.24313726, 1)
+theme_override_font_sizes/font_size = 23
+text = "⚠️ Wait! You still have points you can use! If you wish to continue, click the button again."
+
+[node name="RemainingPoints" type="Label" parent="."]
+offset_left = 504.0
+offset_top = 525.0
+offset_right = 691.0001
+offset_bottom = 552.0001
+theme_override_colors/font_color = Color(0.16862746, 0.13725491, 0.23921569, 1)
+theme_override_font_sizes/font_size = 19
+text = "Remaining Points: %"
 
 [connection signal="pressed" from="PersuasionBar/Increase" to="." method="_on_persuasion_increase_pressed"]
 [connection signal="pressed" from="PersuasionBar/Decrease" to="." method="_on_persuasion_decrease_pressed"]
@@ -162,4 +194,4 @@ offset_bottom = 627.0
 [connection signal="pressed" from="IntimidationBar/Decrease" to="." method="_on_intimidation_decrease_pressed"]
 [connection signal="pressed" from="DeceptionBar/Increase" to="." method="_on_deception_increase_pressed"]
 [connection signal="pressed" from="DeceptionBar/Decrease" to="." method="_on_deception_decrease_pressed"]
-[connection signal="button_down" from="Continue" to="." method="_on_continue_button_down"]
+[connection signal="button_down" from="NextButton" to="." method="_on_continue_button_down"]
