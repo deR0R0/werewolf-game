@@ -15,6 +15,7 @@ var CURRENTROUND = 1
 # Current person you are talking to
 
 var CurrentSuspect = ""
+var PlayerSuspect = ""
 
 # Are the rounds over?
 

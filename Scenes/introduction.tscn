@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpxr005itn8e6"]
+
+[ext_resource type="Texture2D" uid="uid://c1fab6g7onkdj" path="res://Assets/introduction/introcgs-door.png" id="1_3yww6"]
+[ext_resource type="Script" uid="uid://c011fqv401h3c" path="res://scripts/introduction.gd" id="1_46kw3"]
+[ext_resource type="Texture2D" uid="uid://byblucpni3psv" path="res://Assets/introduction/introcgs-protag.png" id="3_gko15"]
+
+[sub_resource type="Gradient" id="Gradient_46kw3"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gko15"]
+gradient = SubResource("Gradient_46kw3")
+
+[node name="Introduction" type="Node2D"]
+script = ExtResource("1_46kw3")
+
+[node name="PROGRAMMERNOTE" type="Label" parent="."]
+offset_left = 3.0
+offset_top = -30.0
+offset_right = 821.0
+offset_bottom = -7.0
+text = "PROGRAMMER NOTE: THIS SCENE IS NOT SHOWN FIRST, IT NEEDS TO BE HERE SO I CAN SET THE OPACITY!!!"
+
+[node name="BlackBackground" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(18, 10.2)
+texture = SubResource("GradientTexture2D_gko15")
+
+[node name="DoorScene" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_3yww6")
+
+[node name="Lineup" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.3, 0.3)
+
+[node name="Protag" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_gko15")
+
+[node name="LoreText" type="RichTextLabel" parent="."]
+offset_left = 360.0
+offset_top = 270.0
+offset_right = 858.0
+offset_bottom = 465.0
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+bbcode_enabled = true
+text = "Loren ipsum dolors balls"
+horizontal_alignment = 1

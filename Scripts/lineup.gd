@@ -6,10 +6,10 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if Global.CURRENTROUND < 3:
-		round_label = "Interrogation Round: " + str(Global.CURRENTROUND)
+		round_label.text = "Interrogation Round: " + str(Global.CURRENTROUND)
 	else:
-		round_label = "Decision Round"
-		instruction_label = "Choose who you think the werewolf is..."
+		round_label.text = "Decision Round"
+		instruction_label.text = "Choose who you think the werewolf is..."
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

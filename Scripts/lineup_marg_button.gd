@@ -40,8 +40,10 @@ func _on_mouse_exited():
 
 func _on_button_down():
 	Global.CurrentSuspect = "Margaret"
-	print(Global.CurrentSuspect)
-	get_tree().change_scene_to_file("res://Scenes/Game_Scene.tscn")
+	if Global.CURRENTROUND >= 3:
+		Global.PlayerSuspect = "Margaret"
+	else:
+		get_tree().change_scene_to_file("res://Scenes/Game_Scene.tscn")
 	
 func _process(_delta):
 	pass

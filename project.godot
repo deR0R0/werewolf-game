@@ -31,7 +31,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogues/R1_Margaret_Dialogue.dialogue", "res://Dialogues/R2_Margaret_Dialogue.dialogue", "res://Dialogues/R1_Theodore_Dialogue.dialogue", "res://Dialogues/R2_Theodore_Dialogue.dialogue", "res://Dialogues/R2_Alan_Dialogue.dialogue", "res://Dialogues/R1_Alan_Dialogue.dialogue", "res://Dialogues/R1_Selene_Dialogue.dialogue", "res://Dialogues/R2_Selene_Dialogue.dialogue", "res://Dialogues/debug.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogues/R1_Margaret_Dialogue.dialogue", "res://Dialogues/R2_Margaret_Dialogue.dialogue", "res://Dialogues/R1_Theodore_Dialogue.dialogue", "res://Dialogues/R2_Theodore_Dialogue.dialogue", "res://Dialogues/R2_Alan_Dialogue.dialogue", "res://Dialogues/R1_Alan_Dialogue.dialogue", "res://Dialogues/R1_Selene_Dialogue.dialogue", "res://Dialogues/R2_Selene_Dialogue.dialogue", "res://Dialogues/debug.dialogue", "res://Dialogues/debug_r2.dialogue")
 
 [rendering]
 

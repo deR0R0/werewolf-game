@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://dk6hp08y53y8q"]
 
-[ext_resource type="Script" uid="uid://dx1tbwh8ckorc" path="res://scripts/lineup.gd" id="1_7ouk3"]
+[ext_resource type="Script" uid="uid://dx1tbwh8ckorc" path="res://Scripts/lineup.gd" id="1_7ouk3"]
 [ext_resource type="Texture2D" uid="uid://dnyr812kuu3ks" path="res://Assets/Lineup/lineup-bg.png" id="1_s7xo7"]
 [ext_resource type="Texture2D" uid="uid://dlgfmhn6fbroc" path="res://Assets/Lineup/Lineup_Characters/lineup-selene.png" id="2_0l2dn"]
 [ext_resource type="Texture2D" uid="uid://u1hs4a8l4nyg" path="res://Assets/Lineup/Lineup_Characters/lineup-theo.png" id="3_8x1ri"]
