@@ -5,24 +5,22 @@ extends Node2D
 
 # preload all songs
 var music_list = {
-	"main_menu": preload("res://assets/Sounds/Intro.wav"),
-	"interrogation": preload("res://assets/Sounds/interrogation_track.mp3")
+	"main_menu": preload("res://Assets/Sounds/main_menu_theme.wav"),
+	"interrogation": preload("res://Assets/Sounds/interrogation_theme.mp3"),
+	"cutscene": preload("res://Assets/Sounds/cutscene_theme.mp3"),
+	"dramatic": preload("res://Assets/Sounds/dramatic_theme.mp3")
 }
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	audio_player.connect("finished", Callable(self, "_on_music_finish").bind(audio_player))
 	play_music("main_menu")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-	
-func _on_music_finish() -> void:
-	audio_player.stream_paused = false
-	audio_player.play()
+	if !audio_player.playing:
+		audio_player.play()
 	
 func stop_music() -> void:
 	if audio_player.is_playing():

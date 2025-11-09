@@ -8,7 +8,8 @@ extends Node2D
 var current_lineup = 0
 
 func _ready() -> void:
-	Engine.time_scale = 5
+	# change audio
+	GlobalMusicPlayer.play_music("cutscene")
 	# immediately set the opacity of the door scene to 0
 	door_scene.self_modulate.a = 0
 	protag.self_modulate.a = 0
@@ -105,4 +106,5 @@ func _animations():
 	tween.tween_property(text, "self_modulate:a", 1, 2)
 	# change scene
 	await tween.finished
+	Engine.time_scale = 1
 	get_tree().change_scene_to_file("res://Scenes/Lineup.tscn")

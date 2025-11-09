@@ -5,6 +5,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GlobalMusicPlayer.play_music("interrogation")
 	if Global.CURRENTROUND < 3:
 		round_label.text = "Interrogation Round: " + str(Global.CURRENTROUND)
 	else:
