@@ -4,6 +4,7 @@ extends Node2D
 @onready var lineup = $Lineup
 @onready var protag = $Protag
 @onready var text = $LoreText
+@onready var ff_label = $FFLabel
 
 var current_lineup = 0
 
@@ -17,6 +18,15 @@ func _ready() -> void:
 	_animations()
 	# then start the lore text...
 	_text()
+	
+	
+func _process(delta):
+	if Input.is_action_pressed("SpeedForward"):
+		Engine.time_scale = 2
+		ff_label.visible = true
+	else:
+		Engine.time_scale = 1
+		ff_label.visible = false
 	
 	
 func _change_lineup_texture():

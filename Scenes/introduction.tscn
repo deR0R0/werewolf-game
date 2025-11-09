@@ -52,3 +52,14 @@ theme_override_font_sizes/mono_font_size = 20
 bbcode_enabled = true
 text = "Loren ipsum dolors balls"
 horizontal_alignment = 1
+
+[node name="FFLabel" type="Label" parent="."]
+offset_left = 5.0
+offset_top = 624.0
+offset_right = 128.0
+offset_bottom = 647.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 20
+text = "Fast Forward >>"
