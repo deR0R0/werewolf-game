@@ -1,0 +1,10 @@
+~ start
+set Global.round_overs.r1.marg.over = true
+set Global.round_overs.r1.marg.ran = true
+set Global.round_overs.r1.alan.over = true
+set Global.round_overs.r1.alan.ran = true
+set Global.round_overs.r1.sele.over = true
+set Global.round_overs.r1.sele.ran = true
+set Global.round_overs.r1.theo.over = true
+set Global.round_overs.r1.theo.ran = true
+=> END

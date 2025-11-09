@@ -8,6 +8,10 @@ enum Character {
 	THEO       # theo = 4
 }
 
+# current round
+
+var CURRENTROUND = 1
+
 # Current person you are talking to
 
 var CurrentSuspect = ""
@@ -122,6 +126,8 @@ var allocatable_points = 9
 
 var Stats_selected = false
 
+var stats_completely_selected = false
+
 # Dice Rolling
 var dice_rolls = {
 	"marg": {
@@ -163,7 +169,6 @@ var dice_rolls = {
 }
 
 func _process(_delta):
-	
 	if Stats_selected == true:
 		print("stats go wheee")
 		print(Global.dice_rolls.theo.roll_r1_persuasion)
@@ -199,7 +204,8 @@ func _process(_delta):
 		Global.dice_rolls.sele.roll_r2_intimidation += intimidation_stat
 		Global.dice_rolls.theo.roll_r2_intimidation += intimidation_stat
 		
-		Global.Stats_selected = false
+		Stats_selected = false
+
 		
 	
 	# more elegant way to check for whether their interrogation is done	
@@ -212,6 +218,7 @@ func _process(_delta):
 	if round_overs.r1.marg.over and round_overs.r1.alan.over and round_overs.r1.sele.over and round_overs.r1.theo.over and !intermission_switched_into:
 		intermission_switched_into = true
 		print(intermission_switched_into)
+		CURRENTROUND += 1
 		get_tree().change_scene_to_file("res://scenes/intermission.tscn")
 		
 	elif round_overs.r1.marg.over and round_overs.r1.alan.over and round_overs.r1.sele.over and round_overs.r1.theo.over and intermission_switched_into and second_interrogation:

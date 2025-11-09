@@ -5,10 +5,10 @@ extends Node2D
 func _ready() -> void:
 	await get_tree().create_timer(4.0).timeout
 	GlobalMusicPlayer.play_music("interrogation")
-	if Global.persuasion_stat + Global.intimidation_stat + Global.deception_stat == 0: # condition for if player hasn't chosen stats yet
+	if !Global.stats_completely_selected: # condition for if player hasn't chosen stats yet
 		get_tree().change_scene_to_file("res://Scenes/stat_allocation.tscn")
 	else:
-		get_tree().change_scene_to_file("res://scenes/Lineup.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Lineup.tscn")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

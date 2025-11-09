@@ -101,5 +101,5 @@ func _on_continue_button_down():
 		shown_warning = true
 		return
 	
-	Global.Stats_selected = true
+	Global.stats_completely_selected = true
 	get_tree().change_scene_to_file("res://scenes/Lineup.tscn")
