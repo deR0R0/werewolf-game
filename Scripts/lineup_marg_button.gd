@@ -25,11 +25,6 @@ func _ready() -> void:
 		visible = true
 		Shadow.visible = true
 
-	if Global.round_overs.r2.marg.over:
-		visible = false
-		Shadow.visible = false
-		print("marg dissapeared but round 2")
-
 func _on_mouse_entered():
 	z_index = 10
 	GlobalSoundPlayer.play_sound("hover")
@@ -42,6 +37,7 @@ func _on_button_down():
 	Global.CurrentSuspect = "Margaret"
 	if Global.CURRENTROUND >= 3:
 		Global.PlayerSuspect = "Margaret"
+		print("PLAYER SELECTED MARGARET AS THE WEREWOLF")
 	else:
 		get_tree().change_scene_to_file("res://Scenes/Game_Scene.tscn")
 	

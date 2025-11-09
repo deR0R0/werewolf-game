@@ -24,11 +24,7 @@ func _ready() -> void:
 	if Global.intermission_switched_into and !Global.interrogation_one_triggered:
 		visible = true
 		Shadow.visible = true
-			
-	if Global.round_overs.r2.sele.over:
-		visible = false
-		Shadow.visible = false
-		print("selene dissapeared but round 2")
+		
 
 func _on_mouse_entered():
 	z_index = 10
@@ -40,8 +36,11 @@ func _on_mouse_exited():
 
 func _on_button_down():
 	Global.CurrentSuspect = "Selene"
-	print(Global.CurrentSuspect)
-	get_tree().change_scene_to_file("res://Scenes/Game_Scene.tscn")
+	if Global.CURRENTROUND >= 3:
+		Global.PlayerSuspect = "Selene"
+		print("PLAYER SELECTED SELENE AS THE WEREWOLF!")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/Game_Scene.tscn")
 	
 func _process(_delta):
 	pass

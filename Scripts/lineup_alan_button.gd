@@ -27,11 +27,6 @@ func _ready() -> void:
 		await get_tree().create_timer(0.2).timeout
 		Global.interrogation_one_triggered = true
 
-	if Global.round_overs.r2.alan.over:
-		visible = false
-		Shadow.visible = false
-		print("alan dissapeared but round 2")
-
 func _on_mouse_entered():
 	z_index = 10
 	GlobalSoundPlayer.play_sound("hover")
@@ -42,8 +37,11 @@ func _on_mouse_exited():
 
 func _on_button_down():
 	Global.CurrentSuspect = "Alan"
-	print(Global.CurrentSuspect)
-	get_tree().change_scene_to_file("res://Scenes/Game_Scene.tscn")
+	if Global.CURRENTROUND >= 3:
+		Global.PlayerSuspect = "Alan"
+		print("PLAYER SELECTED ALAN AS THE WEREWOLF!")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/Game_Scene.tscn")
 	
 func _process(_delta):
 	pass
