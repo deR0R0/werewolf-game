@@ -32,22 +32,22 @@ func _ready():
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	DialogueManager.got_dialogue.connect(_on_dialogue_changed)
 	
-	if Global.CurrentSuspect == "Margaret" and !Global.intermission_switched_into:
+	if Global.CurrentSuspect == "Margaret" and Global.CURRENTROUND == 1:
 		DialogueManager.show_dialogue_balloon(R1_Margaret_Dialogue, "start")
-	elif Global.CurrentSuspect == "Alan" and !Global.intermission_switched_into:
+	elif Global.CurrentSuspect == "Alan" and Global.CURRENTROUND == 1:
 		DialogueManager.show_dialogue_balloon(R1_Alan_Dialogue, "start")
-	elif Global.CurrentSuspect == "Selene" and !Global.intermission_switched_into:
+	elif Global.CurrentSuspect == "Selene" and Global.CURRENTROUND == 1:
 		DialogueManager.show_dialogue_balloon(R1_Selene_Dialogue, "start")
-	elif Global.CurrentSuspect == "Theodore" and !Global.intermission_switched_into:
+	elif Global.CurrentSuspect == "Theodore" and Global.CURRENTROUND == 1:
 		DialogueManager.show_dialogue_balloon(R1_Theodore_Dialogue, "start")	
 		
-	elif Global.CurrentSuspect == "Margaret":
+	elif Global.CurrentSuspect == "Margaret" and Global.CURRENTROUND == 2:
 		DialogueManager.show_dialogue_balloon(R2_Margaret_Dialogue, "start")
-	elif Global.CurrentSuspect == "Alan":
+	elif Global.CurrentSuspect == "Alan" and Global.CURRENTROUND == 2:
 		DialogueManager.show_dialogue_balloon(R2_Alan_Dialogue, "start")
-	elif Global.CurrentSuspect == "Selene":
+	elif Global.CurrentSuspect == "Selene" and Global.CURRENTROUND == 2:
 		DialogueManager.show_dialogue_balloon(R2_Selene_Dialogue, "start")
-	elif Global.CurrentSuspect == "Theodore" and Global.intermission_switched_into:
+	elif Global.CurrentSuspect == "Theodore" and Global.CURRENTROUND == 2:
 		DialogueManager.show_dialogue_balloon(R2_Theodore_Dialogue, "start")	
 	else:
 		return

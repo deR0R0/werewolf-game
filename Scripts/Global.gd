@@ -58,27 +58,6 @@ var round_overs = {
 	}
 }
 
-var Marg_R1_Over = false
-var Marg_R2_Over = false
-var Marg_R1_Ran = false
-var Marg_R2_Ran = false
-
-var Alan_R1_Over = false
-var Alan_R2_Over = false
-var Alan_R1_Ran = false
-var Alan_R2_Ran = false
-
-var Selene_R1_Over = false
-var Selene_R2_Over = false
-var Selene_R1_Ran = false
-var Selene_R2_Ran = false
-
-var Theo_R1_Over = false
-var Theo_R2_Over = false
-var Theo_R1_Ran = false
-var Theo_R2_Ran = false
-
-var intermission_switched_into = false
 var second_interrogation = false
 var interrogation_one_triggered = false
 
@@ -169,15 +148,16 @@ var dice_rolls = {
 	}
 }
 
+var tick = 0
+
 func _process(_delta):
+	tick += 1
 	if Stats_selected == true:
 		print("stats go wheee")
-		print(Global.dice_rolls.theo.roll_r1_persuasion)
 		Global.dice_rolls.marg.roll_r1_persuasion += persuasion_stat
 		Global.dice_rolls.alan.roll_r1_persuasion += persuasion_stat
 		Global.dice_rolls.sele.roll_r1_persuasion += persuasion_stat
 		Global.dice_rolls.theo.roll_r1_persuasion += persuasion_stat
-		print(Global.dice_rolls.theo.roll_r1_persuasion)
 
 		Global.dice_rolls.marg.roll_r2_persuasion += persuasion_stat
 		Global.dice_rolls.alan.roll_r2_persuasion += persuasion_stat
@@ -205,32 +185,30 @@ func _process(_delta):
 		Global.dice_rolls.sele.roll_r2_intimidation += intimidation_stat
 		Global.dice_rolls.theo.roll_r2_intimidation += intimidation_stat
 		
-		Stats_selected = false
-
-		
+		Stats_selected = false	
 	
 	# more elegant way to check for whether their interrogation is done	
 	for char in ["marg", "alan", "sele", "theo"]:
+		if CURRENTROUND != 1:
+			break
+		
 		if round_overs.r1[char].over and round_overs.r1[char].ran:
-			print(char + " over")
 			round_overs.r1[char].ran = false
 			get_tree().change_scene_to_file("res://Scenes/Lineup.tscn")
 
-	if round_overs.r1.marg.over and round_overs.r1.alan.over and round_overs.r1.sele.over and round_overs.r1.theo.over and !intermission_switched_into:
-		intermission_switched_into = true
-		print(intermission_switched_into)
-		CURRENTROUND += 1
-		get_tree().change_scene_to_file("res://scenes/intermission.tscn")
-		
-	elif round_overs.r1.marg.over and round_overs.r1.alan.over and round_overs.r1.sele.over and round_overs.r1.theo.over and intermission_switched_into and second_interrogation:
-		print("second time around")
-		second_interrogation = false
-		
-		
-		
+			
 	for char in ["marg", "alan", "sele", "theo"]:
 		if round_overs.r2[char].over and round_overs.r2[char].ran:
-			print(char + " over")
 			round_overs.r2[char].ran = false
 			get_tree().change_scene_to_file("res://Scenes/Lineup.tscn")
+
+	if round_overs.r1.marg.over and round_overs.r1.alan.over and round_overs.r1.sele.over and round_overs.r1.theo.over and CURRENTROUND == 1:
+		CURRENTROUND += 1
+		print("On Tick:",tick," The current round is now: ", CURRENTROUND)
+		get_tree().change_scene_to_file("res://scenes/intermission.tscn")
+		
+	if round_overs.r2.marg.over and round_overs.r2.alan.over and round_overs.r2.sele.over and round_overs.r2.theo.over and CURRENTROUND == 2:
+		CURRENTROUND += 1
+		print("On Tick:",tick," The current round is now: ", CURRENTROUND)
+		get_tree().change_scene_to_file("res://scenes/intermission.tscn")
 	
