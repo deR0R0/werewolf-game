@@ -22,6 +22,10 @@ func _ready() -> void:
 	if Global.round_overs.r1.alan.over && Global.CURRENTROUND == 1:
 		visible = false
 		Shadow.visible = false
+		
+	if Global.round_overs.r2.alan.over and Global.CURRENTROUND == 2:
+		visible = false
+		Shadow.visible = false
 
 func _on_mouse_entered():
 	z_index = 10
