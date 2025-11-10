@@ -11,6 +11,7 @@ var sound = 1
 @onready var protag = $ProtagItsYou
 @onready var text = $LoreText
 @onready var quit = $ExitButton
+@onready var fflabel = $FFLabel
 
 
 func determine_win() -> void:
@@ -130,6 +131,15 @@ func _ready() -> void:
 	# call the animation stuff
 	create_animations()
 	create_text()
+	
+	
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("SpeedForward"):
+		Engine.time_scale = 2
+		fflabel.visible = true
+	else:
+		Engine.time_scale = 1
+		fflabel.visible = false
 
 
 func _exit() -> void:
