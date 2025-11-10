@@ -1,15 +1,65 @@
-[gd_scene load_steps=2 format=3 uid="uid://cunrvqqvrbkup"]
+[gd_scene load_steps=3 format=3 uid="uid://cunrvqqvrbkup"]
 
 [ext_resource type="Script" uid="uid://duq64mh8b8vpx" path="res://Scripts/back_from_credits.gd" id="1_r18jl"]
+[ext_resource type="Texture2D" uid="uid://vn46qq488fgc" path="res://Assets/mainmenu/main-menu-logo.png" id="2_gryuy"]
 
 [node name="Credits" type="Node2D"]
 
 [node name="Back_From_Credits" type="Button" parent="."]
-offset_left = 424.0
-offset_top = 488.0
-offset_right = 843.0
-offset_bottom = 553.0
-text = "back"
+z_index = 20
+offset_left = 387.0
+offset_top = 467.0
+offset_right = 767.0
+offset_bottom = 545.0
+text = "Click Here to return"
 script = ExtResource("1_r18jl")
+
+[node name="MainMenuLogo" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(576, 324)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_gryuy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 467.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_top = 544.0
+offset_right = 1152.0
+offset_bottom = 646.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 1152.0
+offset_bottom = 464.0
+theme_override_font_sizes/normal_font_size = 26
+text = "CREDITS
+------------------
+KL / Sound Designer
+KZ / Artist
+RG / Programmer
+RZ / Programmer
+
+Nathan Hoad / Dialogue Manager Plugin
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = -765.0
+offset_top = 455.0
+offset_right = 387.0
+offset_bottom = 557.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = 766.0
+offset_top = 458.0
+offset_right = 1918.0
+offset_bottom = 560.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="button_down" from="Back_From_Credits" to="Back_From_Credits" method="_on_button_down"]
