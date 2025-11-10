@@ -3,7 +3,7 @@ extends Node2D
 var won = false
 
 var current_frame = 0
-
+var sound = 1
 
 @onready var black_background = $BlackBackground
 @onready var bg = $Background
@@ -44,6 +44,15 @@ func _set_win_screen():
 func _frame_bad_ending():
 	bg.texture = load("res://Assets/endings/endcg-badend-0" + str(current_frame) + ".png")
 	current_frame += 1
+	
+func _sound_effects():
+	match sound:
+		1:
+			GlobalSoundPlayer.play_sound("knock")
+		2:
+			GlobalSoundPlayer.play_sound("dramatic_chord")
+			
+	sound += 1
 
 func create_animations():
 	var tween = create_tween()
@@ -80,13 +89,17 @@ func create_animations():
 		tween.tween_property(text, "visible_ratio", 1, 3).from(0)
 		tween.tween_interval(2)
 		tween.tween_property(text, "visible_ratio", 1, 5).from(0)
+		tween.tween_interval(1)
 	else:
 		tween.tween_callback(Callable(self, "_frame_bad_ending"))
+		tween.tween_callback(Callable(self, "_sound_effects"))
 		tween.tween_property(text, "self_modulate:a", 1, 1).from(0)
 		tween.tween_property(text, "visible_ratio", 1, 2).from(0)
 		tween.tween_property(text, "self_modulate:a", 0, 1).from(1)
 		for x in range(6):
 			tween.tween_callback(Callable(self, "_frame_bad_ending"))
+			if x == 5:
+				tween.tween_callback(Callable(self, "_sound_effects"))
 			tween.tween_interval(1)
 		tween.tween_property(bg, "self_modulate:a", 0, 0.0001).from(1)
 		tween.tween_interval(3)

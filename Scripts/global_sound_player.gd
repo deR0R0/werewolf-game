@@ -7,7 +7,8 @@ var sounds = {
 	"door_shut": preload("res://assets/Sounds/sfx/door_shut_sfx.mp3"),
 	"select": preload("res://Assets/Sounds/sfx/selecting_sfx.wav"),
 	"keyboard": preload("res://Assets/Sounds/sfx/keyboard_sfx.mp3"),
-	"dramatic_chord": preload("res://Assets/Sounds/sfx/dramatic_chord.mp3")
+	"dramatic_chord": preload("res://Assets/Sounds/sfx/dramatic_chord.mp3"),
+	"knock": preload("res://Assets/Sounds/sfx/knocking.mp3")
 }
 
 # Called when the node enters the scene tree for the first time.
