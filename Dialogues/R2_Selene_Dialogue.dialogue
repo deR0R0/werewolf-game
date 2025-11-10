@@ -1,50 +1,372 @@
 ~ start
-- Deception
-	if Global.dice_rolls.theo.roll_r2_deception >= Global.roll_checks.theo.deception:
-		=> deception_succeed
-	else:
-		=> deception_fail
-- Intimidation
-	=> intimidation
 - Persuasion
-	if Global.dice_rolls.theo.roll_r2_persuasion >= Global.roll_checks.theo.persuasion:
+	if Global.dice_rolls.sele.roll_r2_persuasion >= Global.roll_checks.sele.persuasion:
 		=> persuasion_succeed
 	else:
 		=> persuasion_fail
-
-
-=> end_dialogue
-
-~ intimidation
-=> end_dialogue
-
-~ intimidation_pass_fail
-=> end_dialogue
-
-~ intimidation_fail_fail
-=> end_dialogue
-
-~ intimidation_pass_pass
-=> end_dialogue
-
-~ intimidation_catchall_pass
-=> end_dialogue
-
-~ deception_succeed
-=> end_dialogue
-
-~ deception_fail
+- Intimidation
+	Protag: Even if you didn’t kill Mr. Douglass, I can put you under investigation for other illegal activities. You better be telling the truth or else you will be here all day and night for the foreseeable future. [#sprite=09]
+	if Global.dice_rolls.sele.roll_r2_intimidation >= Global.roll_checks.sele.intimidation:
+		if Global.double_routes.sele.intimidation:
+			=> double_intimidation_succeed
+		else:
+			=> single_intimidation_succeed
+	else:
+		=> intimidation_fail
+- Deception
+	Protag: Our officers found a lead and arrested your father earlier this morning. If you give me information, I’ll let you visit your father in prison. [#sprite=01]
+	if Global.dice_rolls.sele.roll_r2_deception >= Global.roll_checks.sele.deception:
+		=> deception_succeed
+	else:
+		=> deception_fail
 => end_dialogue
 
 ~ persuasion_succeed
+if Global.werewolf == Global.Character.SELE:
+	Selene: I- um- I’m not in any trouble. Nor do I want any trouble. [#sprite=09]
+	Protag: I’m here to help you Selene. [#sprite=15]
+	Selene: I don’t remember killing Doug. [#sprite=10]
+	Selene: But I remember being tasked to do so. [#sprite=10]
+	Protag: What do you mean? [#sprite=16]
+	Selene: He owed my family some money for some artifacts that we sold him. [#sprite=08]
+	Selene: I went there earlier that evening to collect it but he refused to give it to me. [#sprite=09]
+	Selene: My father gave me the order to whack him out without leaving a trace. [#sprite=09]
+	Selene: I-I can’t go back to them! [#sprite=08]
+	Selene: Even though Doug is dead, and even though I don’t remember doing it, I’ve still been caught. They will think I failed. [#sprite=09]
+	Selene: My family doesn’t tolerate failures. [#sprite=08]
+	Protag: ! [#sprite=16]
+	Protag: So, you need help leaving your family? [#sprite=17]
+	Selene: … I guess. [#sprite=04]
+	Protag: I can set you up with the witness protection program. [#sprite=05]
+	Protag: But you would need to give a testimony. [#sprite=01]
+	Selene:... [#sprite=10]
+	Selene: I- I can’t do that. [#sprite=04]
+	Protag: What? [#sprite=17]
+	Selene: I’m sorry. [#sprite=00]
+	Protag: But- [#sprite=09]
+	Selene: I don’t remember killing Doug.  [#sprite=01]
+	Selene: Now piss off. [#sprite=05]
+	Protag: [i]What just happened?[/i] [#sprite=06]
+
+else:
+	Selene: I- um- I’m not in any trouble. Nor do I want any trouble. [#sprite=04]
+	Protag: I’m here to help you Selene. [#sprite=15]
+	Selene: I didn’t kill Doug. [#sprite=01]
+	Selene: But I was tasked to do so. [#sprite=04]
+	Protag: What do you mean? [#sprite=17]
+	Selene: He owed my family some money for some artifacts that we sold him. [#sprite=01]
+	Selene: I went there earlier that evening to collect it but he refused to give it to me. [#sprite=03]
+	Selene: My father gave me the order to whack him out without leaving a trace. [#sprite=05]
+	Selene: When I went there to do it, he was already dead. [#sprite=04]
+	Selene: I-I can’t go back to them! [#sprite=08]
+	Selene: Even though Doug is dead, and even though I didn’t do it, I’ve still been caught. They will think I failed. [#sprite=08]
+	Selene: My family doesn’t tolerate failures. [#sprite=09]
+	Protag: ! [#sprite=17]
+	Protag: So, you need help leaving your family? [#sprite=16]
+	Selene: … I guess. [#sprite=10]
+	Protag: I can set you up with the witness protection program. [#sprite=14]
+	Protag: But you would need to give a testimony. [#sprite=04]
+	Selene: I- I can’t do that. [#sprite=08]
+	Protag: What? [#sprite=06]
+	Selene: I’m sorry. [#sprite=10]
+	Protag: But- [#sprite=09]
+	Selene: I didn’t kill Doug. You can literally check the cameras at the gas station down the street and see I was there that night. [#sprite=04]
+	Selene: Now piss off. [#sprite=05]
+	Protag: What just happened? [#sprite=10]
+
 => end_dialogue
 
 ~ persuasion_fail
+if Global.werewolf == Global.Character.SELE:
+	Selene: Why are you still here? [#sprite=05]
+	Selene: I sure as hell don’t need your help. [#sprite=06]
+	Selene: I think you are gonna be the one who needs help when my father visits you tonight. [#sprite=07]
+	Protag: Pfttt…. Well- you- he doesn’t know where I live! [#sprite=03]
+	Selene: How can you be sure? [#sprite=06]
+	Protag: Well- um- [#sprite=06]
+	Selene: 5302 Ladders St. [#sprite=11]
+	Protag: What?! She's literally been in the room for as long as she’s known me! [#sprite=07]
+	Protag: How could she have possibly gotten that? [#sprite=01]
+	Protag: Hehe- Nice try, but that was incorrect. Obviously I can’t let her know that she’s right. [#sprite=14]
+	Selene: Your jaw-dropped reaction says otherwise. [#sprite=03]
+	Selene: I don’t need your help. [#sprite=01]
+	Selene: Now piss off. [#sprite=05]
+	Selene: Oh, and say ‘hello’ to dad for me! [#sprite=11]
+
+else:
+	Selene: Why are you still here? [#sprite=03]
+	Selene: I sure as hell don’t need your help. [#sprite=05]
+	Selene: I think you are gonna be the one who needs help when my father visits you tonight. [#sprite=06]
+	Protag: Pfttt…. Well- you- he doesn’t know where I live! [#sprite=16]
+	Selene: How can you be sure? [#sprite=02]
+	Protag: Well- um- [#sprite=09]
+	Selene: 5302 Ladders St. [#sprite=06]
+	Protag: What?! She's literally been in the room for as long as she’s known me! [#sprite=07]
+	Protag: How could she have possibly gotten that? [#sprite=06]
+	Protag: Hehe- Nice try, but that was incorrect. Obviously I can’t let her know that she’s right. [#sprite=15]
+	Selene: Your jaw-dropped reaction says otherwise. [#sprite=03]
+	Selene: I don’t need your help. [#sprite=06]
+	Selene: Now piss off. [#sprite=05]
+	Selene: Oh, and say ‘hello’ to dad for me! [#sprite=11]
+
+=> end_dialogue
+
+~ double_intimidation_succeed
+if Global.werewolf == Global.Character.SELE:
+	Selene: Ok. So, first, you come in and threaten to leave me in here with no food or water, now you are threatening to jail me for crimes I didn’t even commit? [#sprite=04]
+	Selene: Come on, dude. [#sprite=08]
+	Selene: For a second, I thought you were chill. [#sprite=09]
+	Protag: Excuse me? [#sprite=06]
+	Selene: Turns out you’re just another government bot whose one goal is to put as many unfortunates in jail as possible. [#sprite=05]
+	Selene: Did you know that werewolves don’t even remember what they do when they are transformed? [#sprite=04]
+	Selene: Or that they have no control over themselves when they are transformed? [#sprite=03]
+	Selene: How can you justify putting someone away for a crime they had no control over? [#sprite=04]
+	Selene: A crime they don’t even remember committing? [#sprite=08]
+	Protag: Uhm… [#sprite=04]
+	Selene: Exactly. [#sprite=03]
+	Protag: How do you know so much about werewolves? [#sprite=13]
+	Selene: My mother… she was one.  [#sprite=04]
+	Protag: Your mother? Your only listed family member in our files is your father. [#sprite=17]
+	Selene: Probably because she’s dead. [#sprite=09]
+	Protag: I’m sorry. [#sprite=16]
+	Selene: It wasn’t your fault I guess. [#sprite=10]
+	Selene: It was mine. [#sprite=09]
+	Protag: What? What do you mean? [#sprite=17]
+	Selene: … [#sprite=10]
+	Protag: She tenses up. I can tell she's calculating her next words. [#sprite=16]
+	Selene: She was transformed and tried to attack me.  [#sprite=08]
+	Selene: It was self defense. [#sprite=10]
+	Protag: Oh. [#sprite=17]
+	Protag: For how long was your mother a werewolf? [#sprite=16]
+	Selene: Not for long. That time was her first and last transformation. [#sprite=09]
+	Protag: Oh. [#sprite=13]
+	Selene: Would you have jailed her if she killed me first? [#sprite=08]
+	Protag: I…don’t know. [#sprite=12]
+	Selene: Well, that’s something to think about when you find out who did it. [#sprite=05]
+else:
+	Selene: Ok. So, first, you come in and threaten to leave me in here with no food or water, now you are threatening to jail me for crimes I didn’t even commit? [#sprite=04]
+	Selene: Come on, dude. [#sprite=08]
+	Selene: For a second, I thought you were chill. [#sprite=09]
+	Protag: Excuse me? [#sprite=06]
+	Selene: Turns out you’re just another government bot whose one goal is to put as many unfortunates in jail as possible. [#sprite=05]
+	Selene: Did you know that werewolves don’t even remember what they do when they are transformed? [#sprite=04]
+	Selene: Or that they have no control over themselves when they are transformed? [#sprite=03]
+	Selene: How can you justify putting someone away for a crime they had no control over? [#sprite=04]
+	Selene: A crime they don’t even remember committing? [#sprite=08]
+	Protag: Uhm… [#sprite=04]
+	Selene: Exactly. [#sprite=03]
+	Protag: How do you know so much about werewolves? [#sprite=13]
+	Selene: My mother… she was one.  [#sprite=04]
+	Protag: Your mother? Your only listed family member in our files is your father. [#sprite=17]
+	Selene: Probably because she’s dead. [#sprite=09]
+	Protag: I’m sorry. [#sprite=16]
+	Selene: It wasn’t your fault I guess. [#sprite=10]
+	Selene: It was mine. [#sprite=09]
+	Protag: What? What do you mean? [#sprite=17]
+	Selene: … [#sprite=10]
+	Protag: She tenses up. I can tell she's calculating her next words. [#sprite=16]
+	Selene: She was transformed and tried to attack me.  [#sprite=08]
+	Selene: It was self defense. [#sprite=10]
+	Protag: Oh. [#sprite=17]
+	Protag: For how long was your mother a werewolf? [#sprite=	1]
+	Selene: Not for long. That time was her first and last transformation. [#sprite=09]
+	Protag: Oh. [#sprite=13]
+	Selene: Would you have jailed her if she killed me first? [#sprite=08]
+	Protag: I…don’t know. [#sprite=12]
+	Selene: Well, that’s something to think about when you find out who did it. [#sprite=05]
+	Selene: Which, by the way, wasn’t me. [#sprite=05]
+	Selene: If I was conscious during that full moon, obviously I’m not a werewolf. [#sprite=04]
+
+=> end_dialogue
+
+~ single_intimidation_succeed
+if Global.werewolf == Global.Character.SELE:
+	Selene: You have no evidence of any other crimes that I may or may not have committed. [#sprite=03]
+	Selene: I have no good reason to talk. [#sprite=01]
+	Selene: I don’t remember what happened that night. [#sprite=11]
+	Protag: Ok, fine. Let’s say you didn’t commit the crime. [#sprite=05]
+	Selene: Wow! So you CAN think! [#sprite=11]
+	Protag: Wait, this is a hypothetical. I still have my suspicions.  [#sprite=08]
+	Protag: I have some more questions concerning why you were at Mr. Douglass’s house in the first place. [#sprite=01]
+	Protag: Why were you at his house that night? [#sprite=05]
+	Selene: I was collecting some money that he owed my father. That’s all. [#sprite=03]
+	Protag: Any reason why your father couldn’t get the money himself? [#sprite=04]
+	Selene: He was busy. [#sprite=04]
+	Protag: Why did Mr. Douglass owe money to your father in the first place? [#sprite=05]
+	Selene: My father sold some artifacts to Doug. He’s a big collector or something. [#sprite=03]
+	Protag: I see. [#sprite=04]
+	Protag: And you didn’t get the money? [#sprite=05]
+	Selene: That’s…none of your business [#sprite=04]
+	Protag: Did you visit Mr. Douglass again after your first trip? [#sprite=05]
+	Selene: I don’t remember. [#sprite=04]
+	Protag: Amazing. [#sprite=08]
+	Protag: You really don’t remember anything? [#sprite=05]
+	Selene: Well, I remember being hurt. I don’t know how it happened or where it happened or when it happened. [#sprite=01]
+	Selene: but the impression is lingering with me. [#sprite=09]
+	Protag: Interesting. [#sprite=04]
+	Protag: Anything else? [#sprite=01]
+	Selene: No, piss off. [#sprite=05]
+	Protag: Ok, I really don’t see the point in talking to you anymore. [#sprite=09]
+	Selene: Funny, I was thinking the same thing. [#sprite=11]
+	Protag: ... [#sprite=08]
+	Selene: ... [#sprite=04]
+	Protag: Goodbye then. [#sprite=10]
+else:
+	Selene: You have no evidence of any other crimes that I may or may not have committed. [#sprite=03]
+	Selene: Hell, you don’t even have any evidence on me for this case. [#sprite=02]
+	Selene: I have no good reason to talk. [#sprite=01]
+	Selene: Though, being here forever while you desperately try to find dirt on me seems quite boring. [#sprite=11]
+	Selene: The thing is, I didn’t do anything. So, I have nothing to talk about. [#sprite=01]
+	Protag: ... [#sprite=04]
+	Selene: … [#sprite=00]
+	Protag: Ok, fine. I’m gonna be honest, I don’t think you committed this crime. [#sprite=05]
+	Selene: Wow! So you CAN think! [#sprite=11]
+	Protag: But I do have some more questions concerning why you were at Mr. Douglass’s house in the first place. [#sprite=04]
+	Protag: Why were you at his house that night? [#sprite=05]
+	Selene: I was collecting some money that he owed my father. That’s all. [#sprite=01]
+	Protag: Any reason why your father couldn’t get the money himself? [#sprite=04]
+	Selene: He was busy. [#sprite=03]
+	Protag: Why did Mr. Douglass owe money to your father in the first place? [#sprite=05]
+	Selene: My father sold some artifacts to Doug. He’s a big collector or something. [#sprite=01]
+	Protag: I see. [#sprite=04]
+	Protag: And you didn’t get the money? [#sprite=05]
+	Selene: That’s…none of your business [#sprite=05]
+	Protag: Did you visit Mr. Douglass again after your first trip? [#sprite=04]
+	Selene: I did, but he was dead by the time I got there. [#sprite=04]
+	Protag: So you knew about his death and didn’t report it to anyone? [#sprite=06]
+	Selene: Why would I? [#sprite=03]
+	Protag: Maybe you wanted to be a positive contributing member of your community. [#sprite=07]
+	Selene: Haha, very funny. [#sprite=02]
+	Protag: Ok, I really don’t see the point in talking to you anymore. [#sprite=09]
+	Selene: Funny, I was thinking the same thing. [#sprite=11]
+	Protag: ... [#sprite=08]
+	Selene: ... [#sprite=00]
+	Protag: Goodbye then. [#sprite=09]
+
+=> end_dialogue
+
+~ intimidation_fail
+if Global.werewolf == Global.Character.SELE:
+	Selene: Can you just let me go? [#sprite=02]
+	Protag: And why would I do that? [#sprite=06]
+	Selene: Because…do I really look like someone who would murder someone? [#sprite=06]
+	Protag: Do you want me to be honest? [#sprite=05]
+	Selene: Never mind then. [#sprite=05]
+	Selene: I didn’t kill the man.  [#sprite=03]
+	Selene: It was probably that derpy kid who walked out of that house that evening. [#sprite=02]
+	Selene: or maybe that nurse guy who visits him often. [#sprite=03]
+	Selene: Why would I want to kill this random old guy? [#sprite=05]
+	Protag: Well he was quite rich, wasn’t he? [#sprite=05]
+	Selene: If he died, I wouldn’t see a single penny of his wealth. [#sprite=03]
+	Protag: Fair point. [#sprite=04]
+	Selene: Wow! You DO know how to think!  [#sprite=11]
+	Selene: Stop bothering me. [#sprite=08]
+	Selene: I’m sure your other suspects will have plenty to say. [#sprite=05]
+else:
+	Selene: Can you just let me go? [#sprite=02]
+	Protag: And why would I do that? [#sprite=06]
+	Selene: Because…do I really look like someone who would murder someone? [#sprite=06]
+	Protag: Do you want me to be honest? [#sprite=05]
+	Selene: Never mind then. [#sprite=05]
+	Selene: I didn’t kill the man.  [#sprite=03]
+	Selene: It was probably that derpy kid who walked out of that house that evening. [#sprite=02]
+	Selene: or maybe that nurse guy who visits him often. [#sprite=03]
+	Selene: Why would I want to kill this random old guy? [#sprite=05]
+	Protag: Well he was quite rich, wasn’t he? [#sprite=05]
+	Selene: If he died, I wouldn’t see a single penny of his wealth. [#sprite=03]
+	Protag: Fair point. [#sprite=04]
+	Selene: Wow! You DO know how to think!  [#sprite=11]
+	Selene: Stop bothering me.  [#sprite=08]
+	Selene: I’m sure your other suspects will have plenty to say. [#sprite=05]
+
+=> end_dialogue
+
+~ deception_succeed
+if Global.werewolf == Global.Character.SELE:
+	Selene: H-he’s arrested? What? How can he be arrested? I thought he was unstoppable. [#sprite=09]
+	Protag: He got arrested this morning by group of our best police officers. [#sprite=02]
+	Selene: Hah, I bet you weren’t one of those “best officers,” right? [#sprite=02]
+	Protag: [i]It’s true that I wasn’t one of them, but she doesn’t have to make it sound like such a dig on me in specific. A lot of other officers also weren’t selected for this job. [/i] [#sprite=10]
+	Protag: Yes... I wasn’t selected. [#sprite=09]
+	Selene: I bet it’s because you’re a bad police officer, heh. [#sprite=03]
+	Selene: You’re sure my dad is in prison right now? [#sprite=04]
+	Protag: I saw him in the cell earlier this morning. If you cooperate with me, I can let you visit him. [#sprite=08]
+	Selene: I’ll answer whatever you want if you’ll let me visit him! [#sprite=08]
+	Protag: What were you doing at Mr. Douglass’s house last night? [#sprite=05]
+	Selene: ...except for that question. [#sprite=03]
+	Protag: Need I remind you, if you don’t answer, I won’t let you visit him.  [#sprite=09]
+	Selene: Ok, ok, fine! I was at his house because he hadn’t paid my dad money, and my dad wanted me to... take care of Douglass. [#sprite=08]
+	Selene: This was my first real job, because my Dad always underestimated me and wouldn’t pick me to do any of his hits. [#sprite=09]
+	Protag: Yeah... I get what you’re saying. [#sprite=12]
+	Selene: This is your first job too, huh? [#sprite=03]
+	Protag: H-how’d you know? [#sprite=17]
+	Selene: I could tell just by looking at you. [#sprite=05]
+	Protag: Yes... it’s my first case. Do you think I’m doing well so far? [#sprite=16]
+	Selene: Do you want the truth? [#sprite=03]
+	Protag: Better than you lying to me. [#sprite=08]
+	Selene: This attempt to solve this case is so pathetic that I feel bad for you. Almost bad enough to give you more information. [#sprite=11]
+	Protag: ... [#sprite=10]
+	Selene: ... [#sprite=00]
+	Protag: Are you going to give me information? [#sprite=08]
+	Selene: Haha, you’re funny. No, you’re not so bad at your job that I need to help you. [#sprite=02]
+	Protag: [i]I can’t tell if that’s a good thing or not. Whether it is or isn’t, I don’t think that I’m going to get any more information out of her. [/i] [#sprite=04]
+
+else:
+	Selene: H-he’s arrested? What? How can he be arrested? I thought he was unstoppable. [#sprite=09]
+	Protag: He got arrested this morning by a group of our best police officers. [#sprite=02]
+	Selene: Hah, I bet you weren’t one of those “best officers,” right? [#sprite=02]
+	Protag: It’s true that I wasn’t one of them, but she doesn’t have to make it sound like such a dig on me in specific. A lot of other officers also weren’t selected for this job. [#sprite=10]
+	Protag: Yes... I wasn’t selected. [#sprite=09]
+	Selene: I bet it’s because you’re a bad police officer, heh. [#sprite=03]
+	Selene: You’re sure my dad is in prison right now? [#sprite=04]
+	Protag: I saw him in the cell earlier this morning. If you cooperate with me, I can let you visit him. [#sprite=08]
+	Selene: I’ll answer whatever you want if you’ll let me visit him! [#sprite=08]
+	Protag: What were you doing at Mr. Douglass’s house last night? [#sprite=05]
+	Selene: ...except for that question. [#sprite=03]
+	Protag: Need I remind you, if you don’t answer, I won’t let you visit him.  [#sprite=09]
+	Selene: Ok, ok, fine! I was at his house because he hadn’t paid my dad money, and my dad wanted me to... take care of Douglass. [#sprite=08]
+	Selene: This was my first real job, because my Dad always underestimated me and wouldn’t pick me to do any of his hits. [#sprite=09]
+	Protag: Yeah... I get what you’re saying. [#sprite=12]
+	Selene: This is your first job too, huh? [#sprite=03]
+	Protag: H-how’d you know? [#sprite=17]
+	Selene: I could tell just by looking at you. [#sprite=05]
+	Protag: Yes... it’s my first case. Do you think I’m doing well so far? [#sprite=16]
+	Selene: Do you want the truth? [#sprite=03]
+	Protag: Better than you lying to me. [#sprite=08]
+	Selene: This attempt to solve this case is so pathetic that I feel bad for you. Almost bad enough to give you more information. [#sprite=11]
+	Protag: ... [#sprite=10]
+	Selene: ... [#sprite=00]
+	Protag: Are you going to give me information? [#sprite=08]
+	Selene: Haha, you’re funny. No, you’re not so bad at your job that I need to help you. [#sprite=02]
+	Protag: [i]I can’t tell if that’s a good thing or not. Whether it is or isn’t, I don’t think that I’m going to get any more information out of her. [/i] [#sprite=04]
+=> end_dialogue
+
+~ deception_fail
+if Global.werewolf == Global.Character.SELE:
+	Selene: You really thought I’d believe that the leader of the Valenti Mafia, the strongest Italian Mafia west of the Atlantic Ocean, and my Dad, was arrested? [#sprite=02]
+	Selene: Haha, you’re such a fool. I’d never believe a lie like that. [#sprite=05]
+	Protag: Selene, he’s in prison. I can let you visit him if you help me with this investigation. [#sprite=09]
+	Protag: I hope she doesn’t call me out on my bluff, but I think she knows I’m lying about her dad being in prison. [#sprite=08]
+	Selene: You’re bluffing about my dad being in prison. I know that he would never be captured by such horrible police officers as yourselves. [#sprite=02]
+	Protag: Selene, for the last time, I’m not lying. [#sprite=10]
+	Selene: A Valenti can always tell when someone is lying to them. You might as well just stop this now, it’s not doing your investigation any good. [#sprite=03]
+	Protag: Fine.  [#sprite=09]
+	Protag: [i]I can’t believe I got caught lying by her. She didn’t look like she’d be that bright. [/i] [#sprite=08]
+
+else:
+	Selene: You really thought I’d believe that the leader of the Valenti Mafia, the strongest Italian Mafia west of the Atlantic Ocean, and my Dad, was arrested? [#sprite=02]
+	Selene: Haha, you’re such a fool. I’d never believe a lie like that. [#sprite=05]
+	Protag: Selene, he’s in prison. I can let you visit him if you help me with this investigation. [#sprite=09]
+	Protag: I hope she doesn’t call me out on my bluff, but I think she knows I’m lying about her dad being in prison. [#sprite=08]
+	Selene: You’re bluffing about my dad being in prison. I know that he would never be captured by such horrible police officers as yourselves. [#sprite=02]
+	Protag: Selene, for the last time, I’m not lying. [#sprite=10]
+	Selene: A Valenti can always tell when someone is lying to them. You might as well just stop this now, it’s not doing your investigation any good. [#sprite=03]
+	Protag: Fine.  [#sprite=09]
+	Protag: I can’t believe I got caught lying by her. She didn’t look like she’d be that bright. [#sprite=08]
 => end_dialogue
 
 
-
 ~ end_dialogue
-set Global.round_overs.r2.theo.over = true
-set Global.round_overs.r2.theo.ran = true
+set Global.round_overs.r2.sele.over = true
+set Global.round_overs.r2.sele.ran = true
 => END

@@ -1,28 +1,28 @@
 extends Sprite2D
 
-#@onready var R1_Margaret_Dialogue = load("res://Dialogues/R1_Margaret_Dialogue.dialogue")
-#@onready var R2_Margaret_Dialogue = load("res://Dialogues/R2_Margaret_Dialogue.dialogue")
+@onready var R1_Margaret_Dialogue = load("res://Dialogues/R1_Margaret_Dialogue.dialogue")
+@onready var R2_Margaret_Dialogue = load("res://Dialogues/R2_Margaret_Dialogue.dialogue")
 
-#@onready var R1_Alan_Dialogue = load("res://Dialogues/R1_Alan_Dialogue.dialogue")
-#@onready var R2_Alan_Dialogue = load("res://Dialogues/R2_Alan_Dialogue.dialogue")
+@onready var R1_Alan_Dialogue = load("res://Dialogues/R1_Alan_Dialogue.dialogue")
+@onready var R2_Alan_Dialogue = load("res://Dialogues/R2_Alan_Dialogue.dialogue")
 
-#@onready var R1_Selene_Dialogue = load("res://Dialogues/R1_Selene_Dialogue.dialogue")
-#@onready var R2_Selene_Dialogue = load("res://Dialogues/R2_Selene_Dialogue.dialogue")
+@onready var R1_Selene_Dialogue = load("res://Dialogues/R1_Selene_Dialogue.dialogue")
+@onready var R2_Selene_Dialogue = load("res://Dialogues/R2_Selene_Dialogue.dialogue")
 
-#@onready var R1_Theodore_Dialogue = load("res://Dialogues/R1_Theodore_Dialogue.dialogue")
-#@onready var R2_Theodore_Dialogue = load("res://Dialogues/R2_Theodore_Dialogue.dialogue")
+@onready var R1_Theodore_Dialogue = load("res://Dialogues/R1_Theodore_Dialogue.dialogue")
+@onready var R2_Theodore_Dialogue = load("res://Dialogues/R2_Theodore_Dialogue.dialogue")
 
-@onready var R1_Margaret_Dialogue = load("res://Dialogues/debug.dialogue")
-@onready var R2_Margaret_Dialogue = load("res://Dialogues/debug_r2.dialogue")
+#@onready var R1_Margaret_Dialogue = load("res://Dialogues/debug.dialogue")
+#@onready var R2_Margaret_Dialogue = load("res://Dialogues/debug_r2.dialogue")
 
-@onready var R1_Alan_Dialogue = load("res://Dialogues/debug.dialogue")
-@onready var R2_Alan_Dialogue = load("res://Dialogues/debug_r2.dialogue")
+#@onready var R1_Alan_Dialogue = load("res://Dialogues/debug.dialogue")
+#@onready var R2_Alan_Dialogue = load("res://Dialogues/debug_r2.dialogue")
 
-@onready var R1_Selene_Dialogue = load("res://Dialogues/debug.dialogue")
-@onready var R2_Selene_Dialogue = load("res://Dialogues/debug_r2.dialogue")
+#@onready var R1_Selene_Dialogue = load("res://Dialogues/debug.dialogue")
+#@onready var R2_Selene_Dialogue = load("res://Dialogues/debug_r2.dialogue")
 
-@onready var R1_Theodore_Dialogue = load("res://Dialogues/debug.dialogue")
-@onready var R2_Theodore_Dialogue = load("res://Dialogues/debug_r2.dialogue")
+#@onready var R1_Theodore_Dialogue = load("res://Dialogues/debug.dialogue")
+#@onready var R2_Theodore_Dialogue = load("res://Dialogues/debug_r2.dialogue")
 
 
 @onready var player_box: Sprite2D = get_node("../../PlayerFrame/Protag")

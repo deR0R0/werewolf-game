@@ -109,4 +109,4 @@ func _on_continue_button_down():
 		return
 	
 	Global.stats_completely_selected = true
-	get_tree().change_scene_to_file("res://Scenes/Lineup.tscn")
+	get_tree().change_scene_to_file("res://Scenes/introduction.tscn"  )

@@ -19,7 +19,7 @@ func _ready() -> void:
 		# Assign it to the mask
 		texture_click_mask = bitmap
 
-	if Global.round_overs.r1.sele.over && Global.CURRENTROUND == 1:
+	if Global.round_overs.r1.theo.over && Global.CURRENTROUND == 1:
 		visible = false
 		Shadow.visible = false
 

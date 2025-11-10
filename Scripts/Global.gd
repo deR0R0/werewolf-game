@@ -69,10 +69,17 @@ var werewolf: int = randi_range(1, 4)
 
 # Double Route Variables
 
-var margaret_intimidation: bool = false
-var margaret_persuasion: bool = false
-
-var theodore_deception: bool = true
+var double_routes = {
+	"marg": {
+		"persuasion": false
+	},
+	"theo": {
+		"deception": false
+	},
+	"sele": {
+		"intimidation": false
+	}
+}
 
 # dice roll values
 var roll_checks = {

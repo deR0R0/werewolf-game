@@ -147,6 +147,7 @@ Theo: A-are you asking to hang out with me?[#sprite=11]
 Protag: [i] My god, this guy is an idiot sometimes... an endearing idiot, but an idiot nonetheless. [/i] [#sprite=08]
 Protag: Sure, yeah, hanging out with you...[#sprite=09]
 Theo: Ok!!!!! I’ll be waiting here for you![#sprite=09]
+set Global.double_routes.theo.deception = true
 => end_dialogue
 
 ~ deception_fail
@@ -157,7 +158,6 @@ Theo: No, you’re not interested in him. I can tell a genuine interest from a t
 Protag: Theo, I really am interested in this body, I promise.[#sprite=03]
 Theo: I'm not falling for this obvious attempt to gain information, now get out and stop feigning interests in topics you don’t really care about. [#sprite=07]
 Protag: [i] Dang it, I really thought I was being convincing. That usually works on lonely nerds like him… [/i] [#sprite=13]
-set Global.double_routes.theo.deception = true
 => end_dialogue
 
 ~ intimidation_succeed
