@@ -50,6 +50,8 @@ func _update_bars():
 	
 	
 func _increase_values(stat, amount):
+	GlobalSoundPlayer.play_sound("select")
+	
 	if Global[stat + "_stat"] >= 5:
 		_cannot_do_stupid_dumbass(stat)
 		return # maxed out?
@@ -66,6 +68,8 @@ func _increase_values(stat, amount):
 	_update_bars()
 	
 func _decrease_values(stat, amount):
+	GlobalSoundPlayer.play_sound("select")
+	
 	if Global[stat + "_stat"] <= 0:
 		_cannot_do_stupid_dumbass(stat)
 		return # min'd out?
@@ -94,6 +98,9 @@ func _on_deception_increase_pressed() -> void:
 	
 func _on_deception_decrease_pressed() -> void:
 	_decrease_values("deception", 1)
+	
+func _on_hover() -> void:
+	GlobalSoundPlayer.play_sound("hover")
 
 func _on_continue_button_down():
 	if !shown_warning and Global.allocatable_points > 0:

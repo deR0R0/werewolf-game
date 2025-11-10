@@ -33,11 +33,10 @@ func _on_mouse_exited():
 
 func _on_button_down():
 	if Global.CURRENTROUND >= 3:
-		Global.PlayerSuspect = "Alan"
+		Global.PlayerSuspect = Global.Character.ALAN
 		print("PLAYER SELECTED ALAN AS THE WEREWOLF!")
 	else:
 		Global.CurrentSuspect = "Alan"
-		print(Global.round_overs)
 		get_tree().change_scene_to_file("res://Scenes/Game_Scene.tscn")
 	
 func _process(_delta):

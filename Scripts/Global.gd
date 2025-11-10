@@ -15,7 +15,9 @@ var CURRENTROUND = 1
 # Current person you are talking to
 
 var CurrentSuspect = ""
-var PlayerSuspect = ""
+var PlayerSuspect = 0
+
+var currently_playing_results_cutscene = false
 
 # Are the rounds over?
 
@@ -211,4 +213,11 @@ func _process(_delta):
 		CURRENTROUND += 1
 		print("On Tick:",tick," The current round is now: ", CURRENTROUND)
 		get_tree().change_scene_to_file("res://scenes/intermission.tscn")
+		
+		
+	if CURRENTROUND >= 3 and PlayerSuspect != 0 and not currently_playing_results_cutscene:
+		# switch to the other cutscene
+		print("NOW PLAYING RESULTS CUTSCENE")
+		currently_playing_results_cutscene = true
+		get_tree().change_scene_to_file("res://Scenes/result.tscn")
 	

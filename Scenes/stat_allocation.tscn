@@ -188,10 +188,16 @@ theme_override_colors/font_color = Color(0.16862746, 0.13725491, 0.23921569, 1)
 theme_override_font_sizes/font_size = 19
 text = "Remaining Points: %"
 
+[connection signal="mouse_entered" from="PersuasionBar/Increase" to="." method="_on_hover"]
 [connection signal="pressed" from="PersuasionBar/Increase" to="." method="_on_persuasion_increase_pressed"]
+[connection signal="mouse_entered" from="PersuasionBar/Decrease" to="." method="_on_hover"]
 [connection signal="pressed" from="PersuasionBar/Decrease" to="." method="_on_persuasion_decrease_pressed"]
+[connection signal="mouse_entered" from="IntimidationBar/Increase" to="." method="_on_hover"]
 [connection signal="pressed" from="IntimidationBar/Increase" to="." method="_on_intimidation_increase_pressed"]
+[connection signal="mouse_entered" from="IntimidationBar/Decrease" to="." method="_on_hover"]
 [connection signal="pressed" from="IntimidationBar/Decrease" to="." method="_on_intimidation_decrease_pressed"]
+[connection signal="mouse_entered" from="DeceptionBar/Increase" to="." method="_on_hover"]
 [connection signal="pressed" from="DeceptionBar/Increase" to="." method="_on_deception_increase_pressed"]
+[connection signal="mouse_entered" from="DeceptionBar/Decrease" to="." method="_on_hover"]
 [connection signal="pressed" from="DeceptionBar/Decrease" to="." method="_on_deception_decrease_pressed"]
 [connection signal="button_down" from="NextButton" to="." method="_on_continue_button_down"]

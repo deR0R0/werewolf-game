@@ -34,7 +34,7 @@ func _on_mouse_exited():
 
 func _on_button_down():
 	if Global.CURRENTROUND >= 3:
-		Global.PlayerSuspect = "Selene"
+		Global.PlayerSuspect = Global.Character.SELE
 		print("PLAYER SELECTED SELENE AS THE WEREWOLF!")
 	else:
 		Global.CurrentSuspect = "Selene"

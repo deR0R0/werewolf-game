@@ -33,10 +33,9 @@ func _on_mouse_exited():
 
 func _on_button_down():
 	if Global.CURRENTROUND >= 3:
-		Global.PlayerSuspect = "Margaret"
+		Global.PlayerSuspect = Global.Character.MARG
 		print("PLAYER SELECTED MARGARET AS THE WEREWOLF")
 	else:
-		print("CURRENT ROUND",Global.CURRENTROUND)
 		Global.CurrentSuspect = "Margaret"
 		get_tree().change_scene_to_file("res://Scenes/Game_Scene.tscn")
 	

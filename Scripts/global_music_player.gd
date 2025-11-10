@@ -3,6 +3,8 @@ extends Node2D
 # find the audio player child
 @onready var audio_player = $MusicPlayer
 
+var sound_stopped = false
+
 # preload all songs
 var music_list = {
 	"main_menu": preload("res://Assets/Sounds/main_menu_theme.wav"),
@@ -19,12 +21,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if !audio_player.playing:
+	if !audio_player.playing and !sound_stopped:
 		audio_player.play()
 	
 func stop_music() -> void:
-	if audio_player.is_playing():
-		audio_player.stop()
+	audio_player.stop()
+	sound_stopped = true
 
 func play_music(song) -> void:
 	# stop current audio that is playing
@@ -37,5 +39,7 @@ func play_music(song) -> void:
 		
 	audio_player.stream = music_list[song]
 	audio_player.play()
+	
+	sound_stopped = false
 			
 	audio_player.play()
