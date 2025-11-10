@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dnyr812kuu3ks"
-path="res://.godot/imported/lineup-bg.png-3a35ae480bffe973358a0ba62749da2e.ctex"
+path="res://.godot/imported/lineup-bg.png-79278b3f067969cdfb5f5be87f7cc1fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Lineup/lineup-bg.png"
-dest_files=["res://.godot/imported/lineup-bg.png-3a35ae480bffe973358a0ba62749da2e.ctex"]
+source_file="res://assets/lineup/lineup-bg.png"
+dest_files=["res://.godot/imported/lineup-bg.png-79278b3f067969cdfb5f5be87f7cc1fe.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b8axiy7r7xe7p"
-path="res://.godot/imported/sprite09-selene.png-99863d4fadd58fe841eb1261ae2a26fa.ctex"
+path="res://.godot/imported/sprite09-selene.png-b545710a8d9a7634571d35153f9d90c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Selene_Sprites/sprite09-selene.png"
-dest_files=["res://.godot/imported/sprite09-selene.png-99863d4fadd58fe841eb1261ae2a26fa.ctex"]
+source_file="res://assets/selene_sprites/sprite09-selene.png"
+dest_files=["res://.godot/imported/sprite09-selene.png-b545710a8d9a7634571d35153f9d90c0.ctex"]
 
 [params]
 

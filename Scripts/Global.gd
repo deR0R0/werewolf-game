@@ -203,13 +203,13 @@ func _process(_delta):
 		
 		if round_overs.r1[char].over and round_overs.r1[char].ran:
 			round_overs.r1[char].ran = false
-			get_tree().change_scene_to_file("res://Scenes/Lineup.tscn")
+			get_tree().change_scene_to_file("res://scenes/lineup.tscn")
 
 			
 	for char in ["marg", "alan", "sele", "theo"]:
 		if round_overs.r2[char].over and round_overs.r2[char].ran:
 			round_overs.r2[char].ran = false
-			get_tree().change_scene_to_file("res://Scenes/Lineup.tscn")
+			get_tree().change_scene_to_file("res://scenes/lineup.tscn")
 
 	if round_overs.r1.marg.over and round_overs.r1.alan.over and round_overs.r1.sele.over and round_overs.r1.theo.over and CURRENTROUND == 1:
 		CURRENTROUND += 1
@@ -226,5 +226,5 @@ func _process(_delta):
 		# switch to the other cutscene
 		print("NOW PLAYING RESULTS CUTSCENE")
 		currently_playing_results_cutscene = true
-		get_tree().change_scene_to_file("res://Scenes/result.tscn")
+		get_tree().change_scene_to_file("res://scenes/result.tscn")
 	

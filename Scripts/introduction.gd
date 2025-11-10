@@ -30,7 +30,7 @@ func _process(delta):
 	
 	
 func _change_lineup_texture():
-	lineup.texture = load("res://Assets/introduction/introcgs-" + str(current_lineup) + ".png")
+	lineup.texture = load("res://assets/introduction/introcgs-" + str(current_lineup) + ".png")
 	current_lineup += 1
 
 func _text():
@@ -117,4 +117,4 @@ func _animations():
 	# change scene
 	await tween.finished
 	Engine.time_scale = 1
-	get_tree().change_scene_to_file("res://Scenes/Lineup.tscn")
+	get_tree().change_scene_to_file("res://scenes/lineup.tscn")

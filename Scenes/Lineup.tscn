@@ -1,95 +1,95 @@
 [gd_scene load_steps=19 format=3 uid="uid://dk6hp08y53y8q"]
 
-[ext_resource type="Script" uid="uid://dx1tbwh8ckorc" path="res://Scripts/lineup.gd" id="1_7ouk3"]
-[ext_resource type="Texture2D" uid="uid://dnyr812kuu3ks" path="res://Assets/Lineup/lineup-bg.png" id="1_s7xo7"]
-[ext_resource type="Texture2D" uid="uid://dlgfmhn6fbroc" path="res://Assets/Lineup/Lineup_Characters/lineup-selene.png" id="2_0l2dn"]
-[ext_resource type="Texture2D" uid="uid://u1hs4a8l4nyg" path="res://Assets/Lineup/Lineup_Characters/lineup-theo.png" id="3_8x1ri"]
-[ext_resource type="Script" uid="uid://bqghapnhtamtq" path="res://Scripts/lineup_marg_button.gd" id="4_1266v"]
-[ext_resource type="Texture2D" uid="uid://cs3yi56s72vm1" path="res://Assets/Lineup/Lineup_Characters/lineup-alan.png" id="4_gfrte"]
-[ext_resource type="Texture2D" uid="uid://df1uefdmymbos" path="res://Assets/Lineup/Lineup_Characters/lineup-marg.png" id="5_0l2dn"]
-[ext_resource type="Texture2D" uid="uid://b3sxa4ux3bnly" path="res://Assets/Lineup/Lineup_Highlights/highlight-lineup-alan.png" id="6_tnlrv"]
-[ext_resource type="Texture2D" uid="uid://dxq34brt14j8s" path="res://Assets/Lineup/Lineup_Highlights/highlight-lineup-marg.png" id="7_7kn7v"]
-[ext_resource type="Script" uid="uid://c15d4qsm5mbdc" path="res://Scripts/lineup_alan_button.gd" id="7_n1xl2"]
-[ext_resource type="Texture2D" uid="uid://cduoxj05wkl12" path="res://Assets/Lineup/Lineup_Highlights/highlight-lineup-selene.png" id="8_6ws82"]
-[ext_resource type="Script" uid="uid://chil6v67hjs5v" path="res://Scripts/lineup_selene_button.gd" id="8_7kn7v"]
-[ext_resource type="Texture2D" uid="uid://bt4w7nrmeh15g" path="res://Assets/Lineup/Lineup_Highlights/highlight-lineup-theo.png" id="9_duvvb"]
-[ext_resource type="Script" uid="uid://bk6dkxvvj1puk" path="res://Scripts/lineup_theo_button.gd" id="13_s2yej"]
-[ext_resource type="Texture2D" uid="uid://d17evkxa50k01" path="res://Assets/Lineup/Lineup_Shadows/shadow-lineup-alan.png" id="14_8wkf2"]
-[ext_resource type="Texture2D" uid="uid://bl0phldswy4sl" path="res://Assets/Lineup/Lineup_Shadows/shadow-lineup-marg.png" id="15_7ouk3"]
-[ext_resource type="Texture2D" uid="uid://csoevfay8j31" path="res://Assets/Lineup/Lineup_Shadows/shadow-lineup-selene.png" id="16_58o25"]
-[ext_resource type="Texture2D" uid="uid://du6lyeockqfp8" path="res://Assets/Lineup/Lineup_Shadows/shadow-lineup-theo.png" id="17_45xpx"]
+[ext_resource type="Script" uid="uid://dx1tbwh8ckorc" path="res://scripts/lineup.gd" id="1_cfj4k"]
+[ext_resource type="Texture2D" uid="uid://dnyr812kuu3ks" path="res://assets/lineup/lineup-bg.png" id="2_bsfno"]
+[ext_resource type="Texture2D" uid="uid://df1uefdmymbos" path="res://assets/lineup/lineup_characters/lineup-marg.png" id="3_mun0o"]
+[ext_resource type="Texture2D" uid="uid://dxq34brt14j8s" path="res://assets/lineup/lineup_highlights/highlight-lineup-marg.png" id="4_e3chv"]
+[ext_resource type="Script" uid="uid://bqghapnhtamtq" path="res://scripts/lineup_marg_button.gd" id="5_anntg"]
+[ext_resource type="Texture2D" uid="uid://cs3yi56s72vm1" path="res://assets/lineup/lineup_characters/lineup-alan.png" id="6_5km8e"]
+[ext_resource type="Texture2D" uid="uid://b3sxa4ux3bnly" path="res://assets/lineup/lineup_highlights/highlight-lineup-alan.png" id="7_lmd1f"]
+[ext_resource type="Script" uid="uid://c15d4qsm5mbdc" path="res://scripts/lineup_alan_button.gd" id="8_okf4q"]
+[ext_resource type="Texture2D" uid="uid://dlgfmhn6fbroc" path="res://assets/lineup/lineup_characters/lineup-selene.png" id="9_hdw0o"]
+[ext_resource type="Texture2D" uid="uid://cduoxj05wkl12" path="res://assets/lineup/lineup_highlights/highlight-lineup-selene.png" id="10_vb2na"]
+[ext_resource type="Script" uid="uid://chil6v67hjs5v" path="res://scripts/lineup_selene_button.gd" id="11_mihje"]
+[ext_resource type="Texture2D" uid="uid://u1hs4a8l4nyg" path="res://assets/lineup/lineup_characters/lineup-theo.png" id="12_ona2j"]
+[ext_resource type="Texture2D" uid="uid://bt4w7nrmeh15g" path="res://assets/lineup/lineup_highlights/highlight-lineup-theo.png" id="13_gxkmg"]
+[ext_resource type="Script" uid="uid://bk6dkxvvj1puk" path="res://scripts/lineup_theo_button.gd" id="14_faexu"]
+[ext_resource type="Texture2D" uid="uid://d17evkxa50k01" path="res://assets/lineup/lineup_shadows/shadow-lineup-alan.png" id="15_vodia"]
+[ext_resource type="Texture2D" uid="uid://bl0phldswy4sl" path="res://assets/lineup/lineup_shadows/shadow-lineup-marg.png" id="16_iqq1e"]
+[ext_resource type="Texture2D" uid="uid://csoevfay8j31" path="res://assets/lineup/lineup_shadows/shadow-lineup-selene.png" id="17_tfcrh"]
+[ext_resource type="Texture2D" uid="uid://du6lyeockqfp8" path="res://assets/lineup/lineup_shadows/shadow-lineup-theo.png" id="18_0hrvp"]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_7ouk3")
+script = ExtResource("1_cfj4k")
 
 [node name="LineupBg" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_s7xo7")
+texture = ExtResource("2_bsfno")
 
 [node name="LineupMargButton" type="TextureButton" parent="."]
 z_index = 5
 offset_right = 1152.0
 offset_bottom = 648.0
-texture_normal = ExtResource("5_0l2dn")
-texture_hover = ExtResource("7_7kn7v")
+texture_normal = ExtResource("3_mun0o")
+texture_hover = ExtResource("4_e3chv")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("4_1266v")
+script = ExtResource("5_anntg")
 
 [node name="LineupAlanButton" type="TextureButton" parent="."]
 z_index = 4
 offset_right = 1152.0
 offset_bottom = 648.0
-texture_normal = ExtResource("4_gfrte")
-texture_hover = ExtResource("6_tnlrv")
+texture_normal = ExtResource("6_5km8e")
+texture_hover = ExtResource("7_lmd1f")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("7_n1xl2")
+script = ExtResource("8_okf4q")
 
 [node name="LineupSeleneButton" type="TextureButton" parent="."]
 z_index = 2
 offset_right = 1152.0
 offset_bottom = 648.0
-texture_normal = ExtResource("2_0l2dn")
-texture_hover = ExtResource("8_6ws82")
+texture_normal = ExtResource("9_hdw0o")
+texture_hover = ExtResource("10_vb2na")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("8_7kn7v")
+script = ExtResource("11_mihje")
 
 [node name="LineupTheoButton" type="TextureButton" parent="."]
 z_index = 2
 offset_right = 1152.0
 offset_bottom = 648.0
-texture_normal = ExtResource("3_8x1ri")
-texture_hover = ExtResource("9_duvvb")
+texture_normal = ExtResource("12_ona2j")
+texture_hover = ExtResource("13_gxkmg")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("13_s2yej")
+script = ExtResource("14_faexu")
 
 [node name="ShadowLineupAlan" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(576, 324)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("14_8wkf2")
+texture = ExtResource("15_vodia")
 
 [node name="ShadowLineupMarg" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(576, 324)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("15_7ouk3")
+texture = ExtResource("16_iqq1e")
 
 [node name="ShadowLineupSelene" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(576, 324)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("16_58o25")
+texture = ExtResource("17_tfcrh")
 
 [node name="ShadowLineupTheo" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(576, 324)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("17_45xpx")
+texture = ExtResource("18_0hrvp")
 
 [node name="RoundLabel" type="Label" parent="."]
 offset_right = 40.0

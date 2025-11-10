@@ -4,12 +4,12 @@ importer="dialogue_manager"
 importer_version=15
 type="Resource"
 uid="uid://b8xfaxsu47ti3"
-path="res://.godot/imported/R2_Margaret_Dialogue.dialogue-37b367308fef1dbe8b52112ef38780f7.tres"
+path="res://.godot/imported/r2_margaret_dialogue.dialogue-a817d5809017bea6578803ca14fbbf30.tres"
 
 [deps]
 
-source_file="res://Dialogues/R2_Margaret_Dialogue.dialogue"
-dest_files=["res://.godot/imported/R2_Margaret_Dialogue.dialogue-37b367308fef1dbe8b52112ef38780f7.tres"]
+source_file="res://dialogues/r2_margaret_dialogue.dialogue"
+dest_files=["res://.godot/imported/r2_margaret_dialogue.dialogue-a817d5809017bea6578803ca14fbbf30.tres"]
 
 [params]
 

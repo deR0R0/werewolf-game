@@ -17,13 +17,13 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-Global="*res://Scripts/Global.gd"
+Global="*res://scripts/global.gd"
 GlobalMusicPlayer="*res://scenes/global_music_player.tscn"
 GlobalSoundPlayer="*res://scenes/global_sound_player.tscn"
 
 [dialogue_manager]
 
-runtime/balloon_path="res://Scenes/balloon.tscn"
+runtime/balloon_path="res://scenes/balloon.tscn"
 
 [editor_plugins]
 
@@ -40,12 +40,13 @@ ui_accept={
 }
 SpeedForward={
 "deadzone": 0.2,
-"events": []
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
 }
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogues/R1_Margaret_Dialogue.dialogue", "res://Dialogues/R2_Margaret_Dialogue.dialogue", "res://Dialogues/R1_Theodore_Dialogue.dialogue", "res://Dialogues/R2_Theodore_Dialogue.dialogue", "res://Dialogues/R2_Alan_Dialogue.dialogue", "res://Dialogues/R1_Alan_Dialogue.dialogue", "res://Dialogues/R1_Selene_Dialogue.dialogue", "res://Dialogues/R2_Selene_Dialogue.dialogue", "res://Dialogues/debug.dialogue", "res://Dialogues/debug_r2.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogues/debug.dialogue", "res://dialogues/debug_r2.dialogue", "res://dialogues/r1_alan_dialogue.dialogue", "res://dialogues/r1_margaret_dialogue.dialogue", "res://dialogues/r1_selene_dialogue.dialogue", "res://dialogues/r1_theodore_dialogue.dialogue", "res://dialogues/r2_alan_dialogue.dialogue", "res://dialogues/r2_margaret_dialogue.dialogue", "res://dialogues/r2_selene_dialogue.dialogue", "res://dialogues/r2_theodore_dialogue.dialogue")
 
 [rendering]
 

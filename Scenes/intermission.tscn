@@ -1,25 +1,25 @@
 [gd_scene load_steps=7 format=3 uid="uid://cssuq28x3u6al"]
 
-[ext_resource type="Texture2D" uid="uid://ww1n2psxdc7d" path="res://Assets/intermission/intermission-bg.png" id="1_1v0qt"]
-[ext_resource type="Script" uid="uid://dcal1d6dsaccx" path="res://Scripts/intermission_script.gd" id="1_7n2v1"]
-[ext_resource type="Texture2D" uid="uid://f64qvcbn7dv0" path="res://Assets/intermission/intermission-protag-00.png" id="3_0on0q"]
-[ext_resource type="Texture2D" uid="uid://diww8qfxnv3hr" path="res://Assets/intermission/intermission-protag-01.png" id="4_jdd66"]
-[ext_resource type="Texture2D" uid="uid://ct73t4ldji1lt" path="res://Assets/intermission/intermission-protag-02.png" id="5_380xh"]
+[ext_resource type="Script" uid="uid://dcal1d6dsaccx" path="res://scripts/intermission_script.gd" id="1_vq6ig"]
+[ext_resource type="Texture2D" uid="uid://ww1n2psxdc7d" path="res://assets/intermission/intermission-bg.png" id="2_srk6g"]
+[ext_resource type="Texture2D" uid="uid://f64qvcbn7dv0" path="res://assets/intermission/intermission-protag-00.png" id="3_6b8fk"]
+[ext_resource type="Texture2D" uid="uid://ct73t4ldji1lt" path="res://assets/intermission/intermission-protag-02.png" id="4_m2o3m"]
+[ext_resource type="Texture2D" uid="uid://diww8qfxnv3hr" path="res://assets/intermission/intermission-protag-01.png" id="5_eb3pv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_40j2c"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_0on0q")
+"texture": ExtResource("3_6b8fk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_380xh")
+"texture": ExtResource("4_m2o3m")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_jdd66")
+"texture": ExtResource("5_eb3pv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_380xh")
+"texture": ExtResource("4_m2o3m")
 }],
 "loop": true,
 "name": &"default",
@@ -27,12 +27,12 @@ animations = [{
 }]
 
 [node name="Intermission" type="Node2D"]
-script = ExtResource("1_7n2v1")
+script = ExtResource("1_vq6ig")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_1v0qt")
+texture = ExtResource("2_srk6g")
 
 [node name="Protag" type="AnimatedSprite2D" parent="."]
 position = Vector2(576, 324)

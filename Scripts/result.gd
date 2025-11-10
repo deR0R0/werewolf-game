@@ -40,10 +40,10 @@ func create_text():
 		text.text = "\"Who could be knocking at this hour?\""
 
 func _set_win_screen():
-	bg.texture = load("res://Assets/endings/endcg-goodend.png")
+	bg.texture = load("res://assets/endings/endcg-goodend.png")
 	
 func _frame_bad_ending():
-	bg.texture = load("res://Assets/endings/endcg-badend-0" + str(current_frame) + ".png")
+	bg.texture = load("res://assets/endings/endcg-badend-0" + str(current_frame) + ".png")
 	current_frame += 1
 	
 func _sound_effects():
@@ -126,7 +126,7 @@ func _ready() -> void:
 	
 	# set the textures for jailed
 	var suspect = ["marg", "alan", "sele", "theo"][Global.PlayerSuspect - 1]
-	jailed.texture = load("res://Assets/endings/endcg-jail-" + suspect + ".png")
+	jailed.texture = load("res://assets/endings/endcg-jail-" + suspect + ".png")
 
 	# call the animation stuff
 	create_animations()

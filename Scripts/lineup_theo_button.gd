@@ -36,7 +36,7 @@ func _on_button_down():
 		print("PLAYER SELECTED THEODORE AS THE WEREWOLF!")
 	else:
 		Global.CurrentSuspect = "Theodore"
-		get_tree().change_scene_to_file("res://Scenes/Game_Scene.tscn")
+		get_tree().change_scene_to_file("res://scenes/game_scene.tscn")
 	
 func _process(_delta):
 	pass

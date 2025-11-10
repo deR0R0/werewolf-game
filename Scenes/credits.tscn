@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cunrvqqvrbkup"]
 
-[ext_resource type="Script" uid="uid://duq64mh8b8vpx" path="res://Scripts/back_from_credits.gd" id="1_r18jl"]
-[ext_resource type="Texture2D" uid="uid://vn46qq488fgc" path="res://Assets/mainmenu/main-menu-logo.png" id="2_gryuy"]
+[ext_resource type="Script" uid="uid://bvynve4ayq6mf" path="res://scripts/back_from_credits.gd" id="1_2ckv8"]
+[ext_resource type="Texture2D" uid="uid://vn46qq488fgc" path="res://assets/mainmenu/main-menu-logo.png" id="2_0ctdu"]
 
 [node name="Credits" type="Node2D"]
 
@@ -12,13 +12,13 @@ offset_top = 467.0
 offset_right = 767.0
 offset_bottom = 545.0
 text = "Click Here to return"
-script = ExtResource("1_r18jl")
+script = ExtResource("1_2ckv8")
 
 [node name="MainMenuLogo" type="Sprite2D" parent="."]
 z_index = 2
 position = Vector2(576, 324)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_gryuy")
+texture = ExtResource("2_0ctdu")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1152.0

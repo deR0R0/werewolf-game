@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://b560u4dty15yd"]
 
-[ext_resource type="Texture2D" uid="uid://b3vpqujgf0xuj" path="res://Assets/mainmenu/main-menu-bg.png" id="3_bsub0"]
-[ext_resource type="Texture2D" uid="uid://be3xkdhuv84jh" path="res://Assets/mainmenu/main-menu-credits.png" id="4_dynb3"]
-[ext_resource type="Texture2D" uid="uid://vn46qq488fgc" path="res://Assets/mainmenu/main-menu-logo.png" id="5_6fysb"]
-[ext_resource type="Script" uid="uid://clpv5yl38brb8" path="res://Scripts/credits_texture_button.gd" id="5_rmc5j"]
-[ext_resource type="Texture2D" uid="uid://cqhs41xu8j5mi" path="res://Assets/mainmenu/main-menu-credits-highlighted.png" id="6_6fysb"]
-[ext_resource type="Texture2D" uid="uid://5n1i6vpwlxeq" path="res://Assets/mainmenu/main-menu-newgame.png" id="6_rmc5j"]
-[ext_resource type="Script" uid="uid://dv7h2rloc4ecu" path="res://Scripts/start_texture_button.gd" id="8_7ulh4"]
-[ext_resource type="Texture2D" uid="uid://cfe4h6p4mgwl2" path="res://Assets/mainmenu/main-menu-newgame-highlighted.png" id="8_rmc5j"]
+[ext_resource type="Texture2D" uid="uid://b3vpqujgf0xuj" path="res://assets/mainmenu/main-menu-bg.png" id="3_bsub0"]
+[ext_resource type="Texture2D" uid="uid://be3xkdhuv84jh" path="res://assets/mainmenu/main-menu-credits.png" id="4_dynb3"]
+[ext_resource type="Texture2D" uid="uid://vn46qq488fgc" path="res://assets/mainmenu/main-menu-logo.png" id="5_6fysb"]
+[ext_resource type="Script" uid="uid://cegsl187s8xlb" path="res://scripts/credits_texture_button.gd" id="5_jtkxu"]
+[ext_resource type="Texture2D" uid="uid://cqhs41xu8j5mi" path="res://assets/mainmenu/main-menu-credits-highlighted.png" id="6_6fysb"]
+[ext_resource type="Texture2D" uid="uid://5n1i6vpwlxeq" path="res://assets/mainmenu/main-menu-newgame.png" id="6_rmc5j"]
+[ext_resource type="Script" uid="uid://bmdv8jc15jo7j" path="res://scripts/start_texture_button.gd" id="8_q2wq7"]
+[ext_resource type="Texture2D" uid="uid://cfe4h6p4mgwl2" path="res://assets/mainmenu/main-menu-newgame-highlighted.png" id="8_rmc5j"]
 
 [node name="Starting Screen" type="Node2D"]
 
@@ -28,7 +28,7 @@ texture_normal = ExtResource("4_dynb3")
 texture_hover = ExtResource("6_6fysb")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("5_rmc5j")
+script = ExtResource("5_jtkxu")
 
 [node name="Start_Texture_Button" type="TextureButton" parent="."]
 offset_right = 1152.0
@@ -37,7 +37,7 @@ texture_normal = ExtResource("6_rmc5j")
 texture_hover = ExtResource("8_rmc5j")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("8_7ulh4")
+script = ExtResource("8_q2wq7")
 
 [connection signal="button_down" from="Credits_Texture_Button" to="Credits_Texture_Button" method="_on_button_down"]
 [connection signal="button_down" from="Start_Texture_Button" to="Start_Texture_Button" method="_on_button_down"]

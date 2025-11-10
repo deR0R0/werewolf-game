@@ -1,46 +1,46 @@
 [gd_scene load_steps=16 format=3 uid="uid://cv4ggpdjgsigr"]
 
-[ext_resource type="Script" uid="uid://civaxr8nhnflh" path="res://Scripts/stat_allocation.gd" id="1_kttnv"]
-[ext_resource type="Texture2D" uid="uid://bpu0xqqnuxje8" path="res://Assets/Stat_Allocation/bg.png" id="2_eppps"]
-[ext_resource type="Texture2D" uid="uid://c7yo2ukaerebe" path="res://Assets/Stat_Allocation/bar-0.png" id="3_3xlea"]
-[ext_resource type="Texture2D" uid="uid://cdw6qtmtggta8" path="res://Assets/Stat_Allocation/minus.png" id="4_3xlea"]
-[ext_resource type="Texture2D" uid="uid://6usg0nqo500y" path="res://Assets/Stat_Allocation/plus.png" id="4_n6p2l"]
-[ext_resource type="Texture2D" uid="uid://bd62dl3fifag1" path="res://Assets/Stat_Allocation/plus-highlighted.png" id="5_3fqnn"]
-[ext_resource type="Texture2D" uid="uid://gk3o0x1300rc" path="res://Assets/Stat_Allocation/minus-highlighted.png" id="7_fnq2m"]
-[ext_resource type="Texture2D" uid="uid://88feh4ykcjkj" path="res://Assets/Stat_Allocation/next.png" id="8_8jmvg"]
-[ext_resource type="Texture2D" uid="uid://c5omtuie071sn" path="res://Assets/Stat_Allocation/next-highlighted.png" id="9_gl1hm"]
+[ext_resource type="Script" uid="uid://civaxr8nhnflh" path="res://scripts/stat_allocation.gd" id="1_ml7r2"]
+[ext_resource type="Texture2D" uid="uid://bpu0xqqnuxje8" path="res://assets/stat_allocation/bg.png" id="2_7mbi5"]
+[ext_resource type="Texture2D" uid="uid://c7yo2ukaerebe" path="res://assets/stat_allocation/bar-0.png" id="3_b1bfo"]
+[ext_resource type="Texture2D" uid="uid://6usg0nqo500y" path="res://assets/stat_allocation/plus.png" id="4_f5v0o"]
+[ext_resource type="Texture2D" uid="uid://bd62dl3fifag1" path="res://assets/stat_allocation/plus-highlighted.png" id="5_u06qh"]
+[ext_resource type="Texture2D" uid="uid://cdw6qtmtggta8" path="res://assets/stat_allocation/minus.png" id="6_pk63c"]
+[ext_resource type="Texture2D" uid="uid://gk3o0x1300rc" path="res://assets/stat_allocation/minus-highlighted.png" id="7_suesa"]
+[ext_resource type="Texture2D" uid="uid://88feh4ykcjkj" path="res://assets/stat_allocation/next.png" id="8_mmroj"]
+[ext_resource type="Texture2D" uid="uid://c5omtuie071sn" path="res://assets/stat_allocation/next-highlighted.png" id="9_8q3vc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3xlea"]
-atlas = ExtResource("4_n6p2l")
+atlas = ExtResource("4_f5v0o")
 region = Rect2(3530.77, 561.48, 221, 230)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3fqnn"]
-atlas = ExtResource("5_3fqnn")
+atlas = ExtResource("5_u06qh")
 region = Rect2(3530.77, 561.48, 221, 210)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n6p2l"]
-atlas = ExtResource("4_3xlea")
+atlas = ExtResource("6_pk63c")
 region = Rect2(1680, 590, 221, 167)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8jmvg"]
-atlas = ExtResource("7_fnq2m")
+atlas = ExtResource("7_suesa")
 region = Rect2(1680, 590, 221, 167)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gl1hm"]
-atlas = ExtResource("8_8jmvg")
+atlas = ExtResource("8_mmroj")
 region = Rect2(3495.105, 1851.982, 330, 300)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_66u62"]
-atlas = ExtResource("9_gl1hm")
+atlas = ExtResource("9_8q3vc")
 region = Rect2(3495.105, 1851.982, 330, 300)
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_kttnv")
+script = ExtResource("1_ml7r2")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_eppps")
+texture = ExtResource("2_7mbi5")
 
 [node name="SceneLabel" type="Label" parent="."]
 offset_left = 94.0
@@ -65,7 +65,7 @@ text = "Persuasion Stat"
 [node name="BarIndicator" type="Sprite2D" parent="PersuasionBar"]
 position = Vector2(576, 324)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_3xlea")
+texture = ExtResource("3_b1bfo")
 
 [node name="Increase" type="TextureButton" parent="PersuasionBar"]
 offset_left = 1050.0
@@ -101,7 +101,7 @@ text = "Intimidation Stat"
 [node name="BarIndicator" type="Sprite2D" parent="IntimidationBar"]
 position = Vector2(576, 454)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_3xlea")
+texture = ExtResource("3_b1bfo")
 
 [node name="Increase" type="TextureButton" parent="IntimidationBar"]
 offset_left = 1050.0
@@ -137,7 +137,7 @@ text = "Deception Stat"
 [node name="BarIndicator" type="Sprite2D" parent="DeceptionBar"]
 position = Vector2(576, 584)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_3xlea")
+texture = ExtResource("3_b1bfo")
 
 [node name="Increase" type="TextureButton" parent="DeceptionBar"]
 offset_left = 1050.0

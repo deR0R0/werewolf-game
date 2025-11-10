@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://da6jr3wjjfll4"]
 
-[ext_resource type="Texture2D" uid="uid://b7ki4thwl2ih2" path="res://Assets/Theodore_Sprites/sprite00-theodore.png" id="1_fs6tf"]
-[ext_resource type="Script" uid="uid://sgyhqpl5kjeb" path="res://Scripts/Suspect.gd" id="2_si4bc"]
+[ext_resource type="Texture2D" uid="uid://b7ki4thwl2ih2" path="res://assets/theodore_sprites/sprite00-theodore.png" id="1_bwhyi"]
+[ext_resource type="Script" uid="uid://sgyhqpl5kjeb" path="res://scripts/suspect.gd" id="2_vtkqw"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(576, 323.99997)
 scale = Vector2(0.3, 0.29999998)
-texture = ExtResource("1_fs6tf")
-script = ExtResource("2_si4bc")
+texture = ExtResource("1_bwhyi")
+script = ExtResource("2_vtkqw")

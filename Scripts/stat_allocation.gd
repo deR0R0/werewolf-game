@@ -43,9 +43,9 @@ func _cannot_do_stupid_dumbass(bar):
 
 	
 func _update_bars():
-	bars[0].texture = load("res://Assets/Stat_Allocation/bar-" + str(Global.persuasion_stat) + ".png")
-	bars[1].texture = load("res://Assets/Stat_Allocation/bar-" + str(Global.intimidation_stat) + ".png")
-	bars[2].texture = load("res://Assets/Stat_Allocation/bar-" + str(Global.deception_stat) + ".png")
+	bars[0].texture = load("res://assets/stat_allocation/bar-" + str(Global.persuasion_stat) + ".png")
+	bars[1].texture = load("res://assets/stat_allocation/bar-" + str(Global.intimidation_stat) + ".png")
+	bars[2].texture = load("res://assets/stat_allocation/bar-" + str(Global.deception_stat) + ".png")
 	$RemainingPoints.text = "Remaining Points: " + str(Global.allocatable_points)
 	
 	
@@ -109,4 +109,4 @@ func _on_continue_button_down():
 		return
 	
 	Global.stats_completely_selected = true
-	get_tree().change_scene_to_file("res://Scenes/introduction.tscn"  )
+	get_tree().change_scene_to_file("res://scenes/introduction.tscn"  )

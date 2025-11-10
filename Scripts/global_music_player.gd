@@ -7,15 +7,16 @@ var sound_stopped = false
 
 # preload all songs
 var music_list = {
-	"main_menu": preload("res://Assets/Sounds/main_menu_theme.wav"),
-	"interrogation": preload("res://Assets/Sounds/interrogation_theme.mp3"),
-	"cutscene": preload("res://Assets/Sounds/cutscene_theme.mp3"),
-	"dramatic": preload("res://Assets/Sounds/dramatic_theme.mp3")
+	"main_menu": preload("res://assets/sounds/main_menu_theme.wav"),
+	"interrogation": preload("res://assets/sounds/interrogation_theme.mp3"),
+	"cutscene": preload("res://assets/sounds/cutscene_theme.mp3"),
+	"dramatic": preload("res://assets/sounds/dramatic_theme.mp3")
 }
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print(audio_player)
 	play_music("main_menu")
 
 

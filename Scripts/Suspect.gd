@@ -1,16 +1,16 @@
 extends Sprite2D
 
-@onready var R1_Margaret_Dialogue = load("res://Dialogues/R1_Margaret_Dialogue.dialogue")
-@onready var R2_Margaret_Dialogue = load("res://Dialogues/R2_Margaret_Dialogue.dialogue")
+@onready var R1_Margaret_Dialogue = load("res://dialogues/r1_margaret_dialogue.dialogue")
+@onready var R2_Margaret_Dialogue = load("res://dialogues/r2_margaret_dialogue.dialogue")
 
-@onready var R1_Alan_Dialogue = load("res://Dialogues/R1_Alan_Dialogue.dialogue")
-@onready var R2_Alan_Dialogue = load("res://Dialogues/R2_Alan_Dialogue.dialogue")
+@onready var R1_Alan_Dialogue = load("res://dialogues/r1_alan_dialogue.dialogue")
+@onready var R2_Alan_Dialogue = load("res://dialogues/r2_alan_dialogue.dialogue")
 
-@onready var R1_Selene_Dialogue = load("res://Dialogues/R1_Selene_Dialogue.dialogue")
-@onready var R2_Selene_Dialogue = load("res://Dialogues/R2_Selene_Dialogue.dialogue")
+@onready var R1_Selene_Dialogue = load("res://dialogues/r1_selene_dialogue.dialogue")
+@onready var R2_Selene_Dialogue = load("res://dialogues/r2_selene_dialogue.dialogue")
 
-@onready var R1_Theodore_Dialogue = load("res://Dialogues/R1_Theodore_Dialogue.dialogue")
-@onready var R2_Theodore_Dialogue = load("res://Dialogues/R2_Theodore_Dialogue.dialogue")
+@onready var R1_Theodore_Dialogue = load("res://dialogues/r1_theodore_dialogue.dialogue")
+@onready var R2_Theodore_Dialogue = load("res://dialogues/r2_theodore_dialogue.dialogue")
 
 #@onready var R1_Margaret_Dialogue = load("res://Dialogues/debug.dialogue")
 #@onready var R2_Margaret_Dialogue = load("res://Dialogues/debug_r2.dialogue")
@@ -75,10 +75,10 @@ func _on_dialogue_changed(line: DialogueLine):
 		return
 	
 	if line.character != "Protag":
-		texture = load("res://assets/" + line.character + "_Sprites/sprite" + tags_dict.get("sprite") + "-" + line.character + ".png")
+		texture = load("res://assets/" + line.character + "_sprites/sprite" + tags_dict.get("sprite") + "-" + line.character + ".png")
 	else:
-		texture = load("res://assets/" + Global.CurrentSuspect + "_Sprites/sprite00-" + Global.CurrentSuspect + ".png")
-		player_box.texture = load("res://assets/" + line.character + "_Sprites/sprite" + tags_dict.get("sprite") + "-" + line.character.to_lower() + "onist.png")
+		texture = load("res://assets/" + Global.CurrentSuspect + "_sprites/sprite00-" + Global.CurrentSuspect + ".png")
+		player_box.texture = load("res://assets/" + line.character + "_sprites/sprite" + tags_dict.get("sprite") + "-" + line.character.to_lower() + "onist.png")
 
 	
 func parse_tags(tags: PackedStringArray) -> Dictionary:

@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://ry8y47bus614"]
 
-[ext_resource type="Texture2D" uid="uid://dm87b8scwci7a" path="res://Assets/endings/endcg-fullmoon.png" id="1_37uq0"]
-[ext_resource type="Script" uid="uid://ixjhh7lfot41" path="res://scripts/result.gd" id="1_dj5nj"]
-[ext_resource type="Texture2D" uid="uid://cvtibmq2usvlb" path="res://Assets/endings/accusation.png" id="1_m2k5w"]
-[ext_resource type="Texture2D" uid="uid://dv50464ci04ad" path="res://Assets/endings/endcg-jail-alan.png" id="2_dj5nj"]
+[ext_resource type="Script" uid="uid://ixjhh7lfot41" path="res://scripts/result.gd" id="1_dtx8l"]
+[ext_resource type="Texture2D" uid="uid://dm87b8scwci7a" path="res://assets/endings/endcg-fullmoon.png" id="2_ar46g"]
+[ext_resource type="Texture2D" uid="uid://dv50464ci04ad" path="res://assets/endings/endcg-jail-alan.png" id="3_1iwmk"]
+[ext_resource type="Texture2D" uid="uid://cvtibmq2usvlb" path="res://assets/endings/accusation.png" id="4_a38kb"]
 
 [sub_resource type="Gradient" id="Gradient_ojf0l"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -12,7 +12,7 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_ojf0l")
 
 [node name="Result" type="Node2D"]
-script = ExtResource("1_dj5nj")
+script = ExtResource("1_dtx8l")
 
 [node name="BlackBackground" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
@@ -22,17 +22,17 @@ texture = SubResource("GradientTexture2D_37uq0")
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_37uq0")
+texture = ExtResource("2_ar46g")
 
 [node name="Jailed" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_dj5nj")
+texture = ExtResource("3_1iwmk")
 
 [node name="ProtagItsYou" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_m2k5w")
+texture = ExtResource("4_a38kb")
 
 [node name="LoreText" type="RichTextLabel" parent="."]
 offset_left = 411.0
