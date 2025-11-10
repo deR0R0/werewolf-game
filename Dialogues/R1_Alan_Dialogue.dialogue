@@ -1,55 +1,164 @@
 ~ start
-Protag: Introduction [#sprite=00]
-Portag: Anotha one [#sprite=00]
+Protag: [i] Damn, this guy looks tired. He also looks pretty smart, I should be careful with what strategies I use to interrogate him. [/i] [#sprite=04]
+Alan: Hey, are we able to finish this interrogation quickly? I really want to get home and sleep. I’ve been up for the past 16 hours working and I really don’t need to be here.[#sprite=01]
+Protag: Sorry, I have to interrogate all of the potential suspects. Why are you in such a rush to get home?[#sprite=01]
+Alan: I’m just trying to get home to sleep and prepare for my night shift.[#sprite=02]
+Alan: Anyways, are you going to get to asking your questions?[#sprite=01]
+Protag: Right. Where were you yesterday?[#sprite=03]
+Alan: I arrived at Douglass’s house at one o’clock. I left at around four o’clock to go check on another patient of mine. After that, I went home.[#sprite=03]
+Protag: Around what time was that?[#sprite=01]
+Alan: Eight o’clock or so.[#sprite=02]
+Protag: Did you go anywhere after that?[#sprite=05]
+Alan: No. I was at home until the police knocked on my door to take me in for questioning.[#sprite=03]
+Protag: Did you see anything suspicious while you were there?[#sprite=04]
+Alan: His granddaughter dropped by while I was there, but not much happened. I wouldn’t say it was suspicious or anything.[#sprite=02]
+Protag: Anything else to report?[#sprite=01]
+Alan: Not really. Got any more questions for me, or am I free to go?[#sprite=01]
+Protag: [i] I don’t know if this is something I should ask him, but I can’t help but shake a suspicion I’ve been having. Claw marks, fur, a bite… All the evidence points towards something else being the culprit. Something… inhuman. [/i] [#sprite=04]
+Protag: [i] It feels silly to admit to believing in werewolves, but what else could it possibly mean? [/i] [#sprite=04]
+Protag: Before we continue with the interrogation, Can I get your medical expertise on something?[#sprite=05]
+Alan: What is it?[#sprite=03]
+Protag: We found some suspicious evidence at the crime scene. Fur and claw marks everywhere, and the victim died from a bite that looked like a wolf’s, but far too large. Yesterday was a full moon, too.[#sprite=01]
+Protag: I suspect it could mean the victim was killed by a werewolf. I know it’s kind of stupid, werewolves don’t exist anymore, but it’s what the evidence seems to suggest. Would you know anything about this?[#sprite=05]
+if Global.werewolf == Global.Character.ALAN
+	Alan: Ah, You think he was killed by a werewolf. [#sprite=05]
+	Alan: Well… I’m not supposed to talk about it, since it could cause a panic, but there’s been a recent outbreak in lycanthropy cases. It’s been making its way across Europe for years now, and has broken containment into the United States, where it spread like wildfire. [#sprite=04]
+else
+	Alan: Well… I’m not supposed to talk about it, since it could cause a panic, but there’s been a recent outbreak in lycanthropy cases. It’s been making its way across Europe for years now, and has broken containment into the United States, where it spread like wildfire. [#sprite=04]
+Protag: I thought lycanthropy was eradicated ages ago. [#sprite=17]
+if Global.werewolf == Global.Character.ALAN
+	Alan: So did I, but it’s back. We’re not sure why, so we’re trying to keep it under wraps until we know how to contain it. [#sprite=03]
+else
+	Alan: Everyone thought so as well, but apparently, it’s back. We’re not sure why, so we’re trying to keep it under wraps until we know how to contain it. [#sprite=03]
+Protag: I see, thank you for telling me. Your information is very helpful.[#sprite=05]
+Protag: [i] I almost wish my theory wasn’t correct. I don’t think there's a protocol for werewolves at large… [/i] [#sprite=04]
+Protag: Can you tell me more about them?[#sprite=05]
+Alan: Sorry, I’ve already told you too much. It’s supposed to be confidential.[#sprite=04]
+Protag: [i] I need to know more about werewolves. How can I get him to tell me? [/i] [#sprite=04]
 - Persuasion
-	set Global.alan_persuasion = true
-	if Global.werewolf == Global.Character.ALAN
-		Protag: Persuasion Introduction
-		if Global.dice_rolls.alan.roll_r1_persuasion >= Global.roll_checks.alan.persuasion
-			Protag: Persuasion Check Passed (Werewolf)
-		else
-			Protag: Persuasion Check Failed (Werewolf)
-			Protag: {{Global.dice_rolls.alan.roll_r1_persuasion}} is greater than {{Global.roll_checks.alan.persuasion}}
-	else
-		Protag: Persuasion Introduction
-		if Global.dice_rolls.alan.roll_r1_persuasion >= Global.roll_checks.alan.persuasion
-			Protag: Persuasion Check Passed
-			Protag: {{Global.dice_rolls.alan.roll_r1_persuasion}} is greater than {{Global.roll_checks.alan.persuasion}}
-		else
-			Protag: Persuasion Check Failed 
-			Protag: {{Global.dice_rolls.alan.roll_r1_persuasion}} is less than {{Global.roll_checks.alan.persuasion}}
-			
-- Deception
-	if Global.werewolf == Global.Character.ALAN
-		Protag: Deception Introduction
-		if Global.dice_rolls.alan.roll_r1_deception >= Global.roll_checks.alan.deception
-			Protag: Deception Check Passed (Werewolf)
-		else
-			Protag: Deception Check Failed (Werewolf)
-	else
-		Protag: Deception Introduction
-		if Global.dice_rolls.alan.roll_r1_deception >= Global.roll_checks.alan.deception
-			Protag: Deception Check Passed
-		else
-			Protag: Deception Check Failed
-			
-			
+	Protag: If you tell me about it, I’ll leave you alone to nap. [#sprite=02]
+	if Global.dice_rolls.alan.roll_r1_persuasion >= Global.roll_checks.alan.persuasion:
+		=> persuasion_succeed
+	else:
+		=> persuasion_fail
 - Intimidation
-	set Global.alan_intimidation  = true
-	if Global.werewolf == Global.Character.ALAN
-		Protag: Intimidation Introduction
-		if Global.dice_rolls.alan.roll_r1_intimidation >= Global.roll_checks.alan.intimidation
-			Protag: Intimidation Check Passed (Werewolf)
-		else
-			Protag: Intimidation Check Failed (Werewolf)
-	else	
-		Protag: Intimidation Introduction
-		if Global.dice_rolls.alan.roll_r1_intimidation >= Global.roll_checks.alan.intimidation
-			Protag: Intimidation Check Passed
-		else
-			Protag: Intimidation Check Failed
-			
-set Global.Alan_R1_Over = true
-set Global.Alan_R1_Ran = true
+	Protag: How do I know you’re not a werewolf? I don’t know anything about them, I have no way of knowing the signs. [#sprite=05]
+	if Global.dice_rolls.alan.roll_r1_intimidation >= Global.roll_checks.alan.intimidation:
+		=> intimidation_succeed
+	else:
+		=> intimidation_fail
+- Deception
+	Protag: I’m interested in stopping the spread of Lycanthropy, too. If we can catch the werewolves, we can stop them from infecting more people. I can’t help anyone if I don’t know what’s going on. [#sprite=00]
+	if Global.dice_rolls.alan.roll_r1_deception >= Global.roll_checks.alan.deception:
+		=> deception_succeed
+	else:
+		=> deception_fail
 
+=> end_dialogue
+
+~ persuasion_succeed
+Alan: Fine, I’ll tell you about it.[#sprite=02]
+Alan: With Lycanthropy, not only does the person physically transform into a wolf, they also undergo mental changes.[#sprite=04]
+Alan: It doesn’t matter what personality the patient has when they transform, everything is completely overridden to turn them into a beast.[#sprite=01]
+Protag: Do you have any information on how they got to America in the first place?[#sprite=01]
+Alan: We know it originated in Europe. Presumably, an infected person travelled to the US, and that’s how it spread here. That’s all we know, though.[#sprite=03]
+Alan: But, we do know that once one person is infected, and they scratch or bite something, the other person gets infected too, and that’s how the disease spreads.[#sprite=01]
+Alan: Which is why we’re currently trying to figure out how to stop it.[#sprite=04]
+Protag: That’s interesting… anything else?[#sprite=05]
+Alan: Nothing. We’re still trying to figure out every little detail about them.[#sprite=01]
+Protag: You seem to have a lot of experience with werewolves… Are you sure YOU’RE not a werewolf?[#sprite=01]
+if Global.werewolf == Global.Character.ALAN
+	Alan: Seriously? That’s stupid reasoning. [#sprite=03]
+	Alan: I’m not a werewolf. I’ve just encountered a lot of cases at the hospital over the last few months.[#sprite=04]
+else
+	Alan: I’m not a werewolf. I’ve just encountered a lot of cases at the hospital over the last few months.[#sprite=04]
+Protag: Alright. Thank you for your cooperation, Alan.[#sprite=01]
+Alan: No problem.[#sprite=02]
+=> end_dialogue
+
+~ persuasion_fail
+Alan: Like I said, it’s classified. That means I can’t talk about it. [#sprite=01]
+Protag: I need you to cooperate so I can solve this case. Can you please tell me more? [#sprite=09]
+Alan: This is an important international secret. I can’t just leak it to some hotshot detective. [#sprite=02]
+Protag: [i] You kind of already did, though… [/i] [#sprite=08]
+Protag: Are you sure you can’t tell me anything? [#sprite=01]
+Alan: Sorry, no can do. [#sprite=00]
+Protag: [i] Dang it, I think that’s the most I’m gonna get. At least I was able to confirm the existence of werewolves, though. [/i] [#sprite=00]
+=> end_dialogue
+
+~ deception_succeed
+Alan: Fine, we need all the help we can get to stop the spread.[#sprite=04]
+if Global.werewolf == Global.Character.ALAN
+	Alan: The human form’s personality is completely overridden by the werewolf’s aggression. [#sprite=02]
+else
+	Alan: From what we’ve observed, it seems like the human form’s personality is completely overridden by the werewolf’s aggression.[#sprite=02]
+Protag: Interesting… so even if the human is completely harmless, then the werewolf form will still attack others?[#sprite=05]
+if Global.werewolf == Global.Character.ALAN
+	Alan: Indeed. They also experience immense pain while transforming. Many werewolves I know have needed painkillers just to survive the transformation. [#sprite=01]
+else
+	Alan: Indeed. More interestingly, they experience immense pain while transforming. Most werewolves I’ve dealt with have needed painkillers just to survive the transformation.[#sprite=01]
+Protag: [i] Interesting… What a horrible disease… [/i] [#sprite=04]
+Protag: Do they remember anything from their time as a werewolf?[#sprite=01]
+if Global.werewolf == Global.Character.ALAN
+	Alan: Nothing except for fuzzy memories.[#sprite=03]
+else
+	Alan: Nothing except for fuzzy memories, from what we’ve observed.[#sprite=03]
+Protag: So they could go around killing on full moons and not even remember it?[#sprite=17]
+Alan: Indeed. Many people with Lycanthropy don’t even realize they do until someone else tells them. They feel extreme agony, yes, but their brains usually suppress the memory without an explanation for the pain.[#sprite=04]
+Protag: What about any physical signs?[#sprite=05]
+Alan: None. Except on full moons, werewolves are completely indistinguishable from normal people.[#sprite=01]
+Protag: Interesting, thank you for your cooperation in this interrogation. I’ll see you again later.[#sprite=01]
+=> end_dialogue
+
+~ deception_fail
+Alan: Do you think I’m stupid? You didn’t know werewolves existed 10 minutes ago, there’s no way you actually care about this.[#sprite=04]
+Alan: Lying isn’t going to make me any more willing to cooperate with you.[#sprite=01]
+Protag: I’m not lying! I really do want to help.[#sprite=17]
+Alan: Nice try. It’s not going to work though.[#sprite=02]
+Protag: [i] It’s not even really a lie. Sure, I want to solve the case first and foremost, but I also want to help. I guess Alan didn’t buy it, though.[/i] [#sprite=16]
+=> end_dialogue
+
+~ intimidation_succeed
+Alan: Ugh, fine, I’ll tell you. I’m not a werewolf, for the record, and I don’t appreciate you implying I could be.[#sprite=04]
+Protag: Just tell me what you know about werewolves.[#sprite=01]
+Alan: Even if I was a werewolf, you wouldn’t be able to tell by looking at me. Werewolves are indistinguishable from humans when it’s not the full moon. The only way to know for sure is to watch someone transform, which comes with obvious risks.[#sprite=03]
+if Global.werewolf == Global.Character.ALAN
+	Alan: Lycanthropy completely overrides the person’s human personality and just replaces it with pure rage and aggression. There’s no such thing as a tame werewolf. They’re all… mindless beasts. [#sprite=05]
+else
+	Alan: Lycanthropy seems to completely override the person’s human personality and just replace it with pure rage and aggression. As a result, there’s no such thing as a tame werewolf.[#sprite=05]
+Protag: That’s interesting… So does that mean werewolves ruthlessly kill and turn, but the person doesn’t even mean to?[#sprite=05]
+if Global.werewolf == Global.Character.ALAN
+	Alan: I doubt werewolves would do much turning if they were of sound mind. They don’t even remember what happened while they were transformed. [#sprite=01]
+else
+	Alan: I still don’t understand why people don’t just trap themself in a box or something to preclude the killings.[#sprite=01]
+Protag: [i] Pity they don’t, my job would be much easier if they did… [/i] [#sprite=04]
+Protag: If that’s all, thank you for the information. Sorry for, uh, accusing you of being a werewolf.[#sprite=01]
+if Global.werewolf == Global.Character.ALAN
+	Alan: ...Whatever. [#sprite=02]
+else
+	Alan: Technically, I could still be one. The culprit was clearly a werewolf, after all, and I’m one of the suspects.[#sprite=02]
+	Protag: …I’ll keep that in mind.[#sprite=04]
+=> end_dialogue
+
+~ intimidation_fail
+if Global.werewolf == Global.Character.ALAN
+	Alan: You think your tricks are going to work on me? I’m not falling for such a cheap shot. [#sprite=02]
+else
+	Alan: You think your tricks are going to work on me? I don’t care if you think I’m a werewolf or not.[#sprite=04]
+Protag: [i] …Dang it! That was a terrible idea! Why did I say that? [/i] [#sprite=08]
+Protag: I thought that would work on you.[#sprite=01]
+Alan: Well, it didn’t. I’m not stupid, unlike you, thinking that would work.[#sprite=01]
+Protag: Well at least I get more than five hours of sleep…[#sprite=08]
+Alan: …[#sprite=00]
+Protag: …[#sprite=10]
+Protag: …Sorry, that was… Unprofessional.[#sprite=00]
+Alan: No kidding.[#sprite=01]
+Protag: …I guess this means you aren’t going to tell me anything?[#sprite=01]
+Alan: Hell no.[#sprite=00]
+Protag: [i] I might as well come back later, then. This isn’t going anywhere. [/i] [#sprite=00]
+=> end_dialogue
+
+~ end_dialogue
+set Global.round_overs.r1.alan.over = true
+set Global.round_overs.r1.alan.ran = true
 => END

@@ -1,77 +1,288 @@
 ~ start
-Protag: Round 2 of Interrogation
-- Persuasion
-	if Global.theodore_persuasion
-	
-		Protag: Persuasion Double Route
-		if Global.werewolf == Global.Character.THEO
-			if Global.dice_rolls.theo.roll_r2_persuasion >= Global.roll_checks.theo.persuasion
-				Protag: Persuasion Double Route Check Passed (Werewolf)
-			else
-				Protag: Persuasion Double Route Check Failed (Werewolf)
-		else
-			if Global.dice_rolls.theo.roll_r2_persuasion >= Global.roll_checks.theo.persuasion
-				Protag: Persuasion Double Route Check Passed 
-			else
-				Protag: Persuasion Double Route Check Failed
-	else
-
-		Protag: Persuasion Single Route
-		if Global.werewolf == Global.Character.THEO
-			if Global.dice_rolls.theo.roll_r2_persuasion >= Global.roll_checks.theo.persuasion
-				Protag: Persuasion Check Passed (Werewolf)
-			else
-				Protag: Persuasion Check Failed (Werewolf)
-		else
-			if Global.dice_rolls.theo.roll_r2_persuasion >= Global.roll_checks.theo.persuasion
-				Protag: Persuasion Check Passed 
-			else
-				Protag: Persuasion Check Failed
-			
-			
-			
+Protag: Hi again, Theodore. I need to ask you some more questions. [#sprite=01]
+Protag: I promise this won’t take that long! [#sprite=03]
 - Deception
-	Protag: Deception Route
-	if Global.werewolf == Global.Character.THEO
-		if Global.dice_rolls.theo.roll_r2_deception >= Global.roll_checks.theo.deception
-			Protag: Deception Check Passed (Werewolf)
-		else
-			Protag: Deception Check Failed (Werewolf)
-	else
-		if Global.dice_rolls.theo.roll_r2_deception >= Global.roll_checks.theo.deception
-			Protag: Deception Check Passed
-		else
-			Protag: Deception Check Failed
-		
+	=> deception
 - Intimidation
-	if Global.theodore_intimidation
-	
-		Protag: Intimidation Double Route
-		if Global.werewolf == Global.Character.THEO
-			if Global.dice_rolls.theo.roll_r2_intimidation >= Global.roll_checks.theo.intimidation
-				Protag: Intimidation Double Route Check Passed (werewolf) 
-			else
-				Protag: Intimidation Double Route Check Failed (werewolf)
-		else 
-			if Global.dice_rolls.theo.roll_r2_intimidation >= Global.roll_checks.theo.intimidation
-				Protag: Intimidation Double Route Check Passed  
-			else
-				Protag: Intimidation Double Route Check Failed
-	else
-	
-		Protag: Intimidation Single Route
-		if Global.werewolf == Global.Character.THEO
-			if Global.dice_rolls.theo.roll_r2_intimidation >= Global.roll_checks.theo.intimidation
-				Protag: Intimidation Check Passed (werewolf) 
-			else
-				Protag: Intimidation Check Failed (werewolf)
-		else 
-			if Global.dice_rolls.theo.roll_r2_intimidation >= Global.roll_checks.theo.intimidation
-				Protag: Intimidation Check Passed  
-			else
-				Protag: Intimidation Check Failed
-			
-set Global.Theo_R2_Over = true
-set Global.Theo_R2_Ran = true
+	if Global.dice_rolls.theo.roll_r2_intimidation >= Global.roll_checks.theo.intimidation:
+		=> intimidation_succeed
+	else:
+		=> intimidation_fail
+- Persuasion
+	Protag: Theo, if you cooperate with me and answer my questions, you might be able to get some artifacts from Douglass’s collection. So, are you going to cooperate with me or not? [#sprite=15]
+	if Global.dice_rolls.theo.roll_r2_persuasion >= Global.roll_checks.theo.persuasion:
+		=> persuasion_succeed
+	else:
+		=> persuasion_fail
 
+
+=> end_dialogue
+
+~ deception
+if Global.double_routes.theo.deception:
+	if Global.dice_rolls.theo.roll_r2_deception >= Global.roll_checks.theo.deception:
+		=> double_deception_succeed
+	else:
+		=> double_deception_fail
+else:
+	if Global.dice_rolls.theo.roll_r2_deception >= Global.roll_checks.theo.deception:
+		=> single_deception_succeed
+	else:
+		=> single_deception_fail
+=> end_dialogue
+
+~ double_deception_succeed
+if Global.werewolf == Global.Character.THEO
+	=> single_deception_succeed
+else
+	Theo: That’s good! The earlier we get finished, the earlier we can go to my home![#sprite=09]
+	Protag: [i] He’s uh… eager. [/i] [#sprite=00]
+	Protag: To see Al Capone’s cryogenically preserved remains... right?[#sprite=03]
+	Theo: To- oh! yeah, to uh, see... and... go to my house![#sprite=02]
+	Protag: [i] Why is he so hesitant to say that he has the body at his house? [/i] [#sprite=04]
+	Theo: A-anyway! Uh, why’d you decide to become a detective?[#sprite=01]
+	Protag: [i] That was a sudden change of subject… [/i] [#sprite=16]
+	Protag: Um, I’ve always really liked mystery novels, and I didn’t know what else to do with my life, so I just kinda went with it. I’d like to think I’m decent at it, too.[#sprite=05]
+	Theo: Mhm, yeah, that’s nice…[#sprite=11]
+	Protag: [i] If he stares at me any harder, I think I’ll be incinerated on the spot. [/i] [#sprite=15]
+	Protag: What about you? What got you into archaeology?[#sprite=03]
+	Theo: What didn’t? Archaeology is the best thing ever! Have you seen some of the artifacts that people have uncovered? Have you been to the museum a few towns over? The artifacts over there are so amazing! I should take you sometime! Or we could go to Douglass’s house and look at his artifacts![#sprite=09]
+	Theo: I can’t wait to show you my collection when you come over! It’s not as impressive as Douglass’s, of course, but I’m still quite proud of it![#sprite=09]
+	Protag: [i] His energy is surprisingly infectious, I’m almost tempted to listen to him talk all day. [/i] [#sprite=03]
+	Protag: [i] I-I should stay on topic though. I need to remember I still have an investigation to do. [/i] [#sprite=08]
+	Protag: Yeah, I’m excited to see your collection, especially Al Capone’s body.[#sprite=03]
+	Theo: Oh, yeah... about that... [#sprite=02]
+	Theo: His body, um, might not be at my house...[#sprite=10]
+	Protag: What do you mean? Didn’t you say you had his body at your house?[#sprite=05]
+	Theo: Well, technically, I only said I took his body to my house. I-I might’ve... taken it back later that night...[#sprite=07]
+	Protag: [i] Good to know he’s not actually a major criminal, then. Plus, it’s kinda funny to imagine him chickening out of actually keeping the body. [/i] [#sprite=03]
+	Protag: So you don’t have Al Capone’s body at your house?[#sprite=05]
+	Theo: No, I don’t… I’m really sorry, I know it’s the whole reason you wanted to come over.[#sprite=13]
+	Theo: I just… I’ve never had anyone show so much interest in archaeology before, you know? Usually people react with scorn, or derision, but not you! You were actually interested.[#sprite=13]
+	Theo: I really wanted to spend more time with you, so I lied and said I kept Al Capone so you’d come over.[#sprite=13]
+	Theo: But now you probably think I’m a liar, and you’ll want nothing to do with me, and you probably think I killed Douglass too, and you’ll leave me, just like everyone else…[#sprite=15]
+	Protag: …[#sprite=12]
+	Protag: [i] Gently, I reach over and place my hand on his shoulder. [/i] [#sprite=12]
+	Protag: Theodore, it’s alright. I’m not going to leave over this.[#sprite=13]
+	Theo: R-really?[#sprite=12]
+	Protag: Of course, you’re my friend. I enjoy your company, regardless of whether you have Al Capone or not.[#sprite=03]
+	Protag: [i] I walk around the table and pull Theodore into a hug. [/i] [#sprite=14]
+	Theo: Aha… A friend… I’ve never had one of those before…[#sprite=12]
+	Theo: …I’d like that.[#sprite=11]
+	Protag: [i] Theoodore leans into my hug. [/i] [#sprite=14]
+	Protag: [i] …I should tell him the truth. If he’s being honest, I can’t keep lying to him either. [/i] [#sprite=04]
+	Protag: Besides, I haven’t been completely honest with you either.[#sprite=03]
+	Theo: …Huh?[#sprite=08]
+	Protag: I-I may have been feigning interest in Al Capone...[#sprite=13]
+	Theo: ..Y-you were what...?[#sprite=13]
+	Protag: Theodore, I’m sorry-[#sprite=13]
+	Theo: No... you’re joking, right? [#sprite=13]
+	Theo: This is a joke. You didn’t really…[#sprite=13]
+	Protag: I’m not joking, I’m sorry…[#sprite=13]
+	Theo: …[#sprite=15]
+	Theo: Y-you’re serious?[#sprite=15]
+	Protag: I’m really sorry, Theodore.[#sprite=13]
+	Protag: I was never going to go to your house. I never wanted to see Al Capone. I never was interested in archaeology. I only wanted to solve the case.[#sprite=13]
+	Theo: ...[#sprite=15]
+	Theo: I-I see.[#sprite=15]
+	Theo: I thought that for once in my life, someone actually cared about me. Someone actually wanted to hang out with me. I guess I was mistaken.[#sprite=14]
+	Theo: I never should have trusted you. I never should have thought someone would actually want me…[#sprite=14]
+	Protag: [i] Theodore’s voice breaks, and he raises his hand to wipe away his tears. [/i] [#sprite=12]
+	Protag: Theodore-[#sprite=13]
+	Theo: J-just go…[#sprite=14]
+	Theo: Leave me alone…[#sprite=14]
+	Protag: …[#sprite=12]
+	Protag: [i] Silently, I leave the room. I don’t look back. [/i] [#sprite=12]
+	=> end_dialogue
+
+~ double_deception_fail
+if Global.werewolf == Global.Character.THEO
+	=> single_deception_fail
+else
+	Theo: Ok!! I’m so glad you’re back, it was getting kind of lonely here... but seeing you again made it all worth it![#sprite=09]
+	Protag: It’s nice to see you again as well. Let’s make this quick, so you can go home.[#sprite=03]
+	Theo: A-and you’re coming over later tonight, right...?[#sprite=11]
+	Protag: ...O-of [i] course [/i] I am![#sprite=03]
+	Theo: H-hey, can I tell you something?[#sprite=02]
+	Protag: What is it?[#sprite=05]
+	Theo: Y-you’re the first person that’s ever cared about me and treated me as more than just a sentient thesaurus. [#sprite=01]
+	Theo: Y-you’re the only person I’ve ever been able to be... myself with.[#sprite=11]
+	Protag: [i] Theodore reaches his hand across the table and rests it on mine. [/i] [#sprite=14]
+	Protag: …![#sprite=16]
+	Theo: So… Thank you.[#sprite=11]
+	Protag: [i] I can’t do this anymore, this is going way too far... I have to tell him the truth. [/i] [#sprite=12]
+	Protag: Theodore... I have to tell you something. I’m afraid I haven’t been quite honest with you.[#sprite=13]
+	Theo: What is it? C-can you not come to my house today? It’s fine, you can come tomorrow![#sprite=13]
+	Protag: No, that's not it. I… I was feigning interest in Al Capone. I was never interested in him. I just said that so you’d tell me what you did with his body.[#sprite=13]
+	Theo: Y-you were just feigning interest in him? …I see. Get your sorry excuse of a human out of my sight.[#sprite=13]
+	Protag: T-Theodore, please.. I still enjoy your company...[#sprite=13]
+	Theo: Since when did the person without a shred of human decency get a say in whether a relationship would continue? [#sprite=14]
+	Theo: I hope you never have another friend, because clearly you don’t have the empathetic skillset to handle one.[#sprite=14]
+	Protag: Theodo-[#sprite=13]
+	Theo: J-just leave and let me cry in peace... haven’t you hurt me enough..?[#sprite=14]
+	Protag: [i] I get up and leave him alone, his head laying on the table and faint crying audible. [/i] [#sprite=12]
+	=> end_dialogue
+
+
+
+~ single_deception_succeed
+Protag: Theodore, can I come to your house later today? [#sprite=01]
+Protag: F-for investigation purposes only, obviously.[#sprite=01]
+Theo: Do you have a warrant to search my home? You’re not allowed to search my home without one.[#sprite=07]
+Protag: O-of course I have a search warrant... I just have to uh... get it.[#sprite=09]
+Protag: [i] Hopefully I can get a warrant before tonight... though he might let me hang out with him even if I don’t have one. [/i] [#sprite=01]
+Theo: As long as you have a warrant, it’s legally in the clear, so I guess I have to let you search my house.[#sprite=05]
+Protag: Will you stop calling it a search? I’m just asking to come over to your house to see if there’s any evidence.[#sprite=09]
+Theo: But you’re [i] searching [/i] my house for evidence. How is that not a search?[#sprite=05]
+Protag: J-just stop arguing. Can I come over to your house later tonight?[#sprite=11]
+Theo: As I said, you’re searching my house, not “coming over”. [#sprite=06]
+Theo: Unless... you don’t have a search warrant and you're just trying to hang out with me...?[#sprite=06]
+Protag: U-uhm... uh... uh-[#sprite=00]
+Theo: I-In which case... you can come over...[#sprite=01]
+Protag: O-ok, but I never had a search warrant for your house...[#sprite=16]
+Theo: I know! I could tell you were lying about having a search warrant, hehe.[#sprite=07]
+Protag: Oh... I guess I’m not as good of a liar as I thought.[#sprite=13]
+Theo: It’s okay, you can still come over if you’re going to hang out with me.[#sprite=11]
+Protag: ...[#sprite=02]
+Protag: T-thank you for your help in the investigation.[#sprite=03]
+Theo: And thank you for saying you’re going to come to my house tonight![#sprite=11]
+Protag: Y-yeah, you too! It’ll be nice to hang out with you.[#sprite=03]
+Theo: Bye!![#sprite=01]
+Protag: [i] Somehow he saw through my lie... but he still wants me to come over? [/i] [#sprite=04]
+=> end_dialogue
+
+~ single_deception_fail
+Protag: Theodore, I need to come over to your house later today. [#sprite=03]
+Protag: F-for investigation purposes only, obviously.[#sprite=03]
+Theo: Do you have a warrant to search my home? You’re not allowed to search my home without one.[#sprite=06]
+Protag: O-of course I have a search warrant... I just have to uh... get it from my boss’s desk.[#sprite=09]
+Theo: You’re bluffing. Why don’t you stop lying about having a warrant and give up this case, because clearly you don’t have the intellectual capabilities to investigate anything. [#sprite=07]
+Protag: W-well... you don’t have the social capacity to realize that someone might not be lying to you for once in your life.[#sprite=11]
+Theo: ...[#sprite=13]
+Protag: ...[#sprite=12]
+Theo: W-well you’re clearly lacking in emotional intelligence too…[#sprite=14]
+Protag: [i] Crap, is he crying? I didn’t think I hurt his feelings that much… [/i] [#sprite=13]
+Protag: S-sorry- um- I-I didn’t mean-[#sprite=13]
+Theo: Clearly you don’t have the social abilities to realize when someone just wants to be left alone, either…[#sprite=14]
+Protag: ...[#sprite=12]
+Protag: [i] I should just go… [/i][#sprite=12]
+=> end_dialogue
+
+
+
+~ intimidation_succeed
+Protag: I’m afraid I really need to get information out of you to solve this case, and there’s no time for this superfluous chatter anymore. [#sprite=11]
+Protag: If you don’t stop going off on random tangents that aren't conducive towards an efficient investigation, I’ll have no choice but to inform your college that you’re an active suspect in a murder case. [#sprite=11]
+Theo: O-ok, I’ll tell you what you want! J-just don’t tell my college about this...![#sprite=13]
+Protag: Theodore, as long as you help me with this investigation, I’m not going to tell the college anything about this. Just... try to cooperate and stay on task for once? You’re usually pretty horrible at keeping on task.[#sprite=09]
+Theo: Y-yeah, I can do that.[#sprite=13]
+Protag: We both can end up happy at the end of the day if we work together. What really happened with the body of Al Capone?[#sprite=03]
+if Global.werewolf == Global.Character.THEO
+	Theo: W-well, as you know, I had gone down into the vault to look at Al Capone. And… I took the body home…[#sprite=02]
+	Protag: Did you visit his house at any other time?[#sprite=05]
+	Theo: N-not that I know of…[#sprite=05]
+	Protag: “Not that you know of?”[#sprite=09]
+	Theo: I mean, no! No I haven’t! Can you stop asking me all these questions now? I’m not the murderer, I swear![#sprite=01]
+	Protag: If you aren’t the murderer, then why are you so hesitant?[#sprite=09]
+	Theo: I-I’m just not sure of all the details, okay?! That’s not a sign of guilt![#sprite=10]
+	Protag: Yeah, right, you think I’m going I’m going to believe you?[#sprite=11]
+	Theo: My memory isn’t perfect, okay?! That doesn’t mean I’m guilty![#sprite=13]
+	Protag: You aren’t sure whether you visited his house again or not! Why would I not suspect you?[#sprite=09]
+	Theo: Just because I hesitated doesn’t mean I have something to hide! Can’t you just trust me?[#sprite=10]
+else
+	Theo: W-well, as you know, I had gone down into the vault to look at Al Capone. And while I did take the body back to my house, I... later had regrets and took it back. [#sprite=02]
+	Protag: So, at about what time did you return the body?[#sprite=05]
+	Theo: T-that must’ve been around 19:00?[#sprite=02]
+	Protag: Ok... did you see anything while you were returning it?[#sprite=05]
+	Theo: No..? C-can you stop asking me all these questions? I’m not the murderer, I swear![#sprite=13]
+	Protag: If you aren’t the murderer, then why are you so scared to tell me what you saw?[#sprite=09]
+	Theo: W-well... ok... fine. I saw a broken window when I brought the body back. I-I swear though, i-it wasn’t me that broke that window![#sprite=02]
+	Protag: Yeah, right, you think I’m going I’m going to believe you? I know you’re lying to me about whether you broke that window. What else did you see?[#sprite=11]
+	Theo: I-I swear I didn’t see anything else! Why are you still accusing me of the murder?[#sprite=13]
+	Protag: You broke into his house, on the night he was killed, [i] with [/i] a plausible motive? Why would I not suspect you?[#sprite=09]
+	Theo: ...I just thought someone would trust me for once.[#sprite=14]
+if Global.werewolf == Global.Character.THEO
+	Protag: Last time I checked, murderers weren’t people to be trusted.[#sprite=11]
+	Theo: ... [#sprite=13]
+else
+	Protag: Last time I checked, murderers weren’t people to be trusted.[#sprite=11]
+Protag: Thank you for helping me incarcerate you, Theodore. I’ll see you behind bars in a few days.[#sprite=03]
+=> end_dialogue
+
+~ intimidation_fail
+Theo: P-please, don’t tell them! I’ll do anything![#sprite=10]
+Protag: If you don’t tell me whether you’re the murderer, I’m going to tell your college that you’re suspected in a murder case.[#sprite=11]
+if Global.werewolf == Global.Character.THEO
+	Theo: I promise I’m not the murderer! I-I promise! [#sprite=13]
+else
+	Theo: I promise I’m not the murderer! I was just going to return the body of Al Capone after I took it! I promise![#sprite=13]
+Protag: [i] I need to finish this case already... I can’t deal with such fickle concepts as justice for the killer. [/i] [#sprite=08]
+Protag: Lies. All lies. Liars don’t get to go home free. So tell me, and tell me the truth this time, are you the murderer or not?[#sprite=11]
+Theo: I-I already told you?! I’m not the murderer! Why won’t you just accept that I’m innocent?[#sprite=15]
+Protag: What college do you go to?[#sprite=09]
+Theo: I’m not going to help such a lowlife manipulator as yourself. I’d rather stay quiet than do anything to help you.[#sprite=13]
+Protag: Oh yeah? I’ll call Harvard right now and tell them![#sprite=11]
+Theo: ...[#sprite=00]
+Protag: I’ll throw you into jail and watch you rot away for the rest of your pitiful life![#sprite=11]
+Theo: ...[#sprite=00]
+Protag: I’ll give you the death penalty...?[#sprite=09]
+Theo: ...[#sprite=00]
+Protag: [i] He isn’t reacting to anything I say. I don’t think I’m going to get any more information out of him. [/i] [#sprite=08]
+=> end_dialogue
+
+
+~ persuasion_succeed
+Theo: Y-you’d really do that for me? You’d get me an artifact from Douglass’s collection if I cooperated with you in this investigation?[#sprite=08]
+Protag: [i] I’m not entirely sure I’m allowed to do this, but getting answers takes priority. I need this information to solve the murder. [/i] [#sprite=04]
+Protag: Yes, I’ll try to help you get an artifact from his collection if you’re helpful in this investigation. [#sprite=09]
+Theo: Ohmigowsh did you see the bowler hat of Winston Churchill on display! Can I have that one please please PLEASE?! [#sprite=09]
+Protag: [i] He sounds kind of like a kid in a candy store... but to be honest it’s kind of cute... [/i] [#sprite=03]
+Protag: Yeah, I can get you whatever artifact you want from his collection, Theodore.[#sprite=03]
+Theo: YAY! So what questions did you want to ask me?[#sprite=09]
+Protag: Did you see anyone at Douglass’s manor?[#sprite=05]
+Theo: I saw someone in nurse scrubs leave as I came in, but I don’t think I saw anyone else.[#sprite=05]
+Protag: Thank you. [#sprite=03]
+Theo: C-can i ask you a question?[#sprite=01]
+Protag: ...sure? [#sprite=01]
+Theo: D-do you wanna hang out sometime? L-like... not when you’re interrogating me?[#sprite=01]
+Protag: I mean... if you want to, I’d like that...[#sprite=03]
+Theo: Yay! I don’t have Al Capone’s body though... is that a dealbreaker?[#sprite=02]
+Protag: No, that's fine! Better even, because then you aren’t a major criminal![#sprite=03]
+Theo: Ok! It’s a date! [#sprite=09]
+Protag: ...[#sprite=00]
+Theo: ...not like that.[#sprite=02]
+Theo: So... is this questioning over?[#sprite=12]
+Protag: Yes, I think it is. Thank you again for your cooperation.[#sprite=03]
+Theo: I’ll see you tonight!!![#sprite=09]
+Protag: ...tonight?[#sprite=17]
+Theo: What, is there an issue? I-I can reschedule to tomorrow...?[#sprite=12]
+Protag: N-no, i-it’s fine! I can make it tonight![#sprite=03]
+Protag: [i] Now I really have to solve this case today, otherwise his poor little heart will be broken when I can’t make it... [/i] [#sprite=08]
+=> end_dialogue
+
+~ persuasion_fail
+Theo: You really thought that you could trick me with that? (Not to brag, but I am the one who’s at Harvard)[#sprite=06]
+Protag: W-what are you talking about? I’m not lying.[#sprite=10]
+Theo: I could tell whether you’re lying out of your teeth any day of the week. Why would I get anything from his collection if I cooperated with you?[#sprite=07]
+Protag: [i] Darn, I really thought that he’d be so excited to have the chance to obtain those artifacts that he’d ignore the logistical and legal issues with it. [/i] [#sprite=08]
+Protag: Theodore, I can probably get you one of the arti-[#sprite=03]
+Theo: Yeah right, like you have the power to do that. Why did you even try to lie to me when you knew I’d be knowledgeable enough to know you were lying?[#sprite=07]
+Protag: ...Do you want my honest answer to that?[#sprite=01]
+Theo: ...It’d be better than lying to me again.[#sprite=13]
+Protag: ...I lied to you because I thought it would be easy to persuade you into spilling more information with the reward of an artifact from his collection dangled in front of your face, like cheese in front of a rat. [#sprite=13]
+Protag: Though clearly, I underestimated your memorization of the law. [#sprite=09]
+Protag: ...was that better than me lying to you?[#sprite=13]
+Theo: At least you were honest... about your lying. But I don’t answer questions to liars like you. [#sprite=13]
+Theo: I invoke my Miranda Rights (which by the way, you forgot to read out). You might as well just let me go now because I don’t plan on making a habit of helping people who lie.[#sprite=06]
+Protag: Theodore, I promise I’m not lying to you. [#sprite=13]
+Theo: ...[#sprite=00]
+Protag: [i] I really wasn’t lying to him... I don’t know why he doesn’t believe me, but I would’ve gotten an artifact for him, even if it was through... not so legal means. [/i] [#sprite=12]
+Protag: [i] I’m not going to get any more information out of him though. Hopefully this, combined with the information from the other suspects, will be enough to solve the case. [/i] [#sprite=08]
+=> end_dialogue
+
+
+
+~ end_dialogue
+set Global.round_overs.r2.theo.over = true
+set Global.round_overs.r2.theo.ran = true
 => END

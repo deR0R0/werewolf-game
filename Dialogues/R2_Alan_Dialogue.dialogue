@@ -1,77 +1,171 @@
 ~ start
-Protag: Round 2 of Interrogation
+Alan: Oh, great, it’s you again. What do you want to know this time?[#sprite=03]
+Protag: [i] He’s even crabbier than before. I guess he’s really upset about being kept here. [/i] [#sprite=00]
+Protag: This will be quick. I just have a few questions for you. [#sprite=01]
+Alan: That’s what you said last time, but sure, ask away.[#sprite=04]
+Protag: [i] I should get Alan to talk more about werewolves. He is the expert, after all. How should I best encourage him to talk? [/i] [#sprite=00]
 - Persuasion
-	if Global.alan_persuasion
-	
-		Protag: Persuasion Double Route
-		if Global.werewolf == Global.Character.ALAN
-			if Global.dice_rolls.alan.roll_r2_persuasion >= Global.roll_checks.alan.persuasion
-				Protag: Persuasion Double Route Check Passed (Werewolf)
-			else
-				Protag: Persuasion Double Route Check Failed (Werewolf)
-		else
-			if Global.dice_rolls.alan.roll_r2_persuasion >= Global.roll_checks.alan.persuasion
-				Protag: Persuasion Double Route Check Passed 
-			else
-				Protag: Persuasion Double Route Check Failed
-	else
-
-		Protag: Persuasion Single Route
-		if Global.werewolf == Global.Character.ALAN
-			if Global.dice_rolls.alan.roll_r2_deception >= Global.roll_checks.alan.persuasion
-				Protag: Persuasion Check Passed (Werewolf)
-			else
-				Protag: Persuasion Check Failed (Werewolf)
-		else
-			if Global.dice_rolls.alan.roll_r2_deception >= Global.roll_checks.alan.persuasion
-				Protag: Persuasion Check Passed 
-			else
-				Protag: Persuasion Check Failed
-			
-			
-			
-- Deception
-	Protag: Deception Route
-	if Global.werewolf == Global.Character.ALAN
-		if Global.dice_rolls.alan.roll_r2_deception >= Global.roll_checks.alan.deception
-			Protag: Deception Check Passed (Werewolf)
-		else
-			Protag: Deception Check Failed (Werewolf)
-	else
-		if Global.dice_rolls.alan.roll_r2_deception >= Global.roll_checks.alan.deception
-			Protag: Deception Check Passed
-		else
-			Protag: Deception Check Failed
-		
+	Protag: How did you first learn about werewolves? [#sprite=01]
+	if Global.dice_rolls.alan.roll_r1_persuasion >= Global.roll_checks.alan.persuasion:
+		=> persuasion_succeed
+	else:
+		=> persuasion_fail
 - Intimidation
-	if Global.alan_intimidation
-	
-		Protag: Intimidation Double Route
-		if Global.werewolf == Global.Character.ALAN
-			if Global.dice_rolls.alan.roll_r2_intimidation >= Global.roll_checks.alan.intimidation
-				Protag: Intimidation Double Route Check Passed (werewolf) 
-			else
-				Protag: Intimidation Double Route Check Failed (werewolf)
-		else 
-			if Global.dice_rolls.alan.roll_r2_intimidation >= Global.roll_checks.alan.intimidation
-				Protag: Intimidation Double Route Check Passed  
-			else
-				Protag: Intimidation Double Route Check Failed
+	Protag: I think that werewolves should all be killed. They’re too much of a safety risk.[#sprite=05]
+	if Global.werewolf == Global.Character.ALAN
+		Alan: …You really think so? What do you know about werewolves? [#sprite=03]
 	else
-	
-		Protag: Intimidation Single Route
-		if Global.werewolf == Global.Character.ALAN
-			if Global.dice_rolls.alan.roll_r2_intimidation >= Global.roll_checks.alan.intimidation
-				Protag: Intimidation Check Passed (werewolf) 
-			else
-				Protag: Intimidation Check Failed (werewolf)
-		else 
-			if Global.dice_rolls.alan.roll_r2_intimidation >= Global.roll_checks.alan.intimidation
-				Protag: Intimidation Check Passed  
-			else
-				Protag: Intimidation Check Failed
-				
-set Global.Alan_R2_Over = true
-set Global.Alan_R2_Ran = true
+		Alan: What do you know about werewolves? Have you even seen one in real life?[#sprite=02]
+	Protag: I saw Douglass’s mutilated body at the crime scene. That’s enough for me.[#sprite=05]
+	Alan: Once you saw a murdered person, did you have equally strong feelings against all humans?[#sprite=01]
+	Protag: No...[#sprite=04]
+	Alan: That’s kind of hypocritical to say then, no?[#sprite=05]
+	Protag: Let’s get this interrogation focused on you again. Do you think werewolves should die?[#sprite=01]
+	if Global.dice_rolls.alan.roll_r1_intimidation >= Global.roll_checks.alan.intimidation:
+		=> intimidation_succeed
+	else:
+		=> intimidation_fail
+- Deception
+	Protag: As a person in the medical field, do you think that it’s possible to save werewolves from their fate? I think it might be possible, but I’m not a doctor. [#sprite=01]
+	if Global.dice_rolls.alan.roll_r1_deception >= Global.roll_checks.alan.deception:
+		=> deception_succeed
+	else:
+		=> deception_fail
 
+=> end_dialogue
+
+~ persuasion_succeed
+Alan: Didn’t I tell you it’s supposed to be a secret? That means I’m not allowed to talk about it.[#sprite=01]
+Protag: Come on, I already know they exist. What harm could it be?[#sprite=03]
+Alan: Fine, I’ll tell you.[#sprite=04]
+Alan: I had a patient once, who had Lycanthropy. It’s a strange disease. She was a sweet old lady as a human, but a bloodthirsty killing machine as a wolf. I didn’t know at the time about the werewolf epidemic in Europe, so I thought this was an isolated case. I did my best to treat her, provide her some comfort when she transformed, and document her symptoms.[#sprite=02]
+Alan: Eventually, her old body was no longer able to keep up with the stress of her transformations, and she passed away. I hope I was able to provide some comfort through her transformations, but it looked very painful. [#sprite=04]
+Protag: Is that why Douglass was killed, rather than transformed, if he was attacked by a werewolf? His body was too old to handle it?[#sprite=05]
+if Global.werewolf == Global.Character.ALAN
+	Alan: We don’t really know the details on how it spreads. It’s not like we go around intentionally infecting people to design good experiments. Your theory sounds plausible, though. Werewolf transformations are incredibly physically taxing. [#sprite=05]
+else
+	Alan: We don’t really know the details on how it spreads. It’s not like we go around intentionally infecting people to design good experiments. Your theory sounds plausible, though.[#sprite=05]
+Protag: Does the transformation take a physical toll, then? Beyond just causing pain?[#sprite=05]
+Alan: You’re basically rearranging your bones and flesh, of course it takes a toll.[#sprite=03]
+Protag: [i] …With that sort of description, I think I’m gonna be sick… [/i] [#sprite=04]
+Protag: So, the werewolf might have injuries the next day?[#sprite=05]
+Alan: That depends on if they sustained damage during the transformation. The werewolf feels aches and pains no matter what, but won’t have visible wounds unless they get injured as a wolf.[#sprite=01]
+Protag: No visible signs of lycanthropy, then. That’s annoying. [#sprite=08]
+if Global.werewolf == Global.Character.ALAN
+	01 Alan: Yeah… Annoying.
+	01 Protag: Good luck with that, then. I hope you guys figure out the werewolf situation.
+	01 Alan: So do I…
+else
+	02 Alan: Tell me about it. Makes it ten times harder to track down those infected and stop the spread. 
+	01 Protag: Good luck with that, then. I hope you guys figure out the werewolf situation.
+	01 Alan: So do I… I hope you find the culprit, as well.
+Protag: [i] That’s annoying, so I can’t use physical signs to track down the killer… [/i] [#sprite=00]
+=> end_dialogue
+
+~ persuasion_fail
+Alan: …Is that any of your business?[#sprite=02]
+Protag: I-I’m just curious! If werewolves are a government secret, how did you ever find out about them?[#sprite=06]
+Alan: Clearly, it isn’t your business then. I don’t see why I need to tell you.[#sprite=05]
+Protag: Really? You won’t tell me anything?[#sprite=09]
+Alan: You haven’t really given me a reason to.[#sprite=04]
+Protag: What do you want? I’ll try my best to give it if you talk.[#sprite=05]
+Alan: There’s nothing you can give me that I want.[#sprite=01]
+Alan: Now stop asking, you nosy prick.[#sprite=05]
+Protag: [i] Okay, rude… Guess I’m really not getting anything out of him. He’s shut tighter than a steel trap. [/i] [#sprite=04]
+=> end_dialogue
+
+~ deception_succeed
+if Global.werewolf == Global.Character.ALAN
+	Alan: In my experience, I don’t think that there’s a way to stop werewolves from transforming. At the very least, we haven’t been able to save any of the patients suffering from lycanthropy so far. [sprite=01]
+else
+	Alan: From the cases I’ve seen in my time at the hospital, I don’t think that there’s a way to stop werewolves from transforming. At the very least, we haven’t been able to save any of the patients suffering from lycanthropy so far.[#sprite=01]
+Protag: How aggressive do they become when they transform into a werewolf?[#sprite=05]
+if Global.werewolf == Global.Character.ALAN
+	Alan: They lose most of their control when they become a werewolf, and they act mostly on instinct, being very aggressive. [#sprite=01]
+else
+	Alan: They appear to lose most of their control when they become a werewolf, and they act mostly on instinct, which is to be very aggressive.[#sprite=04]
+Alan: When we’ve had patients transform at the hospital, we’ve locked them in rooms so they couldn’t hurt anyone.[#sprite=02]
+Protag: So, do you think we should kill all of the werewolves or not?[#sprite=01]
+Alan: What do you think?[#sprite=01]
+Protag: I’m the one asking the questions around here.[#sprite=08]
+Alan: Well, you’re the one that needs answers out of me. How about you answer my question, and I’ll consider answering yours.[#sprite=03]
+Protag: I’m not going to impart my opinion on you, that would cloud your answer. Can you please answer me first?[#sprite=01]
+Alan: Only if you promise I’ll be done after this.[#sprite=02]
+Protag: I promise that you’ll be done with this interrogation.[#sprite=04]
+Alan: After...?[#sprite=01]
+Protag: ...After you answer this question.[#sprite=08]
+if Global.werewolf == Global.Character.ALAN
+	Alan: ...I think all werewolves deserve to die. They’re too much of a risk to society. [#sprite=02]
+else
+	Alan: ...I think that werewolves should be killed because they turn into bloodthirsty monsters.[#sprite=04]
+Protag: Aren’t they humans most of the time?[#sprite=05]
+Alan: You said you wouldn’t ask anymore questions.[#sprite=02]
+Protag: Fine.[#sprite=00]
+=> end_dialogue
+
+~ deception_fail
+Alan: I thought you were doing this interrogation to figure out who the murderer was, not to research werewolves. Why don’t you ask questions related to the case at hand?[#sprite=03]
+Protag: I’m not going to let this tired doctor derail MY first interrogation.[#sprite=10]
+Protag: Why don’t you just answer my question?[#sprite=09]
+Alan: Answering that question would only derail your investigation even further than it already is. I’m really just trying to help your investigation.[#sprite=05]
+Protag: I don’t need your help. I’m a competent detective.[#sprite=08]
+Alan: What if I just don’t answer your questions?[#sprite=02]
+Protag: That’s already what you’re doing.[#sprite=09]
+Alan: Then, I’m going to continue not answering your questions.[#sprite=01]
+Protag: Do you think werewolves can be saved?[#sprite=05]
+Alan: ...[#sprite=00]
+Protag: ...[#sprite=04]
+Alan: ...[#sprite=00]
+Protag: I guess he really wasn’t bluffing about not answering my questions. There’s no point in continuing to ask him questions now, this is a lost cause.[#sprite=04]
+=> end_dialogue
+
+~ intimidation_succeed
+Alan: Well, a few months ago, I was working the day shift as a doctor and an old lady came in, yelling at us to lock her in a room that night. It was a full moon. We were hesitant, but we figured that it couldn’t hurt, so we put her into a private hospital room for the night. [#sprite=01]
+Alan: If we hadn’t, we all probably would’ve been dead. She was the sweetest old lady most of the time, but that night, she was clawing at the door the whole time.[#sprite=02]
+Protag: [i] Interesting... [/i] [#sprite=00]
+Protag: So are they always that vicious when they transform, no matter their demeanor in their human form?[#sprite=01]
+if Global.werewolf == Global.Character.ALAN
+	Alan: Indeed. They don’t retain their personality when transformed. [#sprite=05]
+else
+	Alan: From what we’ve observed, they appear to not retain their personality when they transform.[#sprite=05]
+Protag: Do you have any patients that are lycanthropic currently?[#sprite=05]
+if Global.werewolf == Global.Character.ALAN
+	Alan: I don’t see how that’s any of your business. I have a responsibility as a medical professional to maintain patient confidentiality. [#sprite=02]
+	Protag: Fine. How much intelligence do they display when they’re transformed? [#sprite=01]
+	Alan: They’re very primitive when they’ve transformed. They can’t be reasoned with, and don’t remember what they did as a werewolf when they are transformed back into a human. [#sprite=01]
+else
+	Alan: The transformation takes such a toll on their body that we don’t have many current patients in any state to allow you talk to them, if that’s what you’re asking.[#sprite=04]
+	Protag: How much intelligence do they display when they’re transformed?[#sprite=01]
+	Alan: From what we’ve seen, they appear to be very primitive when they’ve transformed. They can’t be reasoned with, and don’t remember what they did as a werewolf when they are transformed back into a human.[#sprite=01]
+Protag: So, do you think that werewolves should be killed off?[#sprite=01]
+if Global.werewolf == Global.Character.ALAN
+	Alan: … [#sprite=04]
+	Alan: …Yes. They’re too dangerous. They should all be imprisoned or executed. [#sprite=02]
+else
+	Alan: I think they should be kept in special containment buildings, but killing them is too far. My job is to help people, I’m not going to advocate for killing them, no matter how dangerous they may be.[#sprite=02]
+Protag: Thank you for your assistance with this investigation.[#sprite=03]
+Alan: Can I go home now? I’ve answered all of your questions.[#sprite=03]
+Protag: I have to combine your information with everyone else’s before I decide who’s going home and who’s going to jail.[#sprite=01]
+=> end_dialogue
+
+~ intimidation_fail
+Alan: What do my opinions have to do with your case?[#sprite=01]
+Protag: You’re the expert, aren’t you? You’ve dealt with countless werewolves. Your opinion is much more informed than mine.[#sprite=05]
+Alan: Despite acknowledging your lack of knowledge in the field, you still stick to your belief that all werewolves deserve death?[#sprite=05]
+Protag: Well…[#sprite=04]
+Protag: [i] Man, arguing ethics is too hard. I’m here to solve the case, not argue for werewolf rights.[/i] [#sprite=04]
+Protag: From what I’ve seen, werewolves are dangerous beasts. If you think otherwise, you should share with me so I can be enlightened.[#sprite=05]
+Alan: …If that’s really what you believe, it’s for the best that you stay in the dark.[#sprite=02]
+Protag: Huh? What do you mean?[#sprite=17]
+Alan: …[#sprite=00]
+rotag: [i] Did I say something wrong? [/i] [#sprite=16]
+Protag: Hey, what did you mean by that?[#sprite=04]
+Alan: …[#sprite=00]
+Protag: [i] I-is he ignoring me? Does he think werewolves should be spared after all? [/i] [#sprite=08]
+Protag: [i] Dang it, I guess the werewolves have gone woke… [/i] [#sprite=00]
+=> end_dialogue
+
+~ end_dialogue
+set Global.round_overs.r2.alan.over = true
+set Global.round_overs.r2.alan.ran = true
 => END

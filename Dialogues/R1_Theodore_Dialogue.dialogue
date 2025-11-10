@@ -1,53 +1,251 @@
 ~ start
-Protag: Introduction [#sprite=00]
-Portag: Anotha one [#sprite=00]
+Protag: Hi Theodore. You’re here as one of the prime suspects in the death of Mr. Douglass. Tell me, where were you last night when this unfortunate crime occured?[#sprite=01]
+Theodore: W-well, you see, sir, I was working on my thesis paper (for my PhD in archaeology), and I heard that Mr. Douglass had some [i] very [/i] interesting artifacts. [#sprite=04]
+Theo: I had decided to pay him a visit. They really were quite amazing, I’d kill to get my hands on some of.. [#sprite=04]
+Theo: those... [#sprite=01]
+Theo: artifacts......[#sprite=02]
+Protag: … [#sprite=00]
+Theo: …[#sprite=03]
+Protag: You’re saying you’d kill to get those artifacts? You know that anything you say can and will be used against you in a court of law, right?[#sprite=07]
+Theodore: Respectfully sir, the phrase ‘I’d kill for [something]’ is a commonly used phrase and not a sign of guilt in of itself. [#sprite=06]
+Protag: It's kind of stupid to use that phrase when you're a suspect in a murder case, though...[#sprite=05]
+Protag: [i] Not to mention how pointlessly pedantic it is… [/i] [#sprite=08]
+Protag: Anyway, you said you paid Mr. Douglass a visit. Around what time was that, exactly?[#sprite=01]
+Theo: I must’ve arrived at his manor around 16:00. He courteously invited me to stay for dinner, and I was there until around 18:00. [#sprite=05]
+Theo: He showed off his collection, and though he was rather reserved about its rarer contents, from what I could see it was quite extensive. [#sprite=05]
+Protag: So, 4-6pm then? What about after that?[#sprite=09]
+Theo: As I was saying, at around 18:00 I left his residence. As I was leaving, I saw another car parked on the street outside his manor. There wasn’t enough illumination to see any details, but the woman that got out looked to be pretty tall. [#sprite=05]
+Protag: [i] Relative to you, that isn’t saying much… [/i] [#sprite=03]
+Protag: A tall woman you say? Did she look like any of the suspects in these mugshots?[#sprite=05]
+Protag: [i] I lay the mugshots down on the table for Theodore to see. [/i] [#sprite=04]
+Theo: [i] (Did I not JUST say I couldn’t make out any details?? What an idiot…) [/i] [#sprite=07]
+Protag: What was that? Did you say something?[#sprite=17]
+Theo: What? No, I was just going to say that I can’t tell if they look like the woman I saw. [#sprite=08]
+Protag: …[#sprite=08]
+Protag: [i] …This guy thinks he’s funny. [/i] [#sprite=08]
+Protag: Well, can you give me an estimate for how tall she was?[#sprite=05]
+Theo: She was probably around 5’9”? That’s a tall height, right?[#sprite=05]
+Protag: …it’s tall enough.[#sprite=09]
+Protag: [i] It’s actually pretty average, but I guess everyone’s tall compared to him. [/i] [#sprite=00]
+Protag: [i] Most importantly, I should be able to identify the person he saw, even with so little information. [/i] [#sprite=02]
+Protag: [i] For now, I should focus on getting as much information as possible out of him. [/i] [#sprite=00]
+Protag: Thank you for the information. Did you see anyone else while you were there?[#sprite=03]
+Theo: When I was coming in, I saw a person in medical scrubs leaving. I think they were Douglass’s caretaker?[#sprite=05]
+Protag: [i] Interesting... [/i] [#sprite=04]
+Protag: What about inside the house? Did you see anything there?[#sprite=05]
+Theo: As I had already said, there were a ton of cool artifacts! I can tell you all about them![#sprite=09]
+Protag: No that’s really fi-[#sprite=09]
+Theo: There were some interesting ones in the entrance hall, but those ones are all relatively easy to get. He had some Roman coins, some tools, all normal stuff. [#sprite=04]
+Theo: As I went further into his house though, his collection had progressively more and more rare artifacts! It was so impressive how much he had amassed, you’d think he stole it or something![#sprite=04]
+Theo: Anyways, there were some rarer artifacts, but still nothing that made his collection worthy of the title of a world class collection. [#sprite=04]
+Protag: [i] Jeez, this guy sure can ramble when he gets excited. Maybe I should get the conver- [/i] [#sprite=08]
+Theo: And THEN, I saw his magnum opus, his cream of the crop, the pinnacle of his collection, the paragon to beat all paragons, the best of the best, the-[#sprite=09]
+Protag: -Just get to the point already...[#sprite=11]
+Theo: -the crowning jewel of his collection, the cryogenically preserved remains of Al Capone.[#sprite=09]
+Protag: Hold on, you saw the crowning jewel of his collection? Didn’t you just say he was reserved with his collection’s rarer contents?[#sprite=05]
+Theo: No...[#sprite=10]
+Protag: ...[#sprite=08]
+Theo: ...[#sprite=03]
+Protag: [i] Something is clearly going on here... I should try to elicit some more information out of him. [/i] [#sprite=04]
 - Persuasion
-	set Global.theodore_persuasion = true
-	if Global.werewolf == Global.Character.THEO
-		Protag: Persuasion Introduction
-		if Global.dice_rolls.theo.roll_r1_persuasion >= Global.roll_checks.theo.persuasion
-			Protag: Persuasion Check Passed (Werewolf)
-		else
-			Protag: Persuasion Check Failed (Werewolf)
-	else
-		Protag: Persuasion Introduction
-		if Global.dice_rolls.theo.roll_r1_persuasion >= Global.roll_checks.theo.persuasion
-			Protag: Persuasion Check Passed
-		else
-			Protag: Persuasion Check Failed 
-			
-			
-- Deception
-	if Global.werewolf == Global.Character.THEO
-		Protag: Deception Introduction
-		if Global.dice_rolls.theo.roll_r1_deception >= Global.roll_checks.theo.deception
-			Protag: Deception Check Passed (Werewolf)
-		else
-			Protag: Deception Check Failed (Werewolf)
-	else
-		Protag: Deception Introduction
-		if Global.dice_rolls.theo.roll_r1_deception >= Global.roll_checks.theo.deception
-			Protag: Deception Check Passed
-		else
-			Protag: Deception Check Failed
-			
-			
+	Protag: [i] I need to reassure him he won’t get in trouble, or he’ll never tell me what’s going on. [/i] [#sprite=04]
+	Protag: It’s alright, you’re not going to get in trouble. I just want to know what you meant. You said he had Al Capone’s cryogenically preserved remains? [#sprite=15]
+	if Global.dice_rolls.theo.roll_r1_persuasion >= Global.roll_checks.theo.persuasion:
+		=> persuasion_succeed
+	else:
+		=> persuasion_fail
 - Intimidation
-	set Global.theodore_intimidation  = true
-	if Global.werewolf == Global.Character.THEO
-		Protag: Intimidation Introduction
-		if Global.dice_rolls.theo.roll_r1_intimidation >= Global.roll_checks.theo.intimidation
-			Protag: Intimidation Check Passed (Werewolf)
-		else
-			Protag: Intimidation Check Failed (Werewolf)
-	else	
-		Protag: Intimidation Introduction
-		if Global.dice_rolls.theo.roll_r1_intimidation >= Global.roll_checks.theo.intimidation
-			Protag: Intimidation Check Passed
-		else
-			Protag: Intimidation Check Failed
-			
-set Global.Theo_R1_Over = true
-set Global.Theo_R1_Ran = true
+	Protag: [i] It can’t be that hard to intimidate him into spilling, right? [/i] [#sprite=04]
+	Protag: [/i] I stand up and lean over the table. I tower over him. [/i] [#sprite=10]
+	Protag: You just contradicted yourself. You claimed Douglass was protective over his rarer artifacts, then said you saw the ‘crowning jewel’ of his collection. What’s up with that? [#sprite = 05]
 
+	if Global.dice_rolls.theo.roll_r1_intimidation >= Global.roll_checks.theo.intimidation:
+		=> intimidation_succeed
+	else:
+		=> intimidation_fail
+- Deception
+	Protag: [i] Since he loves to yap so much, I should encourage him to keep rambling. He’ll probably slip up and give something away again. [/i] [#sprite=04]
+	Protag: Al Capone’s cryogenically preserved remains, huh? That’s cool, tell me more! [#sprite=03]
+	if Global.dice_rolls.theo.roll_r1_deception >= Global.roll_checks.theo.deception:
+		=> deception_succeed
+	else:
+		=> deception_fail
+
+=> end_dialogue
+
+~ persuasion_succeed
+Theo: Yeah, the remains were stored in his basement![#sprite=09]
+Theo: They were really cool to look at![#sprite=11]
+Protag: So, you broke into his basement and looked at the remains? I promise you won’t get in trouble for this intrusion as long as you help me with the investigation.[#sprite=05]
+Theo: Really? I’m pretty sure your job is to solve this case.[#sprite=02]
+Protag: My job is to figure out who committed the murder, not whether anyone committed any other crimes.[#sprite=15]
+Theo: O-ok, if you promise that you won’t tell anyone.[#sprite=02]
+Protag: I promise. I won’t tell anyone.[#sprite=15]
+Theo: W-well, I broke into his vault to see what he had in there, and then I saw Al Capone’s body. [#sprite=02]
+Protag: So... what did you do with it? Did you just look at it?[#sprite=05]
+if Global.werewolf == Global.Character.THEO
+	02 Theo: I may have taken it home with me… [#sprite=02]
+	05 Protag: You stole a dead body?! [#sprite=05]
+	10 Theo: I-I mean, it’s not like Douglass obtained it legally in the first place! If I steal from a thief, that makes me some sort of vigilante, right? That makes it less illegal! [#sprite=10]
+	15 Protag: It’s absolutely still illegal, but whatever. I’m not going to investigate it. I could arrest you for it, but my boss has expressed disdain in the past about me “getting off topic during an investigation.” [#sprite=15]
+else
+	Theo: I may have taken it home with me... but I promise I returned it later that night![#sprite=02]
+	Protag: You... returned it, after stealing it earlier that evening? [#sprite=05]
+	Theo: Yeah... c-can I still get in trouble for it, even though I returned it?[#sprite=10]
+	Protag: I’m not investigating that burglary. I could arrest you for it, but my boss has expressed disdain in the past about me “getting off topic during an investigation.”[#sprite=15]
+Theo: Thank you![#sprite=01]
+Protag: Yeah, thanks too, kid.[#sprite=09]
+Theo: Who are you calling a kid? I’m your age![#sprite=08]
+Protag: I-Its just a word Theodore, you don’t hav-[#sprite=17]
+Theo: I’ll have you know that I’m twenty five![#sprite=04]
+Protag: I-I know, I read it on your file![#sprite=17]
+Theo: I-Is this interrogation over?[#sprite=13]
+Protag: I have enough information for now. I’ll be back later.[#sprite=03]
+Theo: You better not call me a kid when you come back.[#sprite=13]
+Protag: Whatever you say, kid.[#sprite=09]
+=> end_dialogue
+
+~ persuasion_fail
+Theo: Yeah... the remains were being kept in his basement...[#sprite=02]
+Protag: So you broke into his basement to look at them? [#sprite=07]
+Theo: I promise, I wasn’t trying to trespass! [#sprite=02]
+Theo: I just started looking at his artifacts, and before I knew what was happening I was walking up to the basement door... picking the lock... hacking the door of his vault... opening his vault door... taking the body...[#sprite=05]
+Protag: So, why did you break into his vault if you weren’t trying to trespass? I’m trying to give you the benefit of the doubt here, but it’s really hard.[#sprite=05]
+Theo: Weren’t you investigating a murder? I thought it was something to do with the death of Douglass...? These irrelevant questions don't seem like they would be very conducive for your investigation.[#sprite=07]
+Protag: [i] I can’t believe I’m getting told how to do my job by a random college student. [/i] [#sprite=10]
+Protag: Yeah? Well getting a criminal record for stealing a dead body doesn’t seem beneficial for your career. Why don’t you try staying in your station for once?[#sprite=11]
+Theo: I’m trying to help you keep your investigation on track and ask the right questions. If you aren’t going to ask about the actual case you’re trying to solve, I’m not going to respond.[#sprite=06]
+Protag: [i] I’m not going to let this little twerp derail my investigation. [/i] [#sprite=11]
+Protag: Why were you trying to break into his vault? I promise you won’t get in trouble, I just want to know this for the investigation.[#sprite=05]
+Theo: ...[#sprite=00]
+Protag: ...[#sprite=08]
+Theo: ...[#sprite=00]
+Theo: ...[#sprite=00]
+Protag: [i] He really wasn’t lying about not saying anything... I should go, this isn’t going to help me solve the case. [/i] [#sprite=10]
+=> end_dialogue
+
+~ deception_succeed
+Theo: As I had said, his remains were cryogenically preserved in this large tube shaped containment chamber. His body was remarkably preserved, it was as if they had put him in the chamber right as he died![#sprite=09]
+Protag: That’s pretty cool! What else did you see there?[#sprite=03]
+Theo: His vault seemed to have been almost exclusively for storing Al Capone, so there wasn’t much else to see...[#sprite=05]
+Protag: So you went into his vault, looked at Al Capone, and then left?[#sprite=04]
+Theo: C-can I tell you a little secret?[#sprite=08]
+Protag: [i] This could be my chance. This little secret of his could expose his guilt. [/i] [#sprite=02]
+Protag: Of course![#sprite=03]
+Theo: I-I might’ve taken Al Capone’s body with me...[#sprite=10]
+Protag: As much as I want to arrest him for this, I might be able to get some more information if I play along...[#sprite=00]
+Protag: So... you have his body at your house..?![#sprite=05]
+Theo: Yeah! I had brought his body back to my house! Do you want to come over to my place later tonight?![#sprite=11]
+Protag: [i] This is going way too far, but I can’t bring myself to admit to him that I’ve been lying... I have to keep on playing along and tell him I’ll visit his house tonight. [/i] [#sprite=12]
+Protag: I’d love to! When can I come over?[#sprite=03]
+Theo: Does 18:00 work for you? [#sprite=11]
+Protag: [i] Still with the military time... honestly, it’s kind of growing on me. [/i] [#sprite=17]
+Protag: I’d love to come over at si- I mean, at 18:00![#sprite=03]
+Theo: YAY! I’ll see you then![#sprite=09]
+Protag: I might have to come and ask you some more questions later today... is that ok? [#sprite=01]
+Theo: A-are you asking to hang out with me?[#sprite=11]
+Protag: [i] My god, this guy is an idiot sometimes... an endearing idiot, but an idiot nonetheless. [/i] [#sprite=08]
+Protag: Sure, yeah, hanging out with you...[#sprite=09]
+Theo: Ok!!!!! I’ll be waiting here for you![#sprite=09]
+=> end_dialogue
+
+~ deception_fail
+Theo: Nice try, but I can tell you don’t care about me, or the body of Al Capone that I took home last night. [#sprite=07]
+Theo: Feigning interest in this artifact to try to get information out of me is the sign of a manipulative psychopath.[#sprite=06]
+Protag: I promise, I’m interested in Al Capone’s body! [#sprite=17]
+Theo: No, you’re not interested in him. I can tell a genuine interest from a thinly-veiled lie. [#sprite=13]
+Protag: Theo, I really am interested in this body, I promise.[#sprite=03]
+Theo: I'm not falling for this obvious attempt to gain information, now get out and stop feigning interests in topics you don’t really care about. [#sprite=07]
+Protag: [i] Dang it, I really thought I was being convincing. That usually works on lonely nerds like him… [/i] [#sprite=13]
+set Global.double_routes.theo.deception = true
+=> end_dialogue
+
+~ intimidation_succeed
+Theo: Uh well... you see... [#sprite=02]
+Theo: He... he showed me his col-...[#sprite=02]
+Theo: No, he left t-... uhh... he... he was not... [#sprite=02]
+Theo: …H-he went to go do something? [#sprite=10]
+Protag: ...Is that a question?[#sprite=09]
+Theo: No, he... uh... went to go do something![#sprite=02]
+Theo: Yeah! He had to leave to go to, uh, somewhere else...[#sprite=02]
+Protag: So, what did you do? Stop beating around the bush. I can put you in jail if you don’t answer my questions. [#sprite=11]
+Theo: Um, actually, according to California- [#sprite=06]
+Protag: [i] I slam my hands down on the table. [/i] [#sprite=10]
+Protag: I don’t care what California law says! Just answer me. What did you do?[#sprite=11]
+Theo: Uh... hm... well... uh...[#sprite=03]
+Protag: Stop stalling. You know I could lock you up if you don’t respond, right?[#sprite=09]
+Theo: ...[#sprite=00]
+Theo: Yes...? [#sprite=02]
+Protag: That's right. Now answer my question. What did you do after Douglass had to “go do something?”[#sprite=11]
+Theo: W-well, as I said his artifacts were quite interesting, so I just started walking around, and I-I guess I just ended up deep in his collection? Before I knew it, I was looking into the face of Al Capone. Once I saw that, I got out of his house as fast as I could. [#sprite=02]
+Protag: Even after seeing such an... “impressive” artifact? You didn’t stop to look at it?[#sprite=05]
+Theo: W-well... I did... but I didn’t just stop to look at it, per se...[#sprite=10]
+Protag: What do you mean? What did you do? Tell me now.[#sprite=09]
+Theo: I... found a friend and… took him home...?[#sprite=02]
+Protag: ...[#sprite=04]
+Theo: ...[#sprite=02]
+Protag: ...[#sprite=06]
+Theo: …[#sprite=02]
+Protag: [i] …What the hell does that mean? [/i] [#sprite=04]
+Protag: A... friend? Are you saying you kidnapped someone from his house?[#sprite=05]
+Theo: ...depends on your definition of “a person”...[#sprite=04]
+Protag: Will you just cut to the chase for once in your goddamn life? I’ve had to deal with you dodging the question for this entire interrogation and it’s not helping anyone! Just tell me what you did, [i] right now. [/i] [#sprite=11]
+Theo: I took Al Capone, ok?! H-he just looked so perfectly preserved and and and and I-I just couldn’t resist! [#sprite=10]
+Theo: I-I’m really sorry but it’s just... it’s just... just so interesting... don’t you get it? Don’t you get these urges to take something that’s not yours?[#sprite=13]
+Protag: ...no? [#sprite=09]
+Protag: So you’ve stolen Al Capone from Douglass?[#sprite=05]
+if Global.werewolf == Global.Character.THEO
+	Theo: Well- yes, I suppose, but…[#sprite=01]
+	Protag: Oh god, not this again. Is this guy allergic to being concise?[#sprite=11]
+	Theo: I-I kind of… Don’t have the body anymore?[#sprite=12]
+	Protag: Jesus Christ…[#sprite=10]
+	Protag: Where is the body now, then?[#sprite=09]
+	Theo: Uh… The thing is… I don’t know.[#sprite=02]
+	Protag: What do you mean you don’t know?! Did the body grow legs and walk away?[#sprite=10]
+	Theo: I really don’t know! All I know is that it’s gone now, okay?![#sprite=12]
+	Protag: God, you’re lucky I have to focus on the murder. You’re off the hook because I don’t have time to open this can of worms.[#sprite=09]
+	Theo: Ah… T-thank you?[#sprite=01]
+	Protag: Thank you for... assisting… with the investigation. That’s all for now. Have a nice day.[#sprite=09]
+else
+	Theo: Not per se...[#sprite=07]
+	Protag: [i] Oh god, not this again. Is this guy allergic to being concise? [/i] [#sprite=11]
+	Theo: I returned the cryogenally preserved body later that night, so technically, no?[#sprite=12]
+	Protag: [i] Jesus Christ… [/i] [#sprite=10]
+	Protag: Thank you for... assisting… with the investigation. That’s all for now. Have a nice day.[#sprite=09]
+	Theo: A-are you going to press charges for the thievery of Al Capone? [#sprite=13]
+	Protag: Not for now. I have the murder case to focus on, and I suppose you returned it. You better not pull any stunts like that again, though.[#sprite=01]
+Protag: [i] How long winded... At least I got some information out of him, though it doesn't seem to be related to the case. Can’t say I didn’t try, though. [/i] [#sprite=08]
+=> end_dialogue
+
+~ intimidation_fail
+Protag: If you don’t tell me right now, I can and will throw you into prison.[#sprite=11]
+Theo: W-well, I might’ve wandered down into his basement...[#sprite=02]
+Theo: J-just to look around, of course! But then I saw Al Capone’s body, and I was just so excited![#sprite=04]
+Protag: What’d you do after that?[#sprite=05]
+if Global.werewolf == Global.Character.THEO
+	02 Theo: I-I left his house, because he hadn’t come back downstairs. And I, uh… may have taken him with me…? [#sprite=02]
+	05 Protag: What did you do with him after that? [#sprite=05]
+	01 Theo: I, uh… don’t know? [#sprite=01]
+else
+	Theo: I-I left his house, because he hadn’t come back downstairs. I-I didn’t steal Al Capone though! I had taken him to my house, but I gave him back! He’s at Douglass’s house. When you go to investigate his house, I promise he’s there![#sprite=02]
+	Protag: When was this?[#sprite=05]
+	Theo: Around 19:00, I think?[#sprite=05]
+	Protag: What did you see when you returned it? As far as I know, you were at his house closest to his death, which makes you mighty suspicious. If you don’t tell me, I can and will throw you into prison.[#sprite=11]
+	Theo: N-no! I promise I didn’t see anything while I was there![#sprite=10]
+Protag: Stop lying to me. This isn’t funny, Theodore.[#sprite=09]
+Theo: You know what else isn’t funny? Threatening me with empty threats to get information out of me. I’m not going to help you.[#sprite=04]
+if Global.werewolf == Global.Character.THEO
+	Theo: Your threats aren’t scary. They aren’t amusing either, so I can’t even play along. [#sprite=07]
+	Protag: And I’m going to try my hardest to prove you’re the murderer.[#sprite=11]
+else
+	Protag: And I’m going to try my hardest to prove you’re the murderer.[#sprite=11]
+Theo: Go ahead, it’s better than trying to trick me into giving you anything.[#sprite=07]
+Protag: Can you [i] please [/i] give me some information about what happened?[#sprite=15]
+Theo: I can see right through your sudden shift in tone. Tricking me like this isn’t going to work.[#sprite=07]
+Protag: [i] He’s too upset to give me any more information... it’s not worth trying to get any more information right now. [/i] [#sprite=08]
+=> end_dialogue
+
+~ end_dialogue
+set Global.round_overs.r1.theo.over = true
+set Global.round_overs.r1.theo.ran = true
 => END

@@ -1,53 +1,195 @@
 ~ start
-Protag: Introduction [#sprite=00]
-Portag: Anotha one [#sprite=00]
-- Persuasion
-	set Global.selene_persuasion = true
-	if Global.werewolf == Global.Character.SELE
-		Protag: Persuasion Introduction
-		if Global.dice_rolls.sele.roll_r1_persuasion >= Global.roll_checks.marg.persuasion
-			Protag: Persuasion Check Passed (Werewolf)
-		else
-			Protag: Persuasion Check Failed (Werewolf)
-	else
-		Protag: Persuasion Introduction
-		if Global.dice_rolls.sele.roll_r1_persuasion >= Global.roll_checks.marg.persuasion
-			Protag: Persuasion Check Passed
-		else
-			Protag: Persuasion Check Failed 
-			
-			
-- Deception
-	if Global.werewolf == Global.Character.SELE
-		Protag: Deception Introduction
-		if Global.dice_rolls.sele.roll_r1_deception >= Global.roll_checks.marg.deception
-			Protag: Deception Check Passed (Werewolf)
-		else
-			Protag: Deception Check Failed (Werewolf)
-	else
-		Protag: Deception Introduction
-		if Global.dice_rolls.sele.roll_r1_deception >= Global.roll_checks.marg.deception
-			Protag: Deception Check Passed
-		else
-			Protag: Deception Check Failed
-			
-			
-- Intimidation
-	set Global.selene_intimidation  = true
-	if Global.werewolf == Global.Character.SELE
-		Protag: Intimidation Introduction
-		if Global.dice_rolls.sele.roll_r1_intimidation >= Global.roll_checks.marg.intimidation
-			Protag: Intimidation Check Passed (Werewolf)
-		else
-			Protag: Intimidation Check Failed (Werewolf)
-	else	
-		Protag: Intimidation Introduction
-		if Global.dice_rolls.sele.roll_r1_intimidation >= Global.roll_checks.marg.intimidation
-			Protag: Intimidation Check Passed
-		else
-			Protag: Intimidation Check Failed
-			
-set Global.Selene_R1_Over = true
-set Global.Selene_R1_Ran = true
+Protag: Hello Selene. I will be asking you some questions regarding the night Mr. Douglass was murdered. [#sprite=01]
+Selene: …[#sprite=00]
+Protag: [i] She’s a bit younger than me, but something about her demeanor creates a nervous air around us. It’s more than a little intimidating. [/i] [#sprite=00]
+Protag: Ooookay, let’s get started, I guess. Tell me, where were you the night of the crime? [#sprite=03]
+Selene: … I was skating at the park on Miller Street from 2-4.[#sprite=01]
+Protag: AM?![#sprite=07]
+Selene: Yep.[#sprite=01]
+Protag: [i] Yeah, that’s not the truth. [/i] [#sprite=08]
 
+- Persuasion
+	Protag: You know, if we find out your information is good, you may receive a monetary reward for your cooperation. We don’t have your residence on file, is it possible that you don’t have one? [#sprite=15]
+	if Global.dice_rolls.marg.roll_r1_persuasion >= Global.roll_checks.marg.persuasion:
+		=> persuasion_succeed
+	else:
+		=> persuasion_fail
+- Intimidation
+	Protag: If you’re not going to tell me the truth, that’s fine, but that doesn’t mean you’re free to go. [#sprite=09]
+	Protag: I can leave you here to rot for as long as I need. People are forgotten in the holding cells all the time. [#sprite=05]
+	Protag: I’ll come back in a few days, once you’ve gone a while without food or water. I’m sure you’ll be willing to talk more then. [i] I begin to rise as if I'm going to leave. [/i] [#sprite=01]
+	if Global.dice_rolls.marg.roll_r1_intimidation >= Global.roll_checks.marg.intimidation:
+		=> intimidation_succeed
+	else:
+		=> intimidation_fail
+- Deception
+	Protag: I can prove that you’re lying, you know. [#sprite=09]
+	if Global.dice_rolls.marg.roll_r1_deception >= Global.roll_checks.marg.deception:
+		=> deception_succeed
+	else:
+		=> deception_fail
+
+~ persuasion_succeed
+Selene: My residence is nowhere near the realm of your business. [#sprite=05]
+Selene: But, I’m always down to take some government money![#sprite=11]
+tag: Wha-[#sprite=Pr]
+Selene: I was walking around the neighborhood that evening around 8pm. [#sprite=01]
+Selene: I noticed a really short guy leaving Doug’s house around that time holding something big.[#sprite=01]
+Selene: Oddly enough, it seemed like the size of a body.[#sprite=03]
+Selene: He seemed weirdly giddy as he was leaving.[#sprite=03]
+Protag: That…is odd…[#sprite=05]
+Protag: Did you visit Mr. Douglass that day?[#sprite=01]
+Selene: No.[#sprite=01]
+Protag: Interesting… Interesting indeed. This CCTV footage shows otherwise.[#sprite=03]
+Protag: [i] I watched as she started intensely at the screen. I’ve caught her in a lie. [/i] [#sprite=02]
+Selene: Welp, you’ve got me there.[#sprite=03]
+Selene: But it really wasn’t a big deal.[#sprite=01]
+Selene: Definitely not the lead you were hoping for.[#sprite=01]
+Selene: I was just there to pick up something from his house. We are family friends.[#sprite=01]
+Protag: Interestingly, you only have one family member on our files. Your father, Louis Valenti?[#sprite=04]
+Selene: And?[#sprite=04]
+Protag: Nothing, it’s just peculiar that most people have all of their extended family in our files. You are an anomaly.[#sprite=01]
+Selene: And is that a problem?[#sprite=04]
+Protag: No, not at all it’s just-[#sprite=17]
+Protag: [i] She’s staring at me more intensely now. I think it might be time to shut up. [/i] [#sprite=16]
+Protag: Never mind then.[#sprite=02]
+Selene: Smart.[#sprite=02]
+Protag: Can you tell me more about your family’s relationship with Mr. Douglass?[#sprite=05]
+Selene: He was…borrowing something from us. And we needed it back. [#sprite=03]
+Selene: My father sent me to go collect it.[#sprite=03]
+Protag: And did you collect this item?[#sprite=01]
+Selene: No.[#sprite=01]
+Protag: Can you tell me more about the item you were collecting?[#sprite=05]
+Selene: That’s personal information that is not relevant to the case.[#sprite=01]
+Protag: [i] Maybe a different case… [/i] [#sprite=04]
+Protag: Anything else you would like to tell me?[#sprite=01]
+Selene: If you check the security tapes at the gas station down the street from Doug’s house, you would see that I was there around the time of the suspected murder.[#sprite=01]
+Protag: Good to know. Thank you for your cooperation. [#sprite=03]
+Protag: I’ll be back to follow up with you soon.[#sprite=02]
+Selene: Looking forward to it.[#sprite=07]
+=> end_dialogue
+
+~ persuasion_fail
+Selene: How dare you?![#sprite=05]
+Selene: Of course I have a home. And I don’t need your money, that’s for sure![#sprite=05]
+Protag: O-Of course, of course. I-I’m sorry for offending you.[#sprite=17]
+Selene: You should be. Not only have you offended me, you’ve offended the Valenti name![#sprite=06]
+Selene: You should listen to me when I say: You better sleep with one eye open tonight.[#sprite=06]
+Protag: [i] Just an empty threat, right?? [/i] [#sprite=16]
+Selene: And I always keep my word.[#sprite=06]
+Protag: …[#sprite=16]
+Selene: Awww, have I scared you? [#sprite=02]
+Protag: I will be back to talk to you again later.[#sprite=09]
+Selene: Looking forward to it. [i] Blows a kiss [/i] [#sprite=07]
+Protag: [i] Yeah, I need to get out of here. [/i] [#sprite=04]
+=> end_dialogue
+
+~ deception_succeed
+Selene: How do you think you could prove I’m lying to you?[#sprite=02]
+Protag: There are cameras all over that street. [#sprite=05]
+Protag: I have the footage of you, or rather, the lack of you, on my computer in my office.[#sprite=03]
+Selene: Ok.. fine! I wasn’t on that street for the whole time from two to four. I had gone to the gas station to get something.[#sprite=03]
+Protag: But, apart from that, you were skating on the street the whole time?[#sprite=04]
+Selene: I was skating on the street, and at some point I went down to the gas station. I don’t know what else you want me to tell you.[#sprite=01]
+Protag: What’d you get from the gas station?[#sprite=01]
+Selene: Dude, why do you want to know that? Are you trying to buy me a gift? Weirdo.[#sprite=03]
+Protag: Well? What was it?[#sprite=09]
+Selene: I’m not telling you![#sprite=02]
+Protag: I’ll show you the footage if you tell me what it was.[#sprite=05]
+Selene: And you’ll stop questioning me.[#sprite=01]
+Protag: Fine, fine, just tell me what it was.[#sprite=09]
+Selene: It was a hotdog.[#sprite=02]
+Protag: ...oh.[#sprite=17]
+Protag: I thought I was doing so good, making deals with my suspects, getting information out of them.[#sprite=09]
+Protag: Turns out... I’m just an amateur detective who will never finish his case.[#sprite=12]
+Selene: Jesus, you’re really pathetic.[#sprite=03]
+Selene: I was going to get rid of Douglass because he hadn’t paid my Dad money. He owed it to my Dad, and this was my first real job that Dad gave to me.[#sprite=04]
+Selene: When I got there though... he was already dead. I couldn’t.. ahem... take care of him.[#sprite=10]
+Selene: So I bought myself a pity hotdog.[#sprite=09]
+Protag: I guess we’re both having a pity party, huh.[#sprite=13]
+Selene: Yup.[#sprite=04]
+Protag: Hey, thanks for the information for the case.[#sprite=02]
+Selene: Thanks for not laughing about my pity hotdog.[#sprite=00]
+Protag: I-I should go though... there’s more detectiving to be done.[#sprite=12]
+Selene: Am I free yet?[#sprite=02]
+Protag: No.[#sprite=00]
+Selene: Goddamnit. All that stuff about a pity party for nothing. Way to teach me not to be emotionally vulnerable.[#sprite=04]
+Protag: Aren you saying you were lying about it? Can you really call it emotional vulnerability/[#sprite=05]
+Selene: You can lie about your emotions and still be emotionally vulnerable.[#sprite=03]
+Protag: ...sure, whatever you say.[#sprite=01]
+=> end_dialogue
+
+~ deception_fail
+Selene: Oh yeah? And how are you gonna do that?[#sprite=02]
+Protag: There are security cameras all up and down that street. I can check them and see that you’re not on them.[#sprite=01]
+Selene: There are cameras on that street? I thought Dad said he removed them all so I’d feel safer.[#sprite=03]
+Protag: Clearly not, as I have footage of you on my computer right here.[#sprite=09]
+Selene: How do I know you aren’t bluffing? Let me see the screen.[#sprite=02]
+Protag: Not so fast there, Selene. I can’t let you see any documents on my computer.[#sprite=06]
+Selene: But, the footage is of me! How are you not allowed to show me footage of myself? Do you know what my family could do if you don’t do what I say?[#sprite=03]
+Protag: Sorry, Selene, I don’t make the rules, I just follow them.[#sprite=01]
+Selene: Are you sure you aren’t just lying about having this footage?[#sprite=02]
+Protag: Of course I’m sure I’m not lying! I have the videos pulled up in my office as we speak.[#sprite=07]
+Selene: Can I see them?[#sprite=03]
+Protag: No.[#sprite=08]
+Selene: Then why would I cooperate with anything you’re saying? You can’t prove that you don’t have any actual footage of me.[#sprite=05]
+Protag: So, you aren’t going to tell me about that night, unless I show you the footage I have of you?[#sprite=09]
+Selene: I thought I had made it pretty clear, but I guess to an imbecile like you it might take a little bit longer.[#sprite=02]
+Selene: I’m not going to tell you anything until you show me the footage that you're claiming is evidence.[#sprite=03]
+Protag: We’ve reached a bit of a stalemate.[#sprite=08]
+Selene: Yup.[#sprite=02]
+Protag: ...so, any plans for the weekend?[#sprite=01]
+Selene: I’m not talking to you anymore.[#sprite=05]
+Protag: ...fine.[#sprite=08]
+=> end_dialogue
+
+~ intimidation_succeed
+Selene: Wait, no! [#sprite=08]
+Protag: [i] She grabs my wrist as I stand up. [/i] [#sprite=07]
+Protag: ![#sprite=16]
+Selene: Wait! Y-you can’t leave. I-I don’t want to- I don’t like being alone.[#sprite=09]
+Selene: I- I don’t know anything about the murder, I promise.[#sprite=09]
+Selene: I visited Doug to collect some money that he owed my father.[#sprite=09]
+Selene: Doug refused to give it to me. I went back later that night to … better convince him. [#sprite=09]
+Selene: He was dead by the time I got there.[#sprite=09]
+Protag: What?! You knew Mr. Douglass was dead and didn’t think to report it earlier?[#sprite=07]
+Selene: I was scared! Okay?![#sprite=08]
+Selene: …[#sprite=10]
+Protag: …[#sprite=16]
+Protag: [i] I slowly sit back down. [/i] [#sprite=14]
+Protag: Selene. It’s okay now. [#sprite=14]
+Selene: I don’t need your pity.[#sprite=05]
+Protag: It’s not pity. It’s empathy.[#sprite=15]
+Selene: I don’t need that either.[#sprite=05]
+Protag:...[#sprite=04]
+Selene:...[#sprite=10]
+Selene: If you check the security tapes at the gas station down the street from Doug’s house, you would see that I was there around the time of the suspected murder.[#sprite=03]
+Protag: Ok.[#sprite=14]
+Protag:…[#sprite=14]
+Selene: …[#sprite=10]
+Protag: I’ll be back to follow up with you soon.[#sprite=15]
+=> end_dialogue
+
+~ intimidation_fail
+Selene: That was cute, but you don’t even come close to scaring me. It’s gonna take a lot more than that to get your little story. [#sprite=02]
+Selene: Besides, I already told you the truth. [#sprite=01]
+Protag: So you are telling me that you were skating at the park… right next to Mr. Douglass’s house…at 2am?[#sprite=09]
+Selene: Yep.[#sprite=01]
+Protag: where were you before you were at the park? [#sprite=08]
+Selene: at the gas station down the street. My uncle runs the shop.[#sprite=03]
+Protag: And who is your uncle?[#sprite=05]
+Selene: Such personal questions.[#sprite=04]
+Protag: Your uncle, who runs the gas station, who is he?[#sprite=09]
+Selene: …[#sprite=00]
+Protag: Back to being quiet again I see. [#sprite=08]
+Selene: How observant. [#sprite=04]
+Protag: [i] How frustrating. [/i] [#sprite=10]
+Protag: Ok, I will be back to speak to you again. You better be willing to open up when I come back.[#sprite=10]
+Selene: Adorable that you think that was threatening. [#sprite=02]
+Protag: [i] Whatever. [/i] [#sprite=08]
+=> end_dialogue
+
+~ end_dialogue
+set Global.round_overs.r1.sele.over = true
+set Global.round_overs.r1.sele.ran = true
 => END
