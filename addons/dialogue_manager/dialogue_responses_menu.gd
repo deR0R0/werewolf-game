@@ -9,8 +9,8 @@ class_name DialogueResponsesMenu extends Container
 ## Emitted when a response is selected.
 signal response_selected(response)
 
-var normal_texture = preload("res://assets/Ui_Assets/ui-option-unselected.png")
-var hovered_texture = preload("res://assets/Ui_Assets/ui-option-hovered.png")
+var normal_texture = preload("res://assets/ui_Assets/ui-option-unselected.png")
+var hovered_texture = preload("res://assets/ui_Assets/ui-option-hovered.png")
 
 @onready var UiOption1 = get_node("../../UiOption1")
 @onready var UiOption2 = get_node("../../UiOption2")

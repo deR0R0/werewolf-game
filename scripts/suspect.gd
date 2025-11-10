@@ -75,10 +75,10 @@ func _on_dialogue_changed(line: DialogueLine):
 		return
 	
 	if line.character != "Protag":
-		texture = load("res://assets/" + line.character + "_sprites/sprite" + tags_dict.get("sprite") + "-" + line.character + ".png")
+		texture = load("res://assets/" + line.character.to_lower() + "_sprites/sprite" + tags_dict.get("sprite") + "-" + line.character.to_lower() + ".png")
 	else:
-		texture = load("res://assets/" + Global.CurrentSuspect + "_sprites/sprite00-" + Global.CurrentSuspect + ".png")
-		player_box.texture = load("res://assets/" + line.character + "_sprites/sprite" + tags_dict.get("sprite") + "-" + line.character.to_lower() + "onist.png")
+		texture = load("res://assets/" + Global.CurrentSuspect.to_lower()    + "_sprites/sprite00-" + Global.CurrentSuspect.to_lower() + ".png")
+		player_box.texture = load("res://assets/" + line.character.to_lower() + "_sprites/sprite" + tags_dict.get("sprite") + "-" + line.character.to_lower() + "onist.png")
 
 	
 func parse_tags(tags: PackedStringArray) -> Dictionary:
